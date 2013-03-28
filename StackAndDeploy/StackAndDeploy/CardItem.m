@@ -24,6 +24,7 @@
     return self;
 }
 
+
 -(void) dealloc{
     [name release];
     [details release];

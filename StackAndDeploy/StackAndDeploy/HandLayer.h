@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class CardItem;
 @interface HandLayer : CCLayer {
     NSMutableArray *handArray;
+    CardItem *selectedCard;
 }
 
 @property (nonatomic, retain) NSMutableArray *handArray;

@@ -16,6 +16,7 @@
     
     NSString *name;
     NSString *details;
+    CGPoint oldPosition;
 }
 
 @property (nonatomic) int cost, techReq;
