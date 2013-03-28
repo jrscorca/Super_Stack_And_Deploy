@@ -133,6 +133,15 @@
 		F22952561703CCF10073B0E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F22952551703CCF10073B0E5 /* AppDelegate.m */; };
 		F22952591703CCF10073B0E5 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F22952581703CCF10073B0E5 /* HelloWorldLayer.m */; };
 		F229525C1703CCF10073B0E5 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F229525B1703CCF10073B0E5 /* IntroLayer.m */; };
+		F22952641703D24E0073B0E5 /* PlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F22952631703D24E0073B0E5 /* PlayLayer.m */; };
+		F22952671703D2DA0073B0E5 /* BoardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F22952661703D2DA0073B0E5 /* BoardLayer.m */; };
+		F229526A1703D2E70073B0E5 /* HUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F22952691703D2E60073B0E5 /* HUDLayer.m */; };
+		F229526E1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F229526B1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.png */; };
+		F229526F1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F229526C1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.png */; };
+		F22952701703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F229526D1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet.png */; };
+		F22952741703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952711703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist */; };
+		F22952751703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952721703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist */; };
+		F22952761703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +407,18 @@
 		F22952581703CCF10073B0E5 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		F229525A1703CCF10073B0E5 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F229525B1703CCF10073B0E5 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		F22952621703D24E0073B0E5 /* PlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayLayer.h; sourceTree = "<group>"; };
+		F22952631703D24E0073B0E5 /* PlayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayLayer.m; sourceTree = "<group>"; };
+		F22952651703D2DA0073B0E5 /* BoardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardLayer.h; sourceTree = "<group>"; };
+		F22952661703D2DA0073B0E5 /* BoardLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardLayer.m; sourceTree = "<group>"; };
+		F22952681703D2E60073B0E5 /* HUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDLayer.h; sourceTree = "<group>"; };
+		F22952691703D2E60073B0E5 /* HUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDLayer.m; sourceTree = "<group>"; };
+		F229526B1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SNDSpriteSheet_UntitledSheet-hd.png"; path = "Resources/SNDSpriteSheet_UntitledSheet-hd.png"; sourceTree = "<group>"; };
+		F229526C1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "SNDSpriteSheet_UntitledSheet-ipadhd.png"; path = "Resources/SNDSpriteSheet_UntitledSheet-ipadhd.png"; sourceTree = "<group>"; };
+		F229526D1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SNDSpriteSheet_UntitledSheet.png; path = Resources/SNDSpriteSheet_UntitledSheet.png; sourceTree = "<group>"; };
+		F22952711703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SNDSpriteSheet_UntitledSheet-hd.plist"; path = "Resources/SNDSpriteSheet_UntitledSheet-hd.plist"; sourceTree = "<group>"; };
+		F22952721703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SNDSpriteSheet_UntitledSheet-ipadhd.plist"; path = "Resources/SNDSpriteSheet_UntitledSheet-ipadhd.plist"; sourceTree = "<group>"; };
+		F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SNDSpriteSheet_UntitledSheet.plist; path = Resources/SNDSpriteSheet_UntitledSheet.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,6 +477,12 @@
 		F22950DC1703CCEF0073B0E5 /* StackAndDeploy */ = {
 			isa = PBXGroup;
 			children = (
+				F22952651703D2DA0073B0E5 /* BoardLayer.h */,
+				F22952661703D2DA0073B0E5 /* BoardLayer.m */,
+				F22952681703D2E60073B0E5 /* HUDLayer.h */,
+				F22952691703D2E60073B0E5 /* HUDLayer.m */,
+				F22952621703D24E0073B0E5 /* PlayLayer.h */,
+				F22952631703D24E0073B0E5 /* PlayLayer.m */,
 				F22952541703CCF10073B0E5 /* AppDelegate.h */,
 				F22952551703CCF10073B0E5 /* AppDelegate.m */,
 				F22952571703CCF10073B0E5 /* HelloWorldLayer.h */,
@@ -472,6 +499,12 @@
 		F22950DD1703CCEF0073B0E5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F22952711703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist */,
+				F22952721703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist */,
+				F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */,
+				F229526B1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.png */,
+				F229526C1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.png */,
+				F229526D1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet.png */,
 				F22950DE1703CCEF0073B0E5 /* Default.png */,
 				F22950E01703CCEF0073B0E5 /* Default-Landscape~ipad.png */,
 				F22950E21703CCEF0073B0E5 /* fps_images.png */,
@@ -895,6 +928,12 @@
 				F22950F31703CCEF0073B0E5 /* Icon@2x.png in Resources */,
 				F22950F61703CCEF0073B0E5 /* iTunesArtwork in Resources */,
 				F22952341703CCF10073B0E5 /* ChangeLog in Resources */,
+				F229526E1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.png in Resources */,
+				F229526F1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.png in Resources */,
+				F22952701703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet.png in Resources */,
+				F22952741703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist in Resources */,
+				F22952751703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist in Resources */,
+				F22952761703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,6 +1048,9 @@
 				F22952561703CCF10073B0E5 /* AppDelegate.m in Sources */,
 				F22952591703CCF10073B0E5 /* HelloWorldLayer.m in Sources */,
 				F229525C1703CCF10073B0E5 /* IntroLayer.m in Sources */,
+				F22952641703D24E0073B0E5 /* PlayLayer.m in Sources */,
+				F22952671703D2DA0073B0E5 /* BoardLayer.m in Sources */,
+				F229526A1703D2E70073B0E5 /* HUDLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,6 +1154,7 @@
 				F22952611703CCF10073B0E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
