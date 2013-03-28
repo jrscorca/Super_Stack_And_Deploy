@@ -38,6 +38,7 @@
 -(void) fillDeck{
     for(int i = 0; i < 20; i++){
         CardVO* card = [[[CardVO alloc] init] autorelease];
+        card.type = SHIP;
         [deck addObject:card];
     }
 }

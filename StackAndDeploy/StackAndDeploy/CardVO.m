@@ -9,5 +9,5 @@
 #import "CardVO.h"
 
 @implementation CardVO
-
+@synthesize type;
 @end

@@ -10,4 +10,6 @@
 
 @interface CardVO : NSObject
 
+@property (assign) cardType type;
+
 @end

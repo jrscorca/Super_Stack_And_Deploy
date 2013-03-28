@@ -21,6 +21,7 @@
 
 @property (nonatomic) int cost, techReq;
 @property (nonatomic, retain) NSString* name, *details;
+@property (nonatomic, assign) CardVO* cardVO;
 
 -(id) initWithCardVO:(CardVO*) cardVO;
 

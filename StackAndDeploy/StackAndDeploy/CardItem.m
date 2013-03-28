@@ -19,7 +19,7 @@
         self.details = @"something";
         self.cost = 2;
         self.techReq = 2;
-        
+        self.cardVO = cardVO;
     }
     return self;
 }

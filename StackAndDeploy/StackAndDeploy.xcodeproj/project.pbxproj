@@ -156,6 +156,7 @@
 		F22952741703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952711703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist */; };
 		F22952751703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952721703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist */; };
 		F22952761703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */; };
+		F229527E170411660073B0E5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F229527D170411660073B0E5 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -461,6 +462,8 @@
 		F22952711703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SNDSpriteSheet_UntitledSheet-hd.plist"; path = "Resources/SNDSpriteSheet_UntitledSheet-hd.plist"; sourceTree = "<group>"; };
 		F22952721703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SNDSpriteSheet_UntitledSheet-ipadhd.plist"; path = "Resources/SNDSpriteSheet_UntitledSheet-ipadhd.plist"; sourceTree = "<group>"; };
 		F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SNDSpriteSheet_UntitledSheet.plist; path = Resources/SNDSpriteSheet_UntitledSheet.plist; sourceTree = "<group>"; };
+		F229527C170411660073B0E5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F229527D170411660073B0E5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1007,6 +1010,8 @@
 		F22952501703CCF10073B0E5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F229527C170411660073B0E5 /* Constants.h */,
+				F229527D170411660073B0E5 /* Constants.m */,
 				F22952511703CCF10073B0E5 /* Prefix.pch */,
 				F22952521703CCF10073B0E5 /* main.m */,
 				DE273CF21703F1C00007B8D8 /* Constants_Notifications.h */,
@@ -1215,6 +1220,7 @@
 				DE273D0C170404E20007B8D8 /* UtilityFunctions.m in Sources */,
 				DE273D0F170405D00007B8D8 /* ShipLayer.m in Sources */,
 				DE273D13170406F00007B8D8 /* GameObject.m in Sources */,
+				F229527E170411660073B0E5 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
