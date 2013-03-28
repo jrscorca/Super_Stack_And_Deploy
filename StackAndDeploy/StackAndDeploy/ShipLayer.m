@@ -20,21 +20,14 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardPlayed:) name:kCardPlayed object:nil];
 
         self.shipsArray = [NSMutableArray array];
-        
-<<<<<<< HEAD
-=======
-        //test purposes
-        Ship *ship = [[[Ship alloc] initWithShipVO:nil] autorelease];
-        ship.position = ccp(90, 90);
-        [self addChild:ship];
-        [shipsArray addObject:ship];
         isTouchEnabled_ = YES;
->>>>>>> aaa
+
     }
     return self;
 }
 
 -(void) dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kCardPlayed object:nil];
     [shipsArray release];
     [super dealloc];
 }
@@ -93,10 +86,6 @@
     }
 }
 
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kCardPlayed object:nil];
-    [super dealloc];
-}
 
 
 
