@@ -9,6 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface PlayLayer : CCLayer
+@class HUDLayer, BoardLayer;
+@interface PlayLayer : CCLayer{
+    HUDLayer *hudLayer;
+    BoardLayer *boardLayer;
+    
+}
+
+@property (nonatomic, assign) HUDLayer *hudLayer;
+@property (nonatomic, assign) BoardLayer *boardLayer;
+
 + (id)scene;
+
+-(void) update:(ccTime)dt;
+
+
 @end

@@ -9,8 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class HandLayer;
 @interface HUDLayer : CCLayer {
-    
+    HandLayer *handLayer;
 }
+@property (nonatomic, assign) HandLayer *handLayer;
+
+
+-(void) update:(ccTime)dt;
 
 @end

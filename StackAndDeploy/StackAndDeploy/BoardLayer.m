@@ -11,6 +11,8 @@
 
 @implementation BoardLayer
 
+
+
 - (id)init{
     if ((self = [super init])) {
         CCSpriteFrameCache* frameCache = [CCSpriteFrameCache sharedSpriteFrameCache];
@@ -24,8 +26,15 @@
         background.rotation = 90;
         [batchNode addChild:background];
         
+    
+        
     }
     return self;
+}
+
+
+-(void) update:(ccTime) dt{
+    
 }
 
 @end
