@@ -20,3 +20,5 @@ StackAndDeploy/StackAndDeploy.xcodeproj/project.xcworkspace/xcuserdata/johnwilso
 .gitignore
 
 .gitignore
+
+StackAndDeploy/.DS_Store
