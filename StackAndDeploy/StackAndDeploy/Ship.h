@@ -17,6 +17,9 @@
     BOOL isSelected;
 }
 
+@property (nonatomic) BOOL isSelected;
+@property (nonatomic) CGPoint objective;
+
 -(id)initWithShipVO:(ShipVO*)shipVO;
 
 -(void) update:(ccTime) dt;

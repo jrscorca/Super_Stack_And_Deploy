@@ -13,10 +13,13 @@
 
 @implementation Ship
 
+@synthesize isSelected, objective;
+
 -(id)initWithShipVO:(ShipVO*)shipVO{
     if(self = [super initWithFile:@"Icon.png"]){
         velocity = ccp(1,1);
         objective = ccp(200,200);
+        isSelected = NO;
     }
     return self;
 }
@@ -32,8 +35,8 @@
 {
 	
 	CGFloat maxSpeed = 3;
-	CGFloat maxForce = 1.8;
-	CGFloat maxTurn = .2;
+	CGFloat maxForce = 1.3;
+	CGFloat maxTurn = .8;
     
     CGPoint forward = ccpNormalize(velocity);
 	CGPoint enemyPosition = destination;
