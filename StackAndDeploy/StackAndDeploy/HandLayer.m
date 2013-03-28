@@ -75,6 +75,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kCardPlayed object:card];
     [handArray removeObject:card];
     [card removeFromParentAndCleanup:YES];
+    selectedCard = nil;
 
 }
 
