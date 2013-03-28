@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class ShipLayer;
 @interface BoardLayer : CCLayer {
+    ShipLayer *shipLayer;
     
 }
+
+@property (nonatomic, assign) ShipLayer *shipLayer;
 
 -(void) update:(ccTime)dt;
 

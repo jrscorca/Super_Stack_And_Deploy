@@ -7,11 +7,11 @@
 //
 
 #import "BoardLayer.h"
-
+#import "ShipLayer.h"
 
 @implementation BoardLayer
 
-
+@synthesize shipLayer;
 
 - (id)init{
     if ((self = [super init])) {
@@ -26,15 +26,15 @@
         background.rotation = 90;
         [batchNode addChild:background];
         
-    
-        
+        self.shipLayer = [[[ShipLayer alloc] init] autorelease];
+        [self addChild:self.shipLayer];
     }
     return self;
 }
 
 
 -(void) update:(ccTime) dt{
-    
+    [shipLayer update:dt];
 }
 
 @end

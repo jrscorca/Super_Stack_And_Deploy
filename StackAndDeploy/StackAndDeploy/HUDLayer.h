@@ -15,7 +15,6 @@
 }
 @property (nonatomic, assign) HandLayer *handLayer;
 
-
 -(void) update:(ccTime)dt;
 
 @end
