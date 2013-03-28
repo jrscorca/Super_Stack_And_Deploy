@@ -67,9 +67,8 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     if (selectedCard.position.y > winSize.height*.2) {
         [self cardPlayed:selectedCard];
-    }else{
-        [self organizeHand];
     }
+    [self organizeHand];
 }
 
 -(void)cardPlayed:(CardItem*)card{
