@@ -10,4 +10,11 @@
 
 @interface NSMutableArray (GameObjects)
 
+//use this to destroy all the objects in an array
+-(void) destroyObjectsInArray;
+    
+// use instead of releasing array to dealloc
+// removes arrays' association with gameObjects
+-(void) destroyArray;
+
 @end
