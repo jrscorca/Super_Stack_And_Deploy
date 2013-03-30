@@ -11,9 +11,14 @@
 #import "BoardLayer.h"
 #import "MatchDataManager.h"
 
+#import "Ship.h"
+#import "UINormalState.h"
+#import "GameObject.h"
+
+
 @implementation PlayLayer
 
-@synthesize hudLayer, boardLayer;
+@synthesize hudLayer, boardLayer, uiState;
 
 + (id)scene {
     CCScene *scene = [CCScene node];
@@ -33,24 +38,89 @@
         self.boardLayer = [[[BoardLayer alloc] init] autorelease];
         [self addChild:self.boardLayer];
         
-        self.hudLayer = [[[HUDLayer alloc] init]autorelease];
+        self.hudLayer = [[[HUDLayer alloc] init] autorelease];
         [self addChild:self.hudLayer];
         
         
         [self scheduleUpdate];
+        
+        isTouchEnabled_ = YES;
+        
+        self.uiState = [[UINormalState alloc] initWithPlayLayer:self];
+        
+        
+//        NSMutableArray *
+        /*
+        //Sample of how to use gameObjectPointers
+        
+        Ship *ship = [[[Ship alloc] init] autorelease];
+//        [[[[Ship alloc] init] autorelease] assignObjectToPointer:&ship];
+        
+        Ship *anotherPointer = nil;
+
+        
+        NSLog(@"ship %@", ship);
+        NSLog(@"naother %@", anotherPointer);
+        [ship assignObjectToPointer:&anotherPointer];
+        NSLog(@"ship %@", ship);
+        NSLog(@"naother %@", anotherPointer);
+        
+        [anotherPointer removeObjectFromPointer:&anotherPointer];
+        NSLog(@"ship %@", ship);
+        NSLog(@"naother %@", anotherPointer);
+        
+        [ship assignObjectToPointer:&anotherPointer];
+        NSLog(@"ship %@", ship);
+        NSLog(@"naother %@", anotherPointer);
+        
+        [ship destroyObject];
+        
+        NSLog(@"naother %@", anotherPointer);
+        NSLog(@"ship %@", ship);
+        */
+        
     }
     return self;
 }
 
 
+-(void) pointerTest:(Ship**) ship{
+    *ship = nil;
+    
+}
+
 -(void) update:(ccTime) dt{
+    [self.uiState updateState:dt];
     [self.hudLayer update:dt];
     [self.boardLayer update:dt];
-    MatchDataManager *MDM = [MatchDataManager sharedInstance];
     [MDM.localPlayer update:dt];
     [MDM.awayPlayer update:dt];
     
     
 }
+
+
+-(void) registerWithTouchDispatcher
+{
+    [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+
+
+- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    return [self.uiState ccTouchBegan:touch withEvent:event];
+}
+
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
+    [self.uiState ccTouchMoved:touch withEvent:event];
+}
+- (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+    [self.uiState ccTouchEnded:touch withEvent:event];
+}
+
+- (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event{
+    [self.uiState ccTouchCancelled:touch withEvent:event];
+}
+
 
 @end

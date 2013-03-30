@@ -12,10 +12,17 @@
 @interface MatchDataManager : NSObject{
     LocalPlayer *localPlayer;
     AwayPlayer *awayPlayer;
+    
+    
+    
+    GameObjectArray *localCardItemArray;
+    GameObjectArray *shipsArray;
+    
 }
 
 @property (nonatomic, retain) LocalPlayer *localPlayer;
 @property (nonatomic, retain) AwayPlayer *awayPlayer;
+@property (nonatomic, retain) GameObjectArray *localCardItemArray, *shipsArray;
 
 
 + (MatchDataManager*)sharedInstance;

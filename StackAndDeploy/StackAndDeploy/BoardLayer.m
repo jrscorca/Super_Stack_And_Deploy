@@ -8,10 +8,12 @@
 
 #import "BoardLayer.h"
 #import "ShipLayer.h"
+#import "NodeLayer.h"
+#import "BaseLayer.h" 
 
 @implementation BoardLayer
 
-@synthesize shipLayer;
+@synthesize shipLayer, baseLayer, nodeLayer;
 
 - (id)init{
     if ((self = [super init])) {
@@ -26,15 +28,32 @@
         background.rotation = 90;
         [batchNode addChild:background];
         
+        self.baseLayer = [[[BaseLayer alloc] init] autorelease];
+        [self addChild:self.baseLayer];
+        
+        self.nodeLayer = [[[NodeLayer alloc] init] autorelease];
+        [self addChild:self.nodeLayer];
+        
         self.shipLayer = [[[ShipLayer alloc] init] autorelease];
         [self addChild:self.shipLayer];
+        
+
     }
     return self;
 }
 
+-(void) dealloc{
+    [shipLayer release];
+    [nodeLayer release];
+    [baseLayer release];
+    [super dealloc];
+}
 
 -(void) update:(ccTime) dt{
+    [nodeLayer update:dt];
+    [baseLayer update:dt];
     [shipLayer update:dt];
 }
+
 
 @end

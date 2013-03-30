@@ -14,14 +14,11 @@
 
 @implementation HandLayer
 
-@synthesize handArray;
 
 -(id) init{
     if(self = [super init]){
-        self.handArray = [NSMutableArray array];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawCard:) name:kNotification_CardDrawLocal object:nil];
-        //draw cards
-        isTouchEnabled_ = YES;
+
     }
     return self;
 }
@@ -30,21 +27,20 @@
 -(void) drawCard:(NSNotification*) notification{
     CardVO *card = notification.object;
     CardItem* cardItem = [[[CardItem alloc] initWithCardVO:card] autorelease];
+    [cardItem addToArray:MDM.localCardItemArray];
     [self addChild:cardItem];
-    [self.handArray addObject:cardItem];
     [self organizeHand];
 }
 
 -(void) organizeHand{
-    for(int i = 0; i < [self.handArray count]; i++){
-        CardItem *cardItem = [self.handArray objectAtIndex:i];
+    for(int i = 0; i < [MDM.localCardItemArray count]; i++){
+        CardItem *cardItem = [MDM.localCardItemArray objectAtIndex:i];
         cardItem.position = ccp(0 + i * cardItem.boundingBox.size.width, 44);
     }
 }
 
--(void)cardPLayed{
 
-}
+/*
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 
@@ -84,14 +80,19 @@
     [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:0 swallowsTouches:NO];
 }
 
+ */
+ 
 -(void) update:(ccTime) dt{
 
 }
 
+ 
+ 
 -(void)dealloc{
-    [handArray release];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotification_CardDrawLocal object:nil];
     [super dealloc];
 }
 
+ 
+ 
 @end

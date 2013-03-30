@@ -9,15 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class HUDLayer, BoardLayer;
+@class HUDLayer, BoardLayer, UIState;
 @interface PlayLayer : CCLayer{
     HUDLayer *hudLayer;
     BoardLayer *boardLayer;
     
+    UIState *uiState;
+
 }
 
 @property (nonatomic, assign) HUDLayer *hudLayer;
 @property (nonatomic, assign) BoardLayer *boardLayer;
+@property (nonatomic, retain) UIState *uiState;
 
 + (id)scene;
 

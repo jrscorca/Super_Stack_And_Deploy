@@ -13,7 +13,7 @@
 
 @implementation MatchDataManager
 
-@synthesize localPlayer, awayPlayer;
+@synthesize localPlayer, awayPlayer, localCardItemArray, shipsArray;
 
 static MatchDataManager *sharedInstance = nil;
 
@@ -30,6 +30,8 @@ static MatchDataManager *sharedInstance = nil;
     if(self = [super init]){
         self.localPlayer = [[[LocalPlayer alloc] init] autorelease];
         self.awayPlayer = [[[AwayPlayer alloc] init] autorelease];
+        self.localCardItemArray = [GameObjectArray array];
+        self.shipsArray = [GameObjectArray array];
         
     }
     return self;
@@ -38,6 +40,13 @@ static MatchDataManager *sharedInstance = nil;
 -(void) dealloc{
     [localPlayer release];
     [awayPlayer release];
+    
+    //these arrays are special and need all objects in them destroyed when they are destroyed
+    [localCardItemArray destroyObjectsInArray];
+    [localCardItemArray destroyArray];
+    [shipsArray destroyObjectsInArray];
+    [shipsArray destroyArray];
+    
     [super dealloc];
 }
 

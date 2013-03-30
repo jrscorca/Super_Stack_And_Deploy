@@ -11,6 +11,30 @@
 
 @interface GameObject : CCSprite {
     
+    NSMutableArray *associationArrays;
+    NSMutableArray *associationPointers;
+    
 }
+
+@property (nonatomic, retain) NSMutableArray *associationArrays, *associationPointers;
+
+
+
+//call to assign object to a pointer
+-(void) assignObjectToPointer:(GameObject**)pointer;
+
+
+//call to remove object from pointer
+-(void) removeObjectFromPointer:(GameObject**)pointer;
+
+
+//adds object to array and keeps track of array that object is associate with
+-(void) addToArray:(NSMutableArray*) array;
+
+//removes object from array if it exists in it
+-(void) removeFromArray:(NSMutableArray*) array;
+
+//destroys object, removes object from all arrays associated with and removes from parent layer;
+-(void) destroyObject;
 
 @end

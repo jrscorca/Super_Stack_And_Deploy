@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameObject.h"
 
 @class CardVO;
-@interface CardItem : CCSprite {
+@interface CardItem : GameObject {
     int cost;
     int techReq;
     
