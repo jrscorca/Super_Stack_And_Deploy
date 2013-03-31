@@ -45,6 +45,17 @@
         }
     }
     
+    
+    //minimap touching code
+    touchPoint = [playLayer convertTouchToNodeSpace: touch];
+//    CGRect minimapRect = CGRectMake(0, 0, 100, 100);
+    if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
+        //mini map touch;
+//        NSLog(@"minimap");
+        isMiniMapSelected = YES;
+        return YES;
+    }
+    
     //camera/world movement
 //    previousTouchPoint = [playLayer.boardLayer convertTouchToNodeSpace:touch];
     [self cameraOnTouchBegan:touch withEvent:event];
@@ -57,6 +68,8 @@
         selectedCard.position = [playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
     }else if(selectedShip){
          selectedShip.objective = [playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
+    }else if(isMiniMapSelected){
+        [self moveMiniMap: touch withEvent:event];
     }else{
         [self cameraOnTouchMoved:touch withEvent:event];
       //  CGPoint touchPoint = [playLayer.boardLayer convertTouchToNodeSpace:touch];
@@ -70,9 +83,8 @@
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     if(selectedCard){
         if (selectedCard.position.y > winSize.height*.2) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kCardPlayed object:selectedCard];
+            [self cardPlayed:selectedCard];
             [selectedCard destroyObject];
-//            [self cardPlayed:selectedCard];
         }else{
             selectedShip.isSelected = NO;
             [selectedShip removeObjectFromPointer:&selectedShip];
@@ -81,6 +93,8 @@
     }else if(selectedShip){
         selectedShip.isSelected = NO;
         [selectedShip removeObjectFromPointer:&selectedShip];
+    }else if(isMiniMapSelected){
+        isMiniMapSelected = NO;
     }else{
         [self cameraOnTouchEnded:touch withEvent:event];
     }
@@ -92,14 +106,15 @@
         [selectedShip removeObjectFromPointer:&selectedShip];
     }else if(selectedCard){
         [selectedCard removeObjectFromPointer:&selectedCard];
+    }else if(isMiniMapSelected){
+        isMiniMapSelected = NO;
     }else{
         [self cameraOnTouchCancelled:touch withEvent:event];
     }
 }
 
 -(void)cardPlayed:(CardItem*)card{
-
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCardPlayed object:card];
 }
 
 

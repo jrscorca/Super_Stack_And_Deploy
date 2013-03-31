@@ -27,7 +27,6 @@
     [super dealloc];
 }
 
-
 -(void) assignObjectToPointer:(GameObject**)pointer{
     *pointer = self;
     NSValue *pointerObject = [NSValue valueWithPointer:pointer];

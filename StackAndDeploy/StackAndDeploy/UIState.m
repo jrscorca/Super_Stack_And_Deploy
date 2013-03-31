@@ -48,6 +48,7 @@
 }
 
 
+#pragma mark - Camera Functionality
 
 //map movement functions
 -(void) cameraOnTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event{
@@ -77,7 +78,51 @@
 		cameraVelocity = CGPointMake(0.0, 0.0);
 	}
     playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x + cameraVelocity.x, playLayer.boardLayer.position.y + cameraVelocity.y);
+    [self checkCameraBounds];
 }
 
+-(void) checkCameraBounds{
+    CGPoint pos = playLayer.boardLayer.position;
+ //   NSLog(@"%f, %f", pos.x, pos.y);
+    if(pos.x > 0){
+        playLayer.boardLayer.position = ccp(0, playLayer.boardLayer.position.y);
+    }
+       if(pos.y > 0){
+           playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, 0);
+       }
+    
+    //board limit
+    CGSize limit = BOARD_SIZE;
+    float widthLimit = -(limit.width - 480);
+    float heightLimit = -(limit.height - 320);
+    if(pos.x < widthLimit){
+        playLayer.boardLayer.position = ccp(widthLimit, playLayer.boardLayer.position.y);
+    }
+    if(pos.y < heightLimit){
+        playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, heightLimit);
+    }
+}
+
+
+
+#pragma mark - MiniMap
+
+
+-(void) moveMiniMap:(UITouch*) touch withEvent:(UIEvent*) event{
+    CGPoint touchPoint = [playLayer convertTouchToNodeSpace: touch];
+    //    CGRect minimapRect = CGRectMake(0, 0, 100, 100);
+//    if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
+        // find percent spot touched on mini map
+        CGPoint percentOnMiniMap = ccp(-touchPoint.x/MINIMAP_RECT.size.width, -touchPoint.y/MINIMAP_RECT.size.height);
+        //TODO: this number should be a ratio between screen size and map size
+        percentOnMiniMap = ccpSub(percentOnMiniMap, ccp(-0.2, -0.2));
+        
+        // move boardLayer to that relative spot
+        CGSize limit = BOARD_SIZE;
+        playLayer.boardLayer.position = ccp(percentOnMiniMap.x * limit.width, percentOnMiniMap.y * limit.height);
+        
+    
+  //  }
+}
 
 @end

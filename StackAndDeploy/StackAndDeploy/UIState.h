@@ -18,6 +18,10 @@
     CGPoint previousTouchPoint;
     CGPoint deltaTouch;
     CGPoint cameraVelocity;
+    
+    //minimap
+    BOOL isMiniMapSelected;
+    
 }
 @property (nonatomic, assign) PlayLayer *playLayer;
 
@@ -30,6 +34,7 @@
 -(void) cameraOnTouchMoved:(UITouch*) touch withEvent:(UIEvent*) event;
 -(void) cameraOnTouchEnded:(UITouch*) touch withEvent:(UIEvent*) event;
 -(void) cameraOnTouchCancelled:(UITouch*) touch withEvent:(UIEvent*) event;
+-(void) checkCameraBounds;
 
 - (void)updateCamera:(ccTime) dt;
 
@@ -38,7 +43,8 @@
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event;
 
-
+//mini map stuff
+-(void) moveMiniMap:(UITouch*) touch withEvent:(UIEvent*) event;
 
 
 

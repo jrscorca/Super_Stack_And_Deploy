@@ -28,6 +28,7 @@
 		DE273D0F170405D00007B8D8 /* ShipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D0E170405D00007B8D8 /* ShipLayer.m */; };
 		DE273D13170406F00007B8D8 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D12170406F00007B8D8 /* GameObject.m */; };
 		DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */; };
+		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
 		F22950CB1703CCEF0073B0E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */; };
 		F22950CD1703CCEF0073B0E5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */; };
 		F22950CF1703CCEF0073B0E5 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CE1703CCEF0073B0E5 /* OpenAL.framework */; };
@@ -209,6 +210,8 @@
 		DE273D12170406F00007B8D8 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
 		DE86EA2C17076DAA00841158 /* NSMutableArray+GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+GameObjects.h"; sourceTree = "<group>"; };
 		DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GameObjects.m"; sourceTree = "<group>"; };
+		DE86EA301707D71A00841158 /* MiniMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapLayer.h; sourceTree = "<group>"; };
+		DE86EA311707D71A00841158 /* MiniMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniMapLayer.m; sourceTree = "<group>"; };
 		F22950C71703CCEF0073B0E5 /* StackAndDeploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackAndDeploy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -568,6 +571,7 @@
 		DE273CEB1703E90E0007B8D8 /* HUDLayer */ = {
 			isa = PBXGroup;
 			children = (
+				DE86EA2F1707D6FC00841158 /* MiniMapLayer */,
 				DE273CED1703E96B0007B8D8 /* HandLayer */,
 				F22952681703D2E60073B0E5 /* HUDLayer.h */,
 				F22952691703D2E60073B0E5 /* HUDLayer.m */,
@@ -656,6 +660,15 @@
 				DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		DE86EA2F1707D6FC00841158 /* MiniMapLayer */ = {
+			isa = PBXGroup;
+			children = (
+				DE86EA301707D71A00841158 /* MiniMapLayer.h */,
+				DE86EA311707D71A00841158 /* MiniMapLayer.m */,
+			);
+			name = MiniMapLayer;
 			sourceTree = "<group>";
 		};
 		F22950BE1703CCEF0073B0E5 = {
@@ -1295,6 +1308,7 @@
 				DE239F3817066BAD00578AB3 /* UIState.m in Sources */,
 				DE239F3B1706908D00578AB3 /* UINormalState.m in Sources */,
 				DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */,
+				DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

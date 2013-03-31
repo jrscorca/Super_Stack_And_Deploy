@@ -14,6 +14,7 @@
 #import "Ship.h"
 #import "UINormalState.h"
 #import "GameObject.h"
+#import "MiniMapLayer.h"
 
 
 @implementation PlayLayer
@@ -40,6 +41,7 @@
         
         self.hudLayer = [[[HUDLayer alloc] init] autorelease];
         [self addChild:self.hudLayer];
+        self.hudLayer.miniMapLayer.boardLayer = self.boardLayer;
         
         
         [self scheduleUpdate];

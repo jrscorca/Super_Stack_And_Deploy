@@ -20,6 +20,11 @@ typedef NSMutableArray GameObjectArray;
 #define PAN_VELOCITY_MIN .23
 
 
+
+#define BOARD_SIZE   CGSizeMake(1000,1000)
+#define MINIMAP_RECT CGRectMake(0,0,100,100)
+
+
 typedef enum CardTypes
 {
 	UTILITY 	= 0,
