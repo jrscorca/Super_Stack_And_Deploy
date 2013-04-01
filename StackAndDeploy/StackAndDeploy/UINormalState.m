@@ -15,13 +15,22 @@
 #import "BoardLayer.h"
 #import "ShipLayer.h"
 #import "Ship.h"
+#import "UIShipSelectState.h"
+#import "ShipSelectLayer.h"
 
 @implementation UINormalState
 
 -(id) initWithPlayLayer:(PlayLayer*) _playLayer{
     if(self = [super initWithPlayLayer:_playLayer]){
+        
     }
     return self;
+}
+
+-(void)dealloc{
+    [selectedCard removeObjectFromPointer:&selectedCard];
+    [selectedShip removeObjectFromPointer:&selectedShip];
+    [super dealloc];
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -40,7 +49,7 @@
         if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
             ship.isSelected = YES;
             [ship assignObjectToPointer:&selectedShip];
-//            selectedShip = ship;
+            [self transitionToShipSelectState];
             return YES;
         }
     }
@@ -53,6 +62,8 @@
         //mini map touch;
 //        NSLog(@"minimap");
         isMiniMapSelected = YES;
+        [self moveMiniMap: touch withEvent:event];
+        [self cleanCameraVariables];
         return YES;
     }
     
@@ -69,6 +80,7 @@
     }else if(selectedShip){
          selectedShip.objective = [playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
     }else if(isMiniMapSelected){
+        
         [self moveMiniMap: touch withEvent:event];
     }else{
         [self cameraOnTouchMoved:touch withEvent:event];
@@ -116,6 +128,16 @@
 -(void)cardPlayed:(CardItem*)card{
     [[NSNotificationCenter defaultCenter] postNotificationName:kCardPlayed object:card];
 }
+#pragma mark - Transitions
+-(void) transitionToShipSelectState{
+    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithUI:self SelectedShip:selectedShip] autorelease];
+    self.playLayer.hudLayer.handLayer.visible = NO;
+    self.playLayer.hudLayer.shipSelectLayer.visible = YES;
+    [self.playLayer changeUIState:shipSelectState];
+    
+    
+}
+
 
 
 @end

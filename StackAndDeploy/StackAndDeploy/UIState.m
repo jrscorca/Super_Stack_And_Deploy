@@ -103,6 +103,12 @@
     }
 }
 
+-(void) cleanCameraVariables{
+    cameraVelocity = CGPointZero;
+    deltaTouch = CGPointZero;
+    previousTouchPoint = CGPointZero;
+}
+
 
 
 #pragma mark - MiniMap
@@ -123,6 +129,16 @@
         
     
   //  }
+}
+
+#pragma mark - Transitions
+
+//State Transitions
+-(void) transitionToNormalState{
+    NSLog(@"normal transtition");
+}
+-(void) transitionToShipSelectState{
+    NSLog(@"ship select transition");
 }
 
 @end

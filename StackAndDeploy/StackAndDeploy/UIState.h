@@ -37,6 +37,7 @@
 -(void) checkCameraBounds;
 
 - (void)updateCamera:(ccTime) dt;
+-(void) cleanCameraVariables;
 
 - (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event;
 - (void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event;
@@ -46,6 +47,11 @@
 //mini map stuff
 -(void) moveMiniMap:(UITouch*) touch withEvent:(UIEvent*) event;
 
+
+
+//State Transitions
+-(void) transitionToNormalState;
+-(void) transitionToShipSelectState;
 
 
 @end

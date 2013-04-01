@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class HandLayer, MiniMapLayer;
+@class HandLayer, MiniMapLayer, ShipSelectLayer;
 @interface HUDLayer : CCLayer {
     HandLayer *handLayer;
     MiniMapLayer *miniMapLayer;
+    ShipSelectLayer *shipSelectLayer;
 }
 @property (nonatomic, assign) HandLayer *handLayer;
 @property (nonatomic, assign) MiniMapLayer *miniMapLayer;
+@property (nonatomic, assign) ShipSelectLayer *shipSelectLayer;
 
 -(void) update:(ccTime)dt;
 

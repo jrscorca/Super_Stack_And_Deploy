@@ -52,10 +52,10 @@
         
         
 //        NSMutableArray *
-        /*
+        
         //Sample of how to use gameObjectPointers
         
-        Ship *ship = [[[Ship alloc] init] autorelease];
+     /*   Ship *ship = [[[Ship alloc] initWithFile:@"Icon-Small.png"] autorelease];
 //        [[[[Ship alloc] init] autorelease] assignObjectToPointer:&ship];
         
         Ship *anotherPointer = nil;
@@ -76,10 +76,13 @@
         NSLog(@"naother %@", anotherPointer);
         
         [ship destroyObject];
-        
-        NSLog(@"naother %@", anotherPointer);
         NSLog(@"ship %@", ship);
+        NSLog(@"naother %@", anotherPointer);
+        
+        //calling this on null pointer is safe
+        [anotherPointer removeObjectFromPointer:&anotherPointer];
         */
+        
         
     }
     return self;
@@ -107,7 +110,9 @@
     [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
 
-
+-(void) changeUIState:(UIState*) _uiState{
+    self.uiState = _uiState;
+}
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     return [self.uiState ccTouchBegan:touch withEvent:event];

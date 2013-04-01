@@ -25,6 +25,8 @@
 + (id)scene;
 
 -(void) update:(ccTime)dt;
+-(void) changeUIState:(UIState*) _uiState;
+
 
 
 @end

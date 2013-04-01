@@ -9,11 +9,11 @@
 #import "HUDLayer.h"
 #import "HandLayer.h"
 #import "MiniMapLayer.h"
-
+#import "ShipSelectLayer.h"
 
 @implementation HUDLayer
 
-@synthesize handLayer, miniMapLayer;
+@synthesize handLayer, miniMapLayer, shipSelectLayer;
 
 - (id)init{
     if ((self = [super init])) {
@@ -22,6 +22,10 @@
         
         self.miniMapLayer = [MiniMapLayer node];
         [self addChild:self.miniMapLayer];
+        
+        self.shipSelectLayer = [ShipSelectLayer node];
+        [self addChild:self.shipSelectLayer];
+        self.shipSelectLayer.visible = NO;
     }
     return self;
 }
@@ -33,6 +37,7 @@
 -(void) update:(ccTime)dt{
     [self.handLayer update:dt];
     [self.miniMapLayer update:dt];
+    [self.shipSelectLayer update:dt];
 }
 
 
