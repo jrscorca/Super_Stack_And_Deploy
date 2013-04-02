@@ -7,11 +7,11 @@
 //
 
 #import "ShipLayer.h"
-#import "Ship.h"
+#import "ShipSprite.h"
 #import "CardItem.h"
 #import "CardVO.h"
 #import "MatchDataManager.h"
-#import "GameObject.h"
+#import "GameObjectSprite.h"
 
 @implementation ShipLayer
 
@@ -31,7 +31,7 @@
 
 
 -(void) update:(ccTime) dt{
-    for(Ship *ship in MDM.shipsArray){
+    for(ShipSprite *ship in MDM.shipsArray){
         [ship update:dt];
     }
 }
@@ -39,7 +39,7 @@
 -(void)cardPlayed:(NSNotification*)notification{
     CardItem *card = notification.object;
     if (card.cardVO.type == SHIP) {
-        Ship *ship = [[[Ship alloc] initWithShipVO:nil] autorelease];
+        ShipSprite *ship = [[[ShipSprite alloc] initWithShipVO:nil] autorelease];
         ship.position = ccp(90, 90);
         [ship addToArray:MDM.shipsArray];
         [self addChild:ship];

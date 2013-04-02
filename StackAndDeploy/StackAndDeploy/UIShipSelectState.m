@@ -14,7 +14,7 @@
 #import "CardItem.h"
 #import "BoardLayer.h"
 #import "ShipLayer.h"
-#import "Ship.h"
+#import "ShipSprite.h"
 #import "ShipSelectLayer.h"
 #import "UINormalState.h"
 
@@ -46,12 +46,12 @@
     
 //    selectedShip
     
-    GameObject *touchedObject = [self objectAtPoint:touch withEvent:event];
+    GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
     if(touchedObject){
         if([touchedObject isKindOfClass:[CardItem class]]){
             NSLog(@"error: no card should exist here in UIShipSelectedState");
-        }else if([touchedObject isKindOfClass:[Ship class]]){
-            [self transitionToShipSelectState:(Ship*)touchedObject];
+        }else if([touchedObject isKindOfClass:[ShipSprite class]]){
+            [self transitionToShipSelectState:(ShipSprite*)touchedObject];
             return YES;
         }
     }

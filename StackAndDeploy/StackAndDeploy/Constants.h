@@ -10,7 +10,7 @@
 
 
 //macros
-typedef NSMutableArray GameObjectArray;
+typedef NSMutableArray GameObjectSpriteArray;
 #define MDM [MatchDataManager sharedInstance]
 
 

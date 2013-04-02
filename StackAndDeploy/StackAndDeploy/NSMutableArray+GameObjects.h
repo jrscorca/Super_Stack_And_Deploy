@@ -1,5 +1,5 @@
 //
-//  NSMutableArray+GameObjects.h
+//  NSMutableArray+GameObjectSprites.h
 //  StackAndDeploy
 //
 //  Created by Hunter Francis on 3/30/13.
@@ -14,7 +14,7 @@
 -(void) destroyObjectsInArray;
     
 // use instead of releasing array to dealloc
-// removes arrays' association with gameObjects
+// removes arrays' association with GameObjectSprites
 -(void) destroyArray;
 
 @end

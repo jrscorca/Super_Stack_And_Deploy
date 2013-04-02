@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameObject.h"
+#import "GameObjectSprite.h"
 
 
-@interface NodeSprite : GameObject {
+@interface NodeSprite : GameObjectSprite {
 
 }
 

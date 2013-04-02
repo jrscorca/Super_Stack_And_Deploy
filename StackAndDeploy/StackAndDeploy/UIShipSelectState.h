@@ -8,17 +8,17 @@
 
 #import "UIState.h"
 
-@class Ship;
+@class ShipSprite;
 @interface UIShipSelectState : UIState{
-    Ship *selectedShip;
+    ShipSprite *selectedShip;
     
     
     
 }
 
-@property (nonatomic, assign) Ship *selectedShip;
+@property (nonatomic, assign) ShipSprite *selectedShip;
 
--(id) initWithSelectedShip:(Ship*) _selectedShip;
+-(id) initWithSelectedShip:(ShipSprite*) _selectedShip;
 
 
 

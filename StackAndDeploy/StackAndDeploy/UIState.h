@@ -14,7 +14,7 @@
 @class PlayLayer;
 
 
-@class Ship, GameObject, CardItem;
+@class Ship, GameObjectSprite, CardItem;
 @interface UIState : NSObject{
 
     
@@ -38,7 +38,7 @@
 
 - (void) updateState:(ccTime) dt;
 
--(GameObject*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event;
+-(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event;
 //camera stuff
 //map movement functions
 -(void) cameraOnTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event;

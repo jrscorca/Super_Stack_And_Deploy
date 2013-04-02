@@ -30,8 +30,8 @@ static MatchDataManager *sharedInstance = nil;
     if(self = [super init]){
         self.localPlayer = [[[LocalPlayer alloc] init] autorelease];
         self.awayPlayer = [[[AwayPlayer alloc] init] autorelease];
-        self.localCardItemArray = [GameObjectArray array];
-        self.shipsArray = [GameObjectArray array];
+        self.localCardItemArray = [GameObjectSpriteArray array];
+        self.shipsArray = [GameObjectSpriteArray array];
         
     }
     return self;

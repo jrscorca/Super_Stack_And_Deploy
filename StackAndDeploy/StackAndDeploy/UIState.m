@@ -10,7 +10,7 @@
 #import "PlayLayer.h"
 #import "UtilityFunctions.h"
 #import "BoardLayer.h"
-#import "Ship.h"
+#import "ShipSprite.h"
 #import "HUDLayer.h"
 #import "CardItem.h"
 #import "MatchDataManager.h"
@@ -42,7 +42,7 @@ static PlayLayer *playLayer;
     [self updateCamera:dt];
 }
 
--(GameObject*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
+-(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
     //card movement
     CGPoint touchPoint = [UIState.playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
     for (CardItem *card in MDM.localCardItemArray){
@@ -53,7 +53,7 @@ static PlayLayer *playLayer;
     
     //ship movement
     touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace:touch];
-    for (Ship *ship in MDM.shipsArray){
+    for (ShipSprite *ship in MDM.shipsArray){
         if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
             return ship;
         }

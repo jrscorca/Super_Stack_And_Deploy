@@ -14,7 +14,7 @@
 #import "MatchDataManager.h"
 #import "BoardLayer.h"
 #import "ShipLayer.h"
-#import "Ship.h"
+#import "ShipSprite.h"
 #import "ShipSelectLayer.h"
 #import "UINormalState.h"
 
@@ -45,7 +45,7 @@
     
     //    selectedShip
     
-  /*  GameObject *touchedObject = [self objectAtPoint:touch withEvent:event];
+  /*  GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
     if(touchedObject){
         if([touchedObject isKindOfClass:[CardItem class]]){
             [self transitionToCardSelectState:(CardItem*)touchedObject];

@@ -1,5 +1,5 @@
 //
-//  GameObject.h
+//  GameObjectSprite.h
 //  StackAndDeploy
 //
 //  Created by Hunter Francis on 3/27/13.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameObject : CCSprite {
+@interface GameObjectSprite : CCSprite {
     
     NSMutableArray *associationArrays;
     NSMutableArray *associationPointers;
@@ -21,11 +21,11 @@
 
 
 //call to assign object to a pointer
--(void) assignObjectToPointer:(GameObject**)pointer;
+-(void) assignObjectToPointer:(GameObjectSprite**)pointer;
 
 
 //call to remove object from pointer
--(void) removeObjectFromPointer:(GameObject**)pointer;
+-(void) removeObjectFromPointer:(GameObjectSprite**)pointer;
 
 
 //adds object to array and keeps track of array that object is associate with

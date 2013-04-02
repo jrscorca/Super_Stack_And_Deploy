@@ -14,7 +14,7 @@
 #import "CardItem.h"
 #import "BoardLayer.h"
 #import "ShipLayer.h"
-#import "Ship.h"
+#import "ShipSprite.h"
 #import "UIShipSelectState.h"
 #import "ShipSelectLayer.h"
 #import "UICardItemSelectedState.h"
@@ -34,14 +34,14 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 
-    GameObject *touchedObject = [self objectAtPoint:touch withEvent:event];
+    GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
 //    [[self objectAtPoint:touch withEvent:event] assignObjectToPointer:&touchedObject];
     if(touchedObject){
         if([touchedObject isKindOfClass:[CardItem class]]){
             [self transitionToCardSelectState:(CardItem*)touchedObject];
             return YES;
-        }else if([touchedObject isKindOfClass:[Ship class]]){
-            [self transitionToShipSelectState:(Ship*)touchedObject];
+        }else if([touchedObject isKindOfClass:[ShipSprite class]]){
+            [self transitionToShipSelectState:(ShipSprite*)touchedObject];
             return YES;
         }
     }
@@ -91,7 +91,7 @@
 
 
 #pragma mark - Transitions
--(void) transitionToShipSelectState:(Ship*) ship{
+-(void) transitionToShipSelectState:(ShipSprite*) ship{
     UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = NO;
     UIState.playLayer.hudLayer.shipSelectLayer.visible = YES;

@@ -1,5 +1,5 @@
 //
-//  Ship.h
+//  ShipSprite.h
 //  StackAndDeploy
 //
 //  Created by Hunter Francis on 3/27/13.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameObject.h"
+#import "GameObjectSprite.h"
 
 @class ShipVO;
-@interface Ship : GameObject {
+@interface ShipSprite : GameObjectSprite {
     CGPoint velocity;
     CGPoint objective;
     BOOL isSelected;

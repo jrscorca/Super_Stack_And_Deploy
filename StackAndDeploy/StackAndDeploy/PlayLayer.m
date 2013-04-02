@@ -11,10 +11,10 @@
 #import "BoardLayer.h"
 #import "MatchDataManager.h"
 
-#import "Ship.h"
+#import "ShipSprite.h"
 #import "UINormalState.h"
 #import "UIState.h"
-#import "GameObject.h"
+#import "GameObjectSprite.h"
 #import "MiniMapLayer.h"
 
 
@@ -56,7 +56,7 @@
         
 //        NSMutableArray *
         
-        //Sample of how to use gameObjectPointers
+        //Sample of how to use GameObjectSpritePointers
         
      /*   Ship *ship = [[[Ship alloc] initWithFile:@"Icon-Small.png"] autorelease];
 //        [[[[Ship alloc] init] autorelease] assignObjectToPointer:&ship];

@@ -15,14 +15,14 @@
     
     
     
-    GameObjectArray *localCardItemArray;
-    GameObjectArray *shipsArray;
+    GameObjectSpriteArray *localCardItemArray;
+    GameObjectSpriteArray *shipsArray;
     
 }
 
 @property (nonatomic, retain) LocalPlayer *localPlayer;
 @property (nonatomic, retain) AwayPlayer *awayPlayer;
-@property (nonatomic, retain) GameObjectArray *localCardItemArray, *shipsArray;
+@property (nonatomic, retain) GameObjectSpriteArray *localCardItemArray, *shipsArray;
 
 
 + (MatchDataManager*)sharedInstance;

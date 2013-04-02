@@ -1,15 +1,15 @@
 //
-//  GameObject.m
+//  GameObjectSprite.m
 //  StackAndDeploy
 //
 //  Created by Hunter Francis on 3/27/13.
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameObject.h"
+#import "GameObjectSprite.h"
 
 
-@implementation GameObject
+@implementation GameObjectSprite
 
 @synthesize associationArrays, associationPointers;
 
@@ -27,14 +27,14 @@
     [super dealloc];
 }
 
--(void) assignObjectToPointer:(GameObject**)pointer{
+-(void) assignObjectToPointer:(GameObjectSprite**)pointer{
     *pointer = self;
     NSValue *pointerObject = [NSValue valueWithPointer:pointer];
     [associationPointers addObject:pointerObject];
 }
 
 
--(void) removeObjectFromPointer:(GameObject**)pointer{
+-(void) removeObjectFromPointer:(GameObjectSprite**)pointer{
     NSValue *pointerObject = [NSValue valueWithPointer:pointer];
     [associationPointers removeObject:pointerObject];
     *pointer = nil;

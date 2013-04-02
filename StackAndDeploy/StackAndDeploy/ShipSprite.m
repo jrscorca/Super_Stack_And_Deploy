@@ -6,12 +6,12 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
-#import "Ship.h"
+#import "ShipSprite.h"
 #import "ShipVO.h"
 #import "UtilityFunctions.h"
 
 
-@implementation Ship
+@implementation ShipSprite
 
 @synthesize isSelected, objective;
 

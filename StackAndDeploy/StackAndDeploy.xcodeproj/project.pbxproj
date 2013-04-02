@@ -23,10 +23,10 @@
 		DE273CFB1703F68F0007B8D8 /* LocalPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273CFA1703F68F0007B8D8 /* LocalPlayer.m */; };
 		DE273CFE1703F69D0007B8D8 /* AwayPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273CFD1703F69D0007B8D8 /* AwayPlayer.m */; };
 		DE273D01170401A60007B8D8 /* ShipVO.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D00170401A60007B8D8 /* ShipVO.m */; };
-		DE273D05170402560007B8D8 /* Ship.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D04170402560007B8D8 /* Ship.m */; };
+		DE273D05170402560007B8D8 /* ShipSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D04170402560007B8D8 /* ShipSprite.m */; };
 		DE273D0C170404E20007B8D8 /* UtilityFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D0B170404E10007B8D8 /* UtilityFunctions.m */; };
 		DE273D0F170405D00007B8D8 /* ShipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D0E170405D00007B8D8 /* ShipLayer.m */; };
-		DE273D13170406F00007B8D8 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D12170406F00007B8D8 /* GameObject.m */; };
+		DE273D13170406F00007B8D8 /* GameObjectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D12170406F00007B8D8 /* GameObjectSprite.m */; };
 		DE6C52B517091E80000932C8 /* UIShipSelectState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B417091E80000932C8 /* UIShipSelectState.m */; };
 		DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B9170937A9000932C8 /* ShipSelectLayer.m */; };
 		DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */; };
@@ -204,14 +204,14 @@
 		DE273CFD1703F69D0007B8D8 /* AwayPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwayPlayer.m; sourceTree = "<group>"; };
 		DE273CFF170401A60007B8D8 /* ShipVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipVO.h; sourceTree = "<group>"; };
 		DE273D00170401A60007B8D8 /* ShipVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipVO.m; sourceTree = "<group>"; };
-		DE273D03170402560007B8D8 /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ship.h; sourceTree = "<group>"; };
-		DE273D04170402560007B8D8 /* Ship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ship.m; sourceTree = "<group>"; };
+		DE273D03170402560007B8D8 /* ShipSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipSprite.h; sourceTree = "<group>"; };
+		DE273D04170402560007B8D8 /* ShipSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipSprite.m; sourceTree = "<group>"; };
 		DE273D0A170404E00007B8D8 /* UtilityFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilityFunctions.h; sourceTree = "<group>"; };
 		DE273D0B170404E10007B8D8 /* UtilityFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilityFunctions.m; sourceTree = "<group>"; };
 		DE273D0D170405CF0007B8D8 /* ShipLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipLayer.h; sourceTree = "<group>"; };
 		DE273D0E170405D00007B8D8 /* ShipLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipLayer.m; sourceTree = "<group>"; };
-		DE273D11170406F00007B8D8 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
-		DE273D12170406F00007B8D8 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObject.m; sourceTree = "<group>"; };
+		DE273D11170406F00007B8D8 /* GameObjectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectSprite.h; sourceTree = "<group>"; };
+		DE273D12170406F00007B8D8 /* GameObjectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectSprite.m; sourceTree = "<group>"; };
 		DE6C52B317091E80000932C8 /* UIShipSelectState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIShipSelectState.h; sourceTree = "<group>"; };
 		DE6C52B417091E80000932C8 /* UIShipSelectState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIShipSelectState.m; sourceTree = "<group>"; };
 		DE6C52B8170937A9000932C8 /* ShipSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipSelectLayer.h; sourceTree = "<group>"; };
@@ -649,10 +649,10 @@
 			isa = PBXGroup;
 			children = (
 				DE273CDB1703E0170007B8D8 /* CardItems */,
-				DE273D03170402560007B8D8 /* Ship.h */,
-				DE273D04170402560007B8D8 /* Ship.m */,
-				DE273D11170406F00007B8D8 /* GameObject.h */,
-				DE273D12170406F00007B8D8 /* GameObject.m */,
+				DE273D03170402560007B8D8 /* ShipSprite.h */,
+				DE273D04170402560007B8D8 /* ShipSprite.m */,
+				DE273D11170406F00007B8D8 /* GameObjectSprite.h */,
+				DE273D12170406F00007B8D8 /* GameObjectSprite.m */,
 				DE130E7D170517DD004CF1FA /* NodeSprite.h */,
 				DE130E7E170517DD004CF1FA /* NodeSprite.m */,
 				DE130E801705187C004CF1FA /* BaseSprite.h */,
@@ -1324,10 +1324,10 @@
 				DE273CFB1703F68F0007B8D8 /* LocalPlayer.m in Sources */,
 				DE273CFE1703F69D0007B8D8 /* AwayPlayer.m in Sources */,
 				DE273D01170401A60007B8D8 /* ShipVO.m in Sources */,
-				DE273D05170402560007B8D8 /* Ship.m in Sources */,
+				DE273D05170402560007B8D8 /* ShipSprite.m in Sources */,
 				DE273D0C170404E20007B8D8 /* UtilityFunctions.m in Sources */,
 				DE273D0F170405D00007B8D8 /* ShipLayer.m in Sources */,
-				DE273D13170406F00007B8D8 /* GameObject.m in Sources */,
+				DE273D13170406F00007B8D8 /* GameObjectSprite.m in Sources */,
 				F229527E170411660073B0E5 /* Constants.m in Sources */,
 				DE130E79170516EF004CF1FA /* NodeLayer.m in Sources */,
 				DE130E7C1705170F004CF1FA /* BaseLayer.m in Sources */,
