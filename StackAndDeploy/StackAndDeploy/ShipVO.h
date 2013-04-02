@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface ShipVO : NSObject
+#import "GameObjectVO.h"
+@interface ShipVO : GameObjectVO
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameObjectVO.h"
 
-@interface CardVO : NSObject
+@interface CardVO : GameObjectVO
 
 @property (assign) cardType type;
 
