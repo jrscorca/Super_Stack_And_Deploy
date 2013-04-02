@@ -29,6 +29,7 @@
 		DE273D13170406F00007B8D8 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D12170406F00007B8D8 /* GameObject.m */; };
 		DE6C52B517091E80000932C8 /* UIShipSelectState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B417091E80000932C8 /* UIShipSelectState.m */; };
 		DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B9170937A9000932C8 /* ShipSelectLayer.m */; };
+		DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */; };
 		DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */; };
 		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
 		F22950CB1703CCEF0073B0E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */; };
@@ -214,6 +215,8 @@
 		DE6C52B417091E80000932C8 /* UIShipSelectState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIShipSelectState.m; sourceTree = "<group>"; };
 		DE6C52B8170937A9000932C8 /* ShipSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipSelectLayer.h; sourceTree = "<group>"; };
 		DE6C52B9170937A9000932C8 /* ShipSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipSelectLayer.m; sourceTree = "<group>"; };
+		DE6C52D0170B7546000932C8 /* UICardItemSelectedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICardItemSelectedState.h; sourceTree = "<group>"; };
+		DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICardItemSelectedState.m; sourceTree = "<group>"; };
 		DE86EA2C17076DAA00841158 /* NSMutableArray+GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+GameObjects.h"; sourceTree = "<group>"; };
 		DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GameObjects.m"; sourceTree = "<group>"; };
 		DE86EA301707D71A00841158 /* MiniMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapLayer.h; sourceTree = "<group>"; };
@@ -543,6 +546,8 @@
 				DE239F3A1706908D00578AB3 /* UINormalState.m */,
 				DE6C52B317091E80000932C8 /* UIShipSelectState.h */,
 				DE6C52B417091E80000932C8 /* UIShipSelectState.m */,
+				DE6C52D0170B7546000932C8 /* UICardItemSelectedState.h */,
+				DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */,
 			);
 			name = UIStates;
 			sourceTree = "<group>";
@@ -1329,6 +1334,7 @@
 				DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */,
 				DE6C52B517091E80000932C8 /* UIShipSelectState.m in Sources */,
 				DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */,
+				DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

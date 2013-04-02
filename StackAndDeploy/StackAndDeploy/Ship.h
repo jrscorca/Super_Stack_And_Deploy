@@ -26,4 +26,8 @@
 
 -(CGPoint) movement:(CGPoint) destination;
 
+//
+
+-(void)moveShip:(CGPoint)touch;
+
 @end

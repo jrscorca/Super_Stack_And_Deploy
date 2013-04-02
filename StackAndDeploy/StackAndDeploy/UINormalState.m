@@ -17,50 +17,39 @@
 #import "Ship.h"
 #import "UIShipSelectState.h"
 #import "ShipSelectLayer.h"
+#import "UICardItemSelectedState.h"
 
 @implementation UINormalState
 
--(id) initWithPlayLayer:(PlayLayer*) _playLayer{
-    if(self = [super initWithPlayLayer:_playLayer]){
+-(id) init{
+    if(self = [super init]){
         
     }
     return self;
 }
 
 -(void)dealloc{
-    [selectedCard removeObjectFromPointer:&selectedCard];
-    [selectedShip removeObjectFromPointer:&selectedShip];
     [super dealloc];
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    //card movement
-    CGPoint touchPoint = [playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
-    for (CardItem *card in MDM.localCardItemArray){
-        if (CGRectContainsPoint(card.boundingBox, touchPoint)) {
-            [card assignObjectToPointer:&selectedCard];
-            return YES;
-        }
-    }
 
-    //ship movement
-    touchPoint = [playLayer.boardLayer.shipLayer convertTouchToNodeSpace:touch];
-    for (Ship *ship in MDM.shipsArray){
-        if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
-            ship.isSelected = YES;
-            [ship assignObjectToPointer:&selectedShip];
-            [self transitionToShipSelectState];
+    GameObject *touchedObject = [self objectAtPoint:touch withEvent:event];
+//    [[self objectAtPoint:touch withEvent:event] assignObjectToPointer:&touchedObject];
+    if(touchedObject){
+        if([touchedObject isKindOfClass:[CardItem class]]){
+            [self transitionToCardSelectState:(CardItem*)touchedObject];
+            return YES;
+        }else if([touchedObject isKindOfClass:[Ship class]]){
+            [self transitionToShipSelectState:(Ship*)touchedObject];
             return YES;
         }
     }
     
     
     //minimap touching code
-    touchPoint = [playLayer convertTouchToNodeSpace: touch];
-//    CGRect minimapRect = CGRectMake(0, 0, 100, 100);
+    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
     if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
-        //mini map touch;
-//        NSLog(@"minimap");
         isMiniMapSelected = YES;
         [self moveMiniMap: touch withEvent:event];
         [self cleanCameraVariables];
@@ -75,37 +64,15 @@
 }
 
 -(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
-    if(selectedCard){
-        selectedCard.position = [playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
-    }else if(selectedShip){
-         selectedShip.objective = [playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
-    }else if(isMiniMapSelected){
-        
+    if(isMiniMapSelected){
         [self moveMiniMap: touch withEvent:event];
     }else{
         [self cameraOnTouchMoved:touch withEvent:event];
-      //  CGPoint touchPoint = [playLayer.boardLayer convertTouchToNodeSpace:touch];
-    //    CGPoint difference = ccpSub(touchPoint, previousTouchPoint);
-  //      playLayer.boardLayer.position = ccpAdd(difference, playLayer.boardLayer.position);
-//        previousTouchPoint = touchPoint;
     }    
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    CGSize winSize = [[CCDirector sharedDirector] winSize];
-    if(selectedCard){
-        if (selectedCard.position.y > winSize.height*.2) {
-            [self cardPlayed:selectedCard];
-            [selectedCard destroyObject];
-        }else{
-            selectedShip.isSelected = NO;
-            [selectedShip removeObjectFromPointer:&selectedShip];
-        }
-        [playLayer.hudLayer.handLayer organizeHand];
-    }else if(selectedShip){
-        selectedShip.isSelected = NO;
-        [selectedShip removeObjectFromPointer:&selectedShip];
-    }else if(isMiniMapSelected){
+    if(isMiniMapSelected){
         isMiniMapSelected = NO;
     }else{
         [self cameraOnTouchEnded:touch withEvent:event];
@@ -113,10 +80,7 @@
 }
 
 - (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event{
-    if(selectedShip){
-        selectedShip.isSelected = NO;
-        [selectedShip removeObjectFromPointer:&selectedShip];
-    }else if(selectedCard){
+    if(selectedCard){
         [selectedCard removeObjectFromPointer:&selectedCard];
     }else if(isMiniMapSelected){
         isMiniMapSelected = NO;
@@ -125,17 +89,18 @@
     }
 }
 
--(void)cardPlayed:(CardItem*)card{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kCardPlayed object:card];
-}
+
 #pragma mark - Transitions
--(void) transitionToShipSelectState{
-    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithUI:self SelectedShip:selectedShip] autorelease];
-    self.playLayer.hudLayer.handLayer.visible = NO;
-    self.playLayer.hudLayer.shipSelectLayer.visible = YES;
-    [self.playLayer changeUIState:shipSelectState];
-    
-    
+-(void) transitionToShipSelectState:(Ship*) ship{
+    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship] autorelease];
+    UIState.playLayer.hudLayer.handLayer.visible = NO;
+    UIState.playLayer.hudLayer.shipSelectLayer.visible = YES;
+    [UIState.playLayer changeUIState:shipSelectState];
+}
+
+-(void) transitionToCardSelectState:(CardItem *)card{
+    UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card] autorelease];
+    [UIState.playLayer changeUIState:cardItemSelectedState];
 }
 
 

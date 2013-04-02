@@ -88,5 +88,10 @@
 }
 
 
+-(void)moveShip:(CGPoint)touch{
+    
+    self.objective = touch;
+}
+
 
 @end

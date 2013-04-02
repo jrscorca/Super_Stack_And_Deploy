@@ -13,12 +13,13 @@
     Ship *selectedShip;
     
     
+    
 }
 
 @property (nonatomic, assign) Ship *selectedShip;
 
--(id) initWithUI:(UIState*) state SelectedShip:(Ship*) _selectedShip;
+-(id) initWithSelectedShip:(Ship*) _selectedShip;
 
--(void) shipMiniMapMovement:(UITouch*)touch withEvent:(UIEvent*)event;
+
 
 @end

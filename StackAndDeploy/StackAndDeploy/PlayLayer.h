@@ -15,7 +15,6 @@
     BoardLayer *boardLayer;
     
     UIState *uiState;
-
 }
 
 @property (nonatomic, assign) HUDLayer *hudLayer;

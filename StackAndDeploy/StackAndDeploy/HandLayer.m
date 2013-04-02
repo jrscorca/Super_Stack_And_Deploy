@@ -27,6 +27,7 @@
 -(void) drawCard:(NSNotification*) notification{
     CardVO *card = notification.object;
     CardItem* cardItem = [[[CardItem alloc] initWithCardVO:card] autorelease];
+    
     [cardItem addToArray:MDM.localCardItemArray];
     [self addChild:cardItem];
     [self organizeHand];

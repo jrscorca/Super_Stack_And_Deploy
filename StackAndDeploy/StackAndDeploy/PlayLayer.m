@@ -13,6 +13,7 @@
 
 #import "Ship.h"
 #import "UINormalState.h"
+#import "UIState.h"
 #import "GameObject.h"
 #import "MiniMapLayer.h"
 
@@ -42,13 +43,15 @@
         self.hudLayer = [[[HUDLayer alloc] init] autorelease];
         [self addChild:self.hudLayer];
         self.hudLayer.miniMapLayer.boardLayer = self.boardLayer;
+        self.uiState = [[[UINormalState alloc] init] autorelease];
+        [UIState setPlayLayer:self];
         
         
         [self scheduleUpdate];
         
         isTouchEnabled_ = YES;
         
-        self.uiState = [[UINormalState alloc] initWithPlayLayer:self];
+
         
         
 //        NSMutableArray *

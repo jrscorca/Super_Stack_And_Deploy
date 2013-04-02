@@ -10,15 +10,27 @@
 #import "PlayLayer.h"
 #import "UtilityFunctions.h"
 #import "BoardLayer.h"
+#import "Ship.h"
+#import "HUDLayer.h"
+#import "CardItem.h"
+#import "MatchDataManager.h"
 
 
 @implementation UIState
 
-@synthesize playLayer;
+static PlayLayer *playLayer;
 
--(id) initWithPlayLayer:(PlayLayer*) _playLayer{
++ (void)setPlayLayer:(PlayLayer*) _playLayer{
+    playLayer = _playLayer;
+}
+
++(PlayLayer*) playLayer{
+    return playLayer;
+}
+
+-(id) init{
     if(self = [super init]){
-        self.playLayer = _playLayer;
+//        self.playLayer = _playLayer;
         previousTouchPoint = ccp(0, 0);
         cameraVelocity = ccp(0,0);
         deltaTouch = ccp(0,0);
@@ -29,6 +41,28 @@
 -(void) updateState:(ccTime) dt{
     [self updateCamera:dt];
 }
+
+-(GameObject*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
+    //card movement
+    CGPoint touchPoint = [UIState.playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
+    for (CardItem *card in MDM.localCardItemArray){
+        if (CGRectContainsPoint(card.boundingBox, touchPoint)) {
+            return card;
+        }
+    }
+    
+    //ship movement
+    touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace:touch];
+    for (Ship *ship in MDM.shipsArray){
+        if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
+            return ship;
+        }
+    }
+    return nil;
+    
+}
+
+#pragma mark - touch events
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     
@@ -113,6 +147,14 @@
 
 #pragma mark - MiniMap
 
+-(CGPoint) miniMapToBoardConversion:(UITouch*)touch withEvent:(UIEvent*)event{
+    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+    CGPoint percentOnMiniMap = ccp(touchPoint.x/MINIMAP_RECT.size.width, touchPoint.y/MINIMAP_RECT.size.height);
+    
+    // move boardLayer to that relative spot
+    CGSize limit = BOARD_SIZE;
+    return ccp(percentOnMiniMap.x * limit.width, percentOnMiniMap.y * limit.height);
+}
 
 -(void) moveMiniMap:(UITouch*) touch withEvent:(UIEvent*) event{
     CGPoint touchPoint = [playLayer convertTouchToNodeSpace: touch];
@@ -137,8 +179,12 @@
 -(void) transitionToNormalState{
     NSLog(@"normal transtition");
 }
--(void) transitionToShipSelectState{
+-(void) transitionToShipSelectState:(Ship*) ship{
     NSLog(@"ship select transition");
+}
+
+-(void) transitionToCardSelectState:(CardItem*) card{
+    NSLog(@"card select transition");    
 }
 
 @end

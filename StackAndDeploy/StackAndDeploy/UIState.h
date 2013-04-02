@@ -10,9 +10,13 @@
 #import "cocos2d.h"
 
 
+
 @class PlayLayer;
+
+
+@class Ship, GameObject, CardItem;
 @interface UIState : NSObject{
-    PlayLayer *playLayer;
+
     
     //user movement around the map
     CGPoint previousTouchPoint;
@@ -23,11 +27,18 @@
     BOOL isMiniMapSelected;
     
 }
-@property (nonatomic, assign) PlayLayer *playLayer;
 
-- (id) initWithPlayLayer:(PlayLayer*) _playLayer;
+
+// playLayer needs to be set at the start of each game and cleared at the end of each game
++ (void)setPlayLayer:(PlayLayer*) _playLayer;
+
++(PlayLayer*) playLayer;
+
+- (id) init;
 
 - (void) updateState:(ccTime) dt;
+
+-(GameObject*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event;
 //camera stuff
 //map movement functions
 -(void) cameraOnTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event;
@@ -45,13 +56,14 @@
 - (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event;
 
 //mini map stuff
+-(CGPoint) miniMapToBoardConversion:(UITouch*)touch withEvent:(UIEvent*)event;
 -(void) moveMiniMap:(UITouch*) touch withEvent:(UIEvent*) event;
 
 
 
 //State Transitions
 -(void) transitionToNormalState;
--(void) transitionToShipSelectState;
-
+-(void) transitionToShipSelectState:(Ship*) ship;
+-(void) transitionToCardSelectState:(CardItem*) card;
 
 @end
