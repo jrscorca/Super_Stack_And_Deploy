@@ -168,6 +168,7 @@
 		F22952751703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952721703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist */; };
 		F22952761703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */; };
 		F229527E170411660073B0E5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F229527D170411660073B0E5 /* Constants.m */; };
+		F26B0480170B902100130E08 /* GameObjectVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B047F170B902100130E08 /* GameObjectVO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -497,6 +498,8 @@
 		F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = SNDSpriteSheet_UntitledSheet.plist; path = Resources/SNDSpriteSheet_UntitledSheet.plist; sourceTree = "<group>"; };
 		F229527C170411660073B0E5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F229527D170411660073B0E5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F26B047E170B902100130E08 /* GameObjectVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectVO.h; sourceTree = "<group>"; };
+		F26B047F170B902100130E08 /* GameObjectVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectVO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -632,6 +635,8 @@
 		DE273CF51703F3600007B8D8 /* DataObjects */ = {
 			isa = PBXGroup;
 			children = (
+				F26B047E170B902100130E08 /* GameObjectVO.h */,
+				F26B047F170B902100130E08 /* GameObjectVO.m */,
 				DE273CF61703F3700007B8D8 /* CardVO.h */,
 				DE273CF71703F3700007B8D8 /* CardVO.m */,
 				DE273CFF170401A60007B8D8 /* ShipVO.h */,
@@ -1335,6 +1340,7 @@
 				DE6C52B517091E80000932C8 /* UIShipSelectState.m in Sources */,
 				DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */,
 				DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */,
+				F26B0480170B902100130E08 /* GameObjectVO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
