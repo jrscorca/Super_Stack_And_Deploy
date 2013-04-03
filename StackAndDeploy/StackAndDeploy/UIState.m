@@ -87,14 +87,15 @@ static PlayLayer *playLayer;
 //map movement functions
 -(void) cameraOnTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event{
     previousTouchPoint = [playLayer convertTouchToNodeSpace:touch];
+    cameraVelocity = CGPointZero;
 }
 -(void) cameraOnTouchMoved:(UITouch*) touch withEvent:(UIEvent*) event{
     CGPoint touchPoint = [playLayer convertTouchToNodeSpace:touch];
 //  NSLog(@"pintPoint %f, %f", touchPoint.x, touchPoint.y);
     deltaTouch = ccpSub(touchPoint, previousTouchPoint);
     previousTouchPoint = touchPoint;
-//    playLayer.boardLayer.position = ccpAdd(UIState.playLayer.boardLayer.position, deltaTouch);
-  //  [self checkCameraBounds];
+   // playLayer.boardLayer.position = ccpAdd(UIState.playLayer.boardLayer.position, deltaTouch);
+    [self checkCameraBounds];
 }
 
 -(void) cameraOnTouchEnded:(UITouch*) touch withEvent:(UIEvent*) event{
@@ -109,7 +110,14 @@ static PlayLayer *playLayer;
     cameraVelocity = [UtilityFunctions truncate:cameraVelocity toMax:PAN_VELOCITY_MAX * dt];
     cameraVelocity = CGPointMake(cameraVelocity.x + PAN_VELOCITY_SPEED*(deltaTouch.x)*dt, cameraVelocity.y + PAN_VELOCITY_SPEED*(deltaTouch.y)*dt);
 //    cameraVelocity = ccpLerp(cameraVelocity, ccpMult(cameraVelocity, PAN_VELOCITY_FRICTION), dt);
-	cameraVelocity = CGPointMake(cameraVelocity.x * PAN_VELOCITY_FRICTION, cameraVelocity.y * PAN_VELOCITY_FRICTION);
+	//cameraVelocity = CGPointMake(cameraVelocity.x * PAN_VELOCITY_FRICTION, cameraVelocity.y * PAN_VELOCITY_FRICTION);
+    CGPoint newCameraVel = ccp(cameraVelocity.x * PAN_VELOCITY_FRICTION, cameraVelocity.y * PAN_VELOCITY_FRICTION);
+    CGPoint cameraDif = ccpSub(cameraVelocity, newCameraVel);
+    cameraDif = ccpMult(cameraDif, dt* 15);
+  //  NSLog(@"cameraVel %f, %f", cameraVelocity.x, cameraVelocity.y);
+  //  NSLog(@"CameraDif %f, %f", cameraDif.x, cameraDif.y);
+    cameraVelocity = ccpSub(cameraVelocity, cameraDif);
+    
 	if(ccpLength(cameraVelocity) * dt  < PAN_VELOCITY_MIN * dt){
 		cameraVelocity = CGPointMake(0.0, 0.0);
 	}
@@ -133,8 +141,9 @@ static PlayLayer *playLayer;
     
     //board limit
     CGSize limit = MDM.boardSize;
-    float widthLimit = -(limit.width - 480);
-    float heightLimit = -(limit.height - 320);
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    float widthLimit = -(limit.width - winSize.width);
+    float heightLimit = -(limit.height - winSize.height);
     if(pos.x < widthLimit){
         playLayer.boardLayer.position = ccp(widthLimit, playLayer.boardLayer.position.y);
         cameraVelocity = ccp(0, cameraVelocity.y);
