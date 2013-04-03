@@ -10,14 +10,16 @@
 #import "ShipVO.h"
 #import "UtilityFunctions.h"
 #import "MatchDataManager.h"
+#import "ShipModel.h"
 
 
 @implementation ShipSprite
 
-@synthesize isSelected, objective;
+@synthesize isSelected, objective, model;
 
 -(id)initWithShipVO:(ShipVO*)shipVO{
     if(self = [super initWithFile:@"Icon.png"]){
+        model = [[[ShipModel alloc] init] autorelease];
         velocity = ccp(1,1);
         objective = ccp(200,200);
         isSelected = NO;
@@ -99,5 +101,9 @@
     self.objective = touch;
 }
 
+-(void)dealloc{
+    [model release];
+    [super dealloc];
+}
 
 @end

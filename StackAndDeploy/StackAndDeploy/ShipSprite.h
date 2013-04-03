@@ -10,15 +10,17 @@
 #import "cocos2d.h"
 #import "BoardItemSprite.h"
 
-@class ShipVO;
+@class ShipVO, ShipModel;
 @interface ShipSprite : BoardItemSprite {
     CGPoint velocity;
     CGPoint objective;
     BOOL isSelected;
+    ShipModel *model;
 }
 
 @property (nonatomic) BOOL isSelected;
 @property (nonatomic) CGPoint objective;
+@property (nonatomic, retain) ShipModel *model;
 
 -(id)initWithShipVO:(ShipVO*)shipVO;
 
