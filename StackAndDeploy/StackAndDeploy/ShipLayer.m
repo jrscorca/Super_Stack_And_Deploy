@@ -31,7 +31,7 @@
 
 
 -(void) update:(ccTime) dt{
-    for(ShipSprite *ship in MDM.shipsArray){
+    for(ShipSprite *ship in MDM.ships){
         [ship update:dt];
     }
 }
@@ -41,7 +41,7 @@
     if (card.cardVO.type == SHIP) {
         ShipSprite *ship = [[[ShipSprite alloc] initWithShipVO:nil] autorelease];
         ship.position = ccp(90, 90);
-        [ship addToArray:MDM.shipsArray];
+        [ship addToArray:MDM.ships];
         [self addChild:ship];
 
     }

@@ -10,6 +10,7 @@
 #import "HUDLayer.h"
 #import "PlayLayer.h"
 #import "BoardLayer.h"
+#import "MatchDataManager.h"
 
 @implementation MiniMapLayer
 
@@ -31,7 +32,7 @@
 -(void) update:(ccTime)dt{
     
     //board limit
-    CGSize limit = BOARD_SIZE;
+    CGSize limit = MDM.boardSize;
     float widthLimit = -limit.width;
     float heightLimit = -limit.height;
     CGPoint pos = boardLayer.position;
@@ -43,7 +44,7 @@
 
 -(void) draw{
     ccDrawColor4F(255,255,0,1);
-    CGSize limit = BOARD_SIZE;
+    CGSize limit = MDM.boardSize;
     float widthLimit = limit.width;
     float heightLimit = limit.height;
     ccDrawRect(viewRect,  ccpAdd(viewRect, ccp((480/widthLimit) *MINIMAP_RECT.size.width, (320/heightLimit) * MINIMAP_RECT.size.height ))  );

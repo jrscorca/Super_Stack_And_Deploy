@@ -173,6 +173,7 @@
 		F26B0487170B9D1900130E08 /* NodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B0486170B9D1900130E08 /* NodeModel.m */; };
 		F26B048A170B9D2A00130E08 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B0489170B9D2A00130E08 /* BaseModel.m */; };
 		F26B048D170BA04000130E08 /* BoardItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048C170BA04000130E08 /* BoardItemModel.m */; };
+		F26B0490170BC5EF00130E08 /* BoardItemSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048F170BC5EF00130E08 /* BoardItemSprite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -512,6 +513,8 @@
 		F26B0489170B9D2A00130E08 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		F26B048B170BA04000130E08 /* BoardItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardItemModel.h; sourceTree = "<group>"; };
 		F26B048C170BA04000130E08 /* BoardItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemModel.m; sourceTree = "<group>"; };
+		F26B048E170BC5EF00130E08 /* BoardItemSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardItemSprite.h; sourceTree = "<group>"; };
+		F26B048F170BC5EF00130E08 /* BoardItemSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemSprite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,6 +673,8 @@
 				DE130E7E170517DD004CF1FA /* NodeSprite.m */,
 				DE130E801705187C004CF1FA /* BaseSprite.h */,
 				DE130E811705187C004CF1FA /* BaseSprite.m */,
+				F26B048E170BC5EF00130E08 /* BoardItemSprite.h */,
+				F26B048F170BC5EF00130E08 /* BoardItemSprite.m */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -1373,6 +1378,7 @@
 				F26B0487170B9D1900130E08 /* NodeModel.m in Sources */,
 				F26B048A170B9D2A00130E08 /* BaseModel.m in Sources */,
 				F26B048D170BA04000130E08 /* BoardItemModel.m in Sources */,
+				F26B0490170BC5EF00130E08 /* BoardItemSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1423,7 +1429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1435,6 +1441,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

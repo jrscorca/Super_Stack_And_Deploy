@@ -45,7 +45,7 @@ static PlayLayer *playLayer;
 -(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
     //card movement
     CGPoint touchPoint = [UIState.playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
-    for (CardItem *card in MDM.localCardItemArray){
+    for (CardItem *card in MDM.localCardItems){
         if (CGRectContainsPoint(card.boundingBox, touchPoint)) {
             return card;
         }
@@ -53,7 +53,7 @@ static PlayLayer *playLayer;
     
     //ship movement
     touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace:touch];
-    for (ShipSprite *ship in MDM.shipsArray){
+    for (ShipSprite *ship in MDM.ships){
         if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
             return ship;
         }
@@ -132,7 +132,7 @@ static PlayLayer *playLayer;
        }
     
     //board limit
-    CGSize limit = BOARD_SIZE;
+    CGSize limit = MDM.boardSize;
     float widthLimit = -(limit.width - 480);
     float heightLimit = -(limit.height - 320);
     if(pos.x < widthLimit){
@@ -160,7 +160,7 @@ static PlayLayer *playLayer;
     CGPoint percentOnMiniMap = ccp(touchPoint.x/MINIMAP_RECT.size.width, touchPoint.y/MINIMAP_RECT.size.height);
     
     // move boardLayer to that relative spot
-    CGSize limit = BOARD_SIZE;
+    CGSize limit = MDM.boardSize;
     return ccp(percentOnMiniMap.x * limit.width, percentOnMiniMap.y * limit.height);
 }
 
@@ -174,7 +174,7 @@ static PlayLayer *playLayer;
         percentOnMiniMap = ccpSub(percentOnMiniMap, ccp(-0.2, -0.2));
         
         // move boardLayer to that relative spot
-        CGSize limit = BOARD_SIZE;
+        CGSize limit = MDM.boardSize;
         playLayer.boardLayer.position = ccp(percentOnMiniMap.x * limit.width, percentOnMiniMap.y * limit.height);
         
     

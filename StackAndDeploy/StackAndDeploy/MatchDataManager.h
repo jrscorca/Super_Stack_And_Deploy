@@ -13,16 +13,21 @@
     LocalPlayer *localPlayer;
     AwayPlayer *awayPlayer;
     
+    CGSize boardSize;
+    
     
     
     GameObjectSpriteArray *localCardItemArray;
-    GameObjectSpriteArray *shipsArray;
+    GameObjectSpriteArray *boardItemSprites;
+    GameObjectSpriteArray *ships;
+    GameObjectSpriteArray *nodes;
+    GameObjectSpriteArray *bases;
     
 }
-
+@property (assign) CGSize boardSize;
 @property (nonatomic, retain) LocalPlayer *localPlayer;
 @property (nonatomic, retain) AwayPlayer *awayPlayer;
-@property (nonatomic, retain) GameObjectSpriteArray *localCardItemArray, *shipsArray;
+@property (nonatomic, retain) GameObjectSpriteArray *localCardItems, *ships, *boardItemSprites, *nodes, *bases;
 
 
 + (MatchDataManager*)sharedInstance;

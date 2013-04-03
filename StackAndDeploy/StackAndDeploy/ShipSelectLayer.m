@@ -7,7 +7,7 @@
 //
 
 #import "ShipSelectLayer.h"
-
+#import "MatchDataManager.h"
 
 @implementation ShipSelectLayer
 
@@ -22,7 +22,7 @@
 -(void) update:(ccTime)dt{
     
     //board limit
-/*    CGSize limit = BOARD_SIZE;
+/*    CGSize limit = MDM.boardSize;
     float widthLimit = -limit.width;
     float heightLimit = -limit.height;
     CGPoint pos = boardLayer.position;
@@ -35,7 +35,7 @@
 
 -(void) draw{
     ccDrawColor4F(255,255,0,1);
-    CGSize limit = BOARD_SIZE;
+    CGSize limit = MDM.boardSize;
     float widthLimit = limit.width;
     float heightLimit = limit.height;
 //    ccDrawRect(ccpAdd(viewRect, ccp(160,0)) ,  ccpAdd(viewRect, ccp((480/widthLimit) *MINIMAP_RECT.size.width, (320/heightLimit) * MINIMAP_RECT.size.height ))  );

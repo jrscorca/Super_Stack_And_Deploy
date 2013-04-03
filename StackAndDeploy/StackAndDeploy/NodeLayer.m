@@ -9,6 +9,7 @@
 #import "NodeLayer.h"
 #import "NodeSprite.h" 
 #import "NodeModel.h"
+#import "MatchDataManager.h"
 
 @implementation NodeLayer
 
@@ -17,7 +18,7 @@
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         NodeSprite *node = [[[NodeSprite alloc] init] autorelease];
         node.model.ownership = NO_PLAYER;
-        node.position = ccp(BOARD_SIZE.width/2, BOARD_SIZE.height/2);
+        node.position = ccp(MDM.boardSize.width/2, MDM.boardSize.height/2);
         [self addChild:node];
     }
     return self;

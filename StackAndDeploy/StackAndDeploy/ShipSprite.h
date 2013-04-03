@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameObjectSprite.h"
+#import "BoardItemSprite.h"
 
 @class ShipVO;
-@interface ShipSprite : GameObjectSprite {
+@interface ShipSprite : BoardItemSprite {
     CGPoint velocity;
     CGPoint objective;
     BOOL isSelected;
