@@ -93,8 +93,8 @@ static PlayLayer *playLayer;
 //  NSLog(@"pintPoint %f, %f", touchPoint.x, touchPoint.y);
     deltaTouch = ccpSub(touchPoint, previousTouchPoint);
     previousTouchPoint = touchPoint;
-    playLayer.boardLayer.position = ccpAdd(UIState.playLayer.boardLayer.position, deltaTouch);
-    [self checkCameraBounds];
+//    playLayer.boardLayer.position = ccpAdd(UIState.playLayer.boardLayer.position, deltaTouch);
+  //  [self checkCameraBounds];
 }
 
 -(void) cameraOnTouchEnded:(UITouch*) touch withEvent:(UIEvent*) event{
@@ -106,15 +106,15 @@ static PlayLayer *playLayer;
 }
 
 - (void)updateCamera:(ccTime) dt {
-    /*cameraVelocity = [UtilityFunctions truncate:cameraVelocity toMax:PAN_VELOCITY_MAX * dt];
+    cameraVelocity = [UtilityFunctions truncate:cameraVelocity toMax:PAN_VELOCITY_MAX * dt];
     cameraVelocity = CGPointMake(cameraVelocity.x + PAN_VELOCITY_SPEED*(deltaTouch.x)*dt, cameraVelocity.y + PAN_VELOCITY_SPEED*(deltaTouch.y)*dt);
-    cameraVelocity = ccpLerp(cameraVelocity, ccpMult(cameraVelocity, PAN_VELOCITY_FRICTION), dt);
-//	cameraVelocity = CGPointMake(cameraVelocity.x * PAN_VELOCITY_FRICTION * dt, cameraVelocity.y * PAN_VELOCITY_FRICTION * dt);
-	if(ccpLength(cameraVelocity)  < PAN_VELOCITY_MIN){
+//    cameraVelocity = ccpLerp(cameraVelocity, ccpMult(cameraVelocity, PAN_VELOCITY_FRICTION), dt);
+	cameraVelocity = CGPointMake(cameraVelocity.x * PAN_VELOCITY_FRICTION, cameraVelocity.y * PAN_VELOCITY_FRICTION);
+	if(ccpLength(cameraVelocity) * dt  < PAN_VELOCITY_MIN * dt){
 		cameraVelocity = CGPointMake(0.0, 0.0);
 	}
     playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x + cameraVelocity.x, playLayer.boardLayer.position.y + cameraVelocity.y);
-     */
+     
 //    playLayer.boardLayer.position =;
     [self checkCameraBounds];
 }
@@ -124,9 +124,11 @@ static PlayLayer *playLayer;
  //   NSLog(@"%f, %f", pos.x, pos.y);
     if(pos.x > 0){
         playLayer.boardLayer.position = ccp(0, playLayer.boardLayer.position.y);
+        cameraVelocity = ccp(0, cameraVelocity.y);
     }
        if(pos.y > 0){
            playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, 0);
+           cameraVelocity = ccp(cameraVelocity.x, 0);
        }
     
     //board limit
@@ -135,9 +137,11 @@ static PlayLayer *playLayer;
     float heightLimit = -(limit.height - 320);
     if(pos.x < widthLimit){
         playLayer.boardLayer.position = ccp(widthLimit, playLayer.boardLayer.position.y);
+        cameraVelocity = ccp(0, cameraVelocity.y);
     }
     if(pos.y < heightLimit){
         playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, heightLimit);
+        cameraVelocity = ccp(cameraVelocity.x, 0);
     }
 }
 
