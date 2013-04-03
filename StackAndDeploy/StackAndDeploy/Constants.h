@@ -14,6 +14,7 @@ typedef NSMutableArray GameObjectSpriteArray;
 #define MDM [MatchDataManager sharedInstance]
 
 
+
 #define PAN_VELOCITY_SPEED 2.9
 #define PAN_VELOCITY_FRICTION .001
 #define PAN_VELOCITY_MAX 400.0

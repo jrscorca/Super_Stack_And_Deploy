@@ -40,11 +40,11 @@
     
     CGPoint forward = ccpNormalize(velocity);
 	CGPoint enemyPosition = destination;
-	CGFloat weaponRange = 50;
+	CGFloat weaponRange = 00;
 	
 	CGPoint offsetVector = ccpNormalize(ccpSub(enemyPosition, self.position));
     
-    CGPoint desiredTargetPosition = ccpMult(offsetVector, weaponRange);
+    //CGPoint desiredTargetPosition = ccpMult(offsetVector, weaponRange);
 
 	CGPoint source = ccpNormalize(ccpSub(self.position, enemyPosition));
 
@@ -54,21 +54,25 @@
 	
 	CGFloat newX = source.x*cos(xAxisangle) - source.y * sin(xAxisangle);
 	CGFloat newY = source.x*sin(xAxisangle) + source.y * cos(xAxisangle);
-	CGPoint newSource = CGPointMake( newX, newY);
+	CGPoint newSource = CGPointMake(newX, newY);
 	
 	CGFloat turning = atan2(newSource.y, newSource.x);
-	
 	CGPoint turningVel = forward;
+    
+    //clamps turning to max turn if not heading towards object
 	if(  turning > (-1 * M_PI) + (maxTurn) && turning < 0){
 		turningVel = CGPointMake(forward.x * cos(maxTurn) - forward.y * sin(maxTurn), forward.x* sin(maxTurn) + forward.y * cos(maxTurn));
-	}
-    if( turning < (M_PI) - (maxTurn) && turning >= 0){
+	}else if( turning < (M_PI) - (maxTurn) && turning >= 0){
 		maxTurn = -1 * maxTurn;
 		turningVel = CGPointMake(forward.x * cos(maxTurn) - forward.y * sin(maxTurn), forward.x* sin(maxTurn) + forward.y * cos(maxTurn));
-	}
+	}else{
+        //normalize a direction straight to objective
+        CGPoint desiredDirection = ccp(enemyPosition.x - self.position.x, enemyPosition.y - self.position.y);
+        turningVel = ccpNormalize(desiredDirection);
+    }
 	
 	
-    CGPoint targetOffset = ccpSub(enemyPosition, desiredTargetPosition);
+    //CGPoint targetOffset = ccpSub(enemyPosition, desiredTargetPosition);
 
 //    CGPoint newOffset = ccpSub(self.position, targetOffset);
 	

@@ -93,6 +93,8 @@ static PlayLayer *playLayer;
 //  NSLog(@"pintPoint %f, %f", touchPoint.x, touchPoint.y);
     deltaTouch = ccpSub(touchPoint, previousTouchPoint);
     previousTouchPoint = touchPoint;
+    playLayer.boardLayer.position = ccpAdd(UIState.playLayer.boardLayer.position, deltaTouch);
+    [self checkCameraBounds];
 }
 
 -(void) cameraOnTouchEnded:(UITouch*) touch withEvent:(UIEvent*) event{
@@ -104,7 +106,7 @@ static PlayLayer *playLayer;
 }
 
 - (void)updateCamera:(ccTime) dt {
-    cameraVelocity = [UtilityFunctions truncate:cameraVelocity toMax:PAN_VELOCITY_MAX * dt];
+    /*cameraVelocity = [UtilityFunctions truncate:cameraVelocity toMax:PAN_VELOCITY_MAX * dt];
     cameraVelocity = CGPointMake(cameraVelocity.x + PAN_VELOCITY_SPEED*(deltaTouch.x)*dt, cameraVelocity.y + PAN_VELOCITY_SPEED*(deltaTouch.y)*dt);
     cameraVelocity = ccpLerp(cameraVelocity, ccpMult(cameraVelocity, PAN_VELOCITY_FRICTION), dt);
 //	cameraVelocity = CGPointMake(cameraVelocity.x * PAN_VELOCITY_FRICTION * dt, cameraVelocity.y * PAN_VELOCITY_FRICTION * dt);
@@ -112,6 +114,8 @@ static PlayLayer *playLayer;
 		cameraVelocity = CGPointMake(0.0, 0.0);
 	}
     playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x + cameraVelocity.x, playLayer.boardLayer.position.y + cameraVelocity.y);
+     */
+//    playLayer.boardLayer.position =;
     [self checkCameraBounds];
 }
 
