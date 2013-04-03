@@ -15,7 +15,6 @@
 
 - (id)init{
     if ((self = [super init])) {
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
         NodeSprite *node = [[[NodeSprite alloc] init] autorelease];
         node.model.ownership = NO_PLAYER;
         node.position = ccp(MDM.boardSize.width/2, MDM.boardSize.height/2);

@@ -25,11 +25,7 @@
 
 @property (nonatomic, retain) Library *library;
 
-
--(void) fillDeck;
-
 -(void) drawCardFromDeck;
-
 -(void) update:(ccTime) dt;
 
 @end

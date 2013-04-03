@@ -21,7 +21,7 @@ typedef NSMutableArray GameObjectSpriteArray;
 #define PAN_VELOCITY_MIN 0.6
 
 
-
+#define INITIAL_HAND_SIZE 5
 #define BOARD_SIZE   CGSizeMake(1000,1000)
 #define MINIMAP_RECT CGRectMake(0,0,100,100)
 

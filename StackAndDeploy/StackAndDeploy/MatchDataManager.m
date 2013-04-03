@@ -36,6 +36,7 @@ static MatchDataManager *sharedInstance = nil;
         self.boardItems = [GameObjectSpriteArray array];
         self.nodes = [GameObjectSpriteArray array];
         self.bases = [GameObjectSpriteArray array];
+        self.gameObjectSprites = [GameObjectSpriteArray array];
         boardSize = CGSizeMake(1000,1000);
         
     }

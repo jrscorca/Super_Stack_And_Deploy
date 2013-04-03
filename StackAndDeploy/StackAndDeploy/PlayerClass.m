@@ -18,7 +18,8 @@
     if(self = [super init]){
         drawCardCounter = 10;
         self.library = [[[Library alloc] init] autorelease];
-        //[self fillDeck];
+        //start off with 5 cards
+        for (int i = 0; i < INITIAL_HAND_SIZE; ++i) [self drawCardFromDeck];
     }
     return self;
 }
