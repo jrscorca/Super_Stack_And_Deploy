@@ -7,8 +7,16 @@
 //
 
 #import "BoardItemSprite.h"
+#import "MatchDataManager.h"
 
 
 @implementation BoardItemSprite
+-(id)init{
+    if(self = [super initWithFile:@"Icon.png"]){
+        [self addToArray:MDM.boardItems];
+    }
+    return self;
+}
+
 
 @end

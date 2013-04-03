@@ -7,6 +7,7 @@
 //
 
 #import "GameObjectSprite.h"
+#import "MatchDataManager.h"
 
 
 @implementation GameObjectSprite
@@ -17,6 +18,7 @@
     if(self = [super initWithFile:filename]){
         self.associationArrays = [NSMutableArray array];
         self.associationPointers = [NSMutableArray array];
+        [self addToGameObjectSpriteArray];
     }
     return self;
 }
@@ -46,10 +48,17 @@
     [self.associationArrays addObject:array];
 }
 
-
 -(void) removeFromArray:(NSMutableArray*) array{
     [array removeObject:self];
     [self.associationArrays removeObject:array];
+}
+
+-(void) addToGameObjectSpriteArray{
+    [self addToArray:MDM.gameObjectSprites];
+}
+
+-(void) removeFromGameObjectSpriteArray{
+    [self removeFromArray:MDM.gameObjectSprites];
 }
 
 

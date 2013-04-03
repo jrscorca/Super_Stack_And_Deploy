@@ -28,14 +28,13 @@
     CardVO *card = notification.object;
     CardItem* cardItem = [[[CardItem alloc] initWithCardVO:card] autorelease];
     
-    [cardItem addToArray:MDM.localCardItems];
     [self addChild:cardItem];
     [self organizeHand];
 }
 
 -(void) organizeHand{
-    for(int i = 0; i < [MDM.localCardItems count]; i++){
-        CardItem *cardItem = [MDM.localCardItems objectAtIndex:i];
+    for(int i = 0; i < [MDM.cardItems count]; i++){
+        CardItem *cardItem = [MDM.cardItems objectAtIndex:i];
         cardItem.position = ccp(120 + i * cardItem.boundingBox.size.width, 44);
     }
 }

@@ -8,6 +8,7 @@
 
 #import "BaseSprite.h"
 #import "BaseModel.h"
+#import "MatchDataManager.h"
 
 @implementation BaseSprite
 @synthesize model;
@@ -17,6 +18,7 @@
         model = [[[BaseModel alloc] init] autorelease];
         CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", model.health] fontName:@"helvetica" fontSize:14];
         [self addChild:label];
+        [self addToArray:MDM.bases];
         
     }
     return self;

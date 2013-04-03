@@ -9,6 +9,7 @@
 #import "ShipSprite.h"
 #import "ShipVO.h"
 #import "UtilityFunctions.h"
+#import "MatchDataManager.h"
 
 
 @implementation ShipSprite
@@ -20,6 +21,7 @@
         velocity = ccp(1,1);
         objective = ccp(200,200);
         isSelected = NO;
+        [self addToArray:MDM.ships];
     }
     return self;
 }

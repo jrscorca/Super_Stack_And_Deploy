@@ -37,4 +37,8 @@
 //destroys object, removes object from all arrays associated with and removes from parent layer;
 -(void) destroyObject;
 
+-(void) addToGameObjectSpriteArray;
+
+-(void) removeFromGameObjectSpriteArray;
+
 @end

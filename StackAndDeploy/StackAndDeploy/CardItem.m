@@ -8,6 +8,7 @@
 
 #import "CardItem.h"
 #import "CardVO.h"
+#import "MatchDataManager.h"
 
 @implementation CardItem
 
@@ -20,6 +21,7 @@
         self.cost = 2;
         self.techReq = 2;
         self.cardVO = cardVO;
+        [self addToArray:MDM.cardItems];
     }
     return self;
 }

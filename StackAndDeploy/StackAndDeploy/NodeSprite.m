@@ -8,7 +8,7 @@
 
 #import "NodeSprite.h"
 #import "NodeModel.h"
-
+#import "MatchDataManager.h"
 
 @implementation NodeSprite
 @synthesize model;
@@ -16,6 +16,7 @@
 -(id)init{
     if(self = [super initWithFile:@"Icon.png"]){
         model = [[[NodeModel alloc] init] autorelease];
+        [self addToArray:MDM.nodes];
         
     }
     return self;

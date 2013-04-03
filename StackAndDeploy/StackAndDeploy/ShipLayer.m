@@ -41,7 +41,6 @@
     if (card.cardVO.type == SHIP) {
         ShipSprite *ship = [[[ShipSprite alloc] initWithShipVO:nil] autorelease];
         ship.position = ccp(90, 90);
-        [ship addToArray:MDM.ships];
         [self addChild:ship];
 
     }

@@ -14,7 +14,7 @@
 @implementation MatchDataManager
 
 
-@synthesize localPlayer, awayPlayer, localCardItems, ships, boardSize, nodes, bases, boardItems;
+@synthesize localPlayer, awayPlayer, cardItems, ships, boardSize, nodes, bases, boardItems, gameObjectSprites;
 
 static MatchDataManager *sharedInstance = nil;
 
@@ -31,7 +31,7 @@ static MatchDataManager *sharedInstance = nil;
     if(self = [super init]){
         self.localPlayer = [[[LocalPlayer alloc] init] autorelease];
         self.awayPlayer = [[[AwayPlayer alloc] init] autorelease];
-        self.localCardItems = [GameObjectSpriteArray array];
+        self.cardItems = [GameObjectSpriteArray array];
         self.ships = [GameObjectSpriteArray array];
         self.boardItems = [GameObjectSpriteArray array];
         self.nodes = [GameObjectSpriteArray array];
@@ -47,8 +47,11 @@ static MatchDataManager *sharedInstance = nil;
     [awayPlayer release];
     
     //these arrays are special and need all objects in them destroyed when they are destroyed
-    [localCardItemArray destroyObjectsInArray];
-    [localCardItemArray destroyArray];
+    [cardItems destroyObjectsInArray];
+    [cardItems destroyArray];
+    
+    [gameObjectSprites destroyObjectsInArray];
+    [gameObjectSprites destroyArray];
     
     [boardItems destroyObjectsInArray];
     [boardItems destroyArray];

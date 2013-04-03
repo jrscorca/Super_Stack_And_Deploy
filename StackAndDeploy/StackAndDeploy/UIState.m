@@ -45,7 +45,7 @@ static PlayLayer *playLayer;
 -(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
     //card movement
     CGPoint touchPoint = [UIState.playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
-    for (CardItem *card in MDM.localCardItems){
+    for (CardItem *card in MDM.cardItems){
         if (CGRectContainsPoint(card.boundingBox, touchPoint)) {
             return card;
         }
