@@ -37,6 +37,7 @@
 
 -(id) init{
     if(self = [super init]){
+        
         self.boardLayer = [[[BoardLayer alloc] init] autorelease];
         [self addChild:self.boardLayer];
         
