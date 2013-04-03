@@ -7,13 +7,16 @@
 //
 
 #import "BaseSprite.h"
-
+#import "BaseModel.h"
 
 @implementation BaseSprite
-
+@synthesize model;
 
 -(id)init{
     if(self = [super initWithFile:@"Icon.png"]){
+        model = [[[BaseModel alloc] init] autorelease];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", model.health] fontName:@"helvetica" fontSize:14];
+        [self addChild:label];
         
     }
     return self;

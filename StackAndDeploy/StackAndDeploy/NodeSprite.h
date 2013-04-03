@@ -10,9 +10,11 @@
 #import "cocos2d.h"
 #import "GameObjectSprite.h"
 
-
+@class NodeModel;
 @interface NodeSprite : GameObjectSprite {
-
+    NodeModel *model;
 }
+
+@property (nonatomic, retain) NodeModel *model;
 
 @end

@@ -31,3 +31,11 @@ typedef enum CardTypes
 	UTILITY 	= 0,
     SHIP 	= 1
 }cardType;
+
+typedef enum Players
+{
+	NO_PLAYER 	= 0,
+    AWAY_PLAYER 	= 1,
+    LOCAL_PLAYER 	= 2,
+    ALL_PlAYERS = 3
+}playerType;

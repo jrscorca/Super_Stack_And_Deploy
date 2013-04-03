@@ -169,6 +169,10 @@
 		F22952761703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */; };
 		F229527E170411660073B0E5 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F229527D170411660073B0E5 /* Constants.m */; };
 		F26B0480170B902100130E08 /* GameObjectVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B047F170B902100130E08 /* GameObjectVO.m */; };
+		F26B0483170B9CE900130E08 /* ShipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B0482170B9CE900130E08 /* ShipModel.m */; };
+		F26B0487170B9D1900130E08 /* NodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B0486170B9D1900130E08 /* NodeModel.m */; };
+		F26B048A170B9D2A00130E08 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B0489170B9D2A00130E08 /* BaseModel.m */; };
+		F26B048D170BA04000130E08 /* BoardItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048C170BA04000130E08 /* BoardItemModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -500,6 +504,14 @@
 		F229527D170411660073B0E5 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		F26B047E170B902100130E08 /* GameObjectVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectVO.h; sourceTree = "<group>"; };
 		F26B047F170B902100130E08 /* GameObjectVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectVO.m; sourceTree = "<group>"; };
+		F26B0481170B9CE900130E08 /* ShipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipModel.h; sourceTree = "<group>"; };
+		F26B0482170B9CE900130E08 /* ShipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipModel.m; sourceTree = "<group>"; };
+		F26B0485170B9D1900130E08 /* NodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeModel.h; sourceTree = "<group>"; };
+		F26B0486170B9D1900130E08 /* NodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeModel.m; sourceTree = "<group>"; };
+		F26B0488170B9D2A00130E08 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		F26B0489170B9D2A00130E08 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		F26B048B170BA04000130E08 /* BoardItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardItemModel.h; sourceTree = "<group>"; };
+		F26B048C170BA04000130E08 /* BoardItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -648,6 +660,7 @@
 		DE273D02170402150007B8D8 /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
+				F26B0484170B9CEF00130E08 /* Models */,
 				DE273CDB1703E0170007B8D8 /* CardItems */,
 				DE273D03170402560007B8D8 /* ShipSprite.h */,
 				DE273D04170402560007B8D8 /* ShipSprite.m */,
@@ -1128,6 +1141,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F26B0484170B9CEF00130E08 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F26B0481170B9CE900130E08 /* ShipModel.h */,
+				F26B0482170B9CE900130E08 /* ShipModel.m */,
+				F26B0485170B9D1900130E08 /* NodeModel.h */,
+				F26B0486170B9D1900130E08 /* NodeModel.m */,
+				F26B0488170B9D2A00130E08 /* BaseModel.h */,
+				F26B0489170B9D2A00130E08 /* BaseModel.m */,
+				F26B048B170BA04000130E08 /* BoardItemModel.h */,
+				F26B048C170BA04000130E08 /* BoardItemModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1341,6 +1369,10 @@
 				DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */,
 				DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */,
 				F26B0480170B902100130E08 /* GameObjectVO.m in Sources */,
+				F26B0483170B9CE900130E08 /* ShipModel.m in Sources */,
+				F26B0487170B9D1900130E08 /* NodeModel.m in Sources */,
+				F26B048A170B9D2A00130E08 /* BaseModel.m in Sources */,
+				F26B048D170BA04000130E08 /* BoardItemModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
