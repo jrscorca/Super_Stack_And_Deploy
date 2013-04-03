@@ -23,8 +23,8 @@
 @synthesize selectedShip;
 
 
--(id) initWithSelectedShip:(Ship*) _selectedShip{
-    if(self = [super init]){
+-(id) initWithSelectedShip:(ShipSprite*) _selectedShip andState:(UIState*) state{
+    if(self = [super initWithState:state]){
         [_selectedShip assignObjectToPointer:&selectedShip];
         selectedShip.isSelected = YES;
         
@@ -43,7 +43,7 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     
-    
+    [self cameraOnTouchBegan:touch withEvent:event];
 //    selectedShip
     
     GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
@@ -111,12 +111,17 @@
 #pragma mark - Transitions
 
 -(void) transitionToNormalState{
-    UINormalState *normalState = [[[UINormalState alloc] init] autorelease];
+    UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = YES;
     UIState.playLayer.hudLayer.shipSelectLayer.visible = NO;
     selectedShip.isSelected = NO;
     [UIState.playLayer changeUIState:normalState];
     
+}
+
+-(void) transitionToShipSelectState:(ShipSprite *)ship{
+    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
+    [UIState.playLayer changeUIState:shipSelectState];
 }
 
 

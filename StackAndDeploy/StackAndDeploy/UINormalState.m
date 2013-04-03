@@ -21,8 +21,8 @@
 
 @implementation UINormalState
 
--(id) init{
-    if(self = [super init]){
+-(id) initWithState:(UIState *)state{
+    if(self = [super initWithState:state]){
         
     }
     return self;
@@ -92,14 +92,14 @@
 
 #pragma mark - Transitions
 -(void) transitionToShipSelectState:(ShipSprite*) ship{
-    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship] autorelease];
+    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = NO;
     UIState.playLayer.hudLayer.shipSelectLayer.visible = YES;
     [UIState.playLayer changeUIState:shipSelectState];
 }
 
 -(void) transitionToCardSelectState:(CardItem *)card{
-    UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card] autorelease];
+    UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card andState:self] autorelease];
     [UIState.playLayer changeUIState:cardItemSelectedState];
 }
 

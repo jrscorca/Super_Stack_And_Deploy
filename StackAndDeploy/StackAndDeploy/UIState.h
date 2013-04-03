@@ -14,7 +14,7 @@
 @class PlayLayer;
 
 
-@class Ship, GameObjectSprite, CardItem;
+@class ShipSprite, GameObjectSprite, CardItem;
 @interface UIState : NSObject{
 
     
@@ -28,13 +28,17 @@
     
 }
 
+@property CGPoint previousTouchPoint, deltaTouch, cameraVelocity;
+@property BOOL isMiniMapSelected;
+
+
 
 // playLayer needs to be set at the start of each game and cleared at the end of each game
 + (void)setPlayLayer:(PlayLayer*) _playLayer;
 
 +(PlayLayer*) playLayer;
 
-- (id) init;
+- (id) initWithState:(UIState*) state;
 
 - (void) updateState:(ccTime) dt;
 
@@ -63,7 +67,7 @@
 
 //State Transitions
 -(void) transitionToNormalState;
--(void) transitionToShipSelectState:(Ship*) ship;
+-(void) transitionToShipSelectState:(ShipSprite*) ship;
 -(void) transitionToCardSelectState:(CardItem*) card;
 
 @end

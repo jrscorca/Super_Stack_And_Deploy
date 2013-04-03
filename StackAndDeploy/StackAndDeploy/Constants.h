@@ -39,3 +39,9 @@ typedef enum Players
     LOCAL_PLAYER 	= 2,
     ALL_PlAYERS = 3
 }playerType;
+
+typedef enum Steering
+{
+    SEEK = 0,
+    MOVETO = 1
+}steeringType;

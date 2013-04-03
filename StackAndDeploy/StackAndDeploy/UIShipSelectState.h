@@ -18,7 +18,7 @@
 
 @property (nonatomic, assign) ShipSprite *selectedShip;
 
--(id) initWithSelectedShip:(ShipSprite*) _selectedShip;
+-(id) initWithSelectedShip:(ShipSprite*) _selectedShip andState:(UIState*) state;
 
 
 

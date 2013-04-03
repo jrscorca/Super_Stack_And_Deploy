@@ -31,10 +31,7 @@
 
 -(void) draw{
     ccDrawColor4F(255,255,0,1);
-    //CGSize limit = MDM.boardSize;
-    //float widthLimit = limit.width;
-    //float heightLimit = limit.height;
-    //ccDrawRect(ccpAdd(viewRect, ccp(160,0)) ,  ccpAdd(viewRect, ccp((480/widthLimit) *MINIMAP_RECT.size.width, (320/heightLimit) * MINIMAP_RECT.size.height ))  );
+
     ccDrawColor4F(255,0,0,1);
     ccDrawRect(ccpAdd(self.position, ccp(160,0)), ccp(MINIMAP_RECT.size.width, MINIMAP_RECT.size.height));
     [super draw];

@@ -22,8 +22,8 @@
 
 
 
--(id) initWithSelectedCardItem:(CardItem*) cardItem{
-    if(self = [super init]){
+-(id) initWithSelectedCardItem:(CardItem*) cardItem andState:(UIState*) state{
+    if(self = [super initWithState:state]){
         [cardItem assignObjectToPointer:&selectedCard];
 //        selectedCard.isSelected = YES;
         
@@ -102,7 +102,7 @@
 #pragma mark - Transitions
 
 -(void) transitionToNormalState{
-    UINormalState *normalState = [[[UINormalState alloc] init] autorelease];
+    UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = YES;
     UIState.playLayer.hudLayer.shipSelectLayer.visible = NO;
 //    cardSele.isSelected = NO;
@@ -111,7 +111,7 @@
 }
 
 -(void) transitionToCardSelectState:(CardItem *)card{
-    UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card] autorelease];
+    UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card andState:self] autorelease];
     [UIState.playLayer changeUIState:cardItemSelectedState];
 }
 

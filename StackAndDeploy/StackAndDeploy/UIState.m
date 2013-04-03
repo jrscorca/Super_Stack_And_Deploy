@@ -18,6 +18,8 @@
 
 @implementation UIState
 
+@synthesize deltaTouch, cameraVelocity, previousTouchPoint, isMiniMapSelected;
+
 static PlayLayer *playLayer;
 
 + (void)setPlayLayer:(PlayLayer*) _playLayer{
@@ -28,12 +30,19 @@ static PlayLayer *playLayer;
     return playLayer;
 }
 
--(id) init{
+- (id) initWithState:(UIState*) state{
     if(self = [super init]){
 //        self.playLayer = _playLayer;
-        previousTouchPoint = ccp(0, 0);
-        cameraVelocity = ccp(0,0);
-        deltaTouch = ccp(0,0);
+        if(state){
+            previousTouchPoint = state.previousTouchPoint;
+            cameraVelocity = state.cameraVelocity;
+            deltaTouch = state.deltaTouch;
+            isMiniMapSelected = state.isMiniMapSelected;
+        }else{
+            previousTouchPoint = ccp(0, 0);
+            cameraVelocity = ccp(0,0);
+            deltaTouch = ccp(0,0);
+        }
     }
     return self;
 }
@@ -44,7 +53,7 @@ static PlayLayer *playLayer;
 
 -(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
     //card movement
-    CGPoint touchPoint = [UIState.playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
+    CGPoint touchPoint = [playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
     for (CardItem *card in MDM.cardItems){
         if (CGRectContainsPoint(card.boundingBox, touchPoint)) {
             return card;
@@ -52,7 +61,7 @@ static PlayLayer *playLayer;
     }
     
     //ship movement
-    touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace:touch];
+    touchPoint = [playLayer.boardLayer.shipLayer convertTouchToNodeSpace:touch];
     for (ShipSprite *ship in MDM.ships){
         if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
             return ship;
@@ -89,6 +98,7 @@ static PlayLayer *playLayer;
     previousTouchPoint = [playLayer convertTouchToNodeSpace:touch];
     cameraVelocity = CGPointZero;
 }
+
 -(void) cameraOnTouchMoved:(UITouch*) touch withEvent:(UIEvent*) event{
     CGPoint touchPoint = [playLayer convertTouchToNodeSpace:touch];
 //  NSLog(@"pintPoint %f, %f", touchPoint.x, touchPoint.y);
@@ -106,11 +116,9 @@ static PlayLayer *playLayer;
     deltaTouch = CGPointZero;
 }
 
-- (void)updateCamera:(ccTime) dt {
+-(void)updateCamera:(ccTime) dt{
     cameraVelocity = [UtilityFunctions truncate:cameraVelocity toMax:PAN_VELOCITY_MAX * dt];
     cameraVelocity = CGPointMake(cameraVelocity.x + PAN_VELOCITY_SPEED*(deltaTouch.x)*dt, cameraVelocity.y + PAN_VELOCITY_SPEED*(deltaTouch.y)*dt);
-//    cameraVelocity = ccpLerp(cameraVelocity, ccpMult(cameraVelocity, PAN_VELOCITY_FRICTION), dt);
-	//cameraVelocity = CGPointMake(cameraVelocity.x * PAN_VELOCITY_FRICTION, cameraVelocity.y * PAN_VELOCITY_FRICTION);
     CGPoint newCameraVel = ccp(cameraVelocity.x * PAN_VELOCITY_FRICTION, cameraVelocity.y * PAN_VELOCITY_FRICTION);
     CGPoint cameraDif = ccpSub(cameraVelocity, newCameraVel);
     cameraDif = ccpMult(cameraDif, dt* 15);
@@ -196,7 +204,7 @@ static PlayLayer *playLayer;
 -(void) transitionToNormalState{
     NSLog(@"normal transtition");
 }
--(void) transitionToShipSelectState:(Ship*) ship{
+-(void) transitionToShipSelectState:(ShipSprite*) ship{
     NSLog(@"ship select transition");
 }
 
