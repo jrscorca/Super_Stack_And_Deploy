@@ -1,31 +1,26 @@
 //
-//  Status.m
+//  HealthOffsetStatus.m
 //  StackAndDeploy
 //
 //  Created by Hunter Francis on 4/3/13.
 //
 //
 
-#import "Status.h"
+#import "HealthOffsetStatus.h"
 #import "BoardItemModel.h"
 #import "BoardItemSprite.h"
 
-@implementation Status
+@implementation HealthOffsetStatus
 
 -(id)init{
     if(self = [super init]){
-
+        healthOffset = -10;
         hasBeenApplied = NO;
     }
     return self;
 }
 
--(void) addStatusToGameObject:(BoardItemSprite*)gameObject{
-    [gameObject.model.statuses addObject:self];
-    if([self checkStart]){
-        [self applyStatus];
-    }
-}
+
 
 -(BOOL) checkStart{
     return YES;
@@ -33,6 +28,9 @@
 
 -(void) applyStatus{
     hasBeenApplied = YES;
+    target.model.health -= healthOffset;
+    [target.model.statuses removeObject:self];
+    
 }
 
 -(void) revertStatus{
@@ -62,6 +60,5 @@
 -(void) reccuringEffect:(ccTime) dt{
     
 }
-
 
 @end

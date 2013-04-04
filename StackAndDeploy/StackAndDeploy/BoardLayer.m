@@ -10,10 +10,11 @@
 #import "ShipLayer.h"
 #import "NodeLayer.h"
 #import "BaseLayer.h" 
+#import "BulletLayer.h"
 
 @implementation BoardLayer
 
-@synthesize shipLayer, baseLayer, nodeLayer;
+@synthesize shipLayer, baseLayer, nodeLayer, bulletLayer;
 
 - (id)init{
     if ((self = [super init])) {
@@ -45,6 +46,9 @@
         
         self.shipLayer = [[[ShipLayer alloc] init] autorelease];
         [self addChild:self.shipLayer];
+        
+        self.bulletLayer = [[[BulletLayer alloc] init] autorelease];
+        [self addChild:self.bulletLayer];
     }
     return self;
 }
@@ -53,6 +57,7 @@
     [shipLayer release];
     [nodeLayer release];
     [baseLayer release];
+    [bulletLayer release];
     [super dealloc];
 }
 

@@ -15,7 +15,7 @@
     CGPoint velocity;
     CGPoint objective;
     BOOL isSelected;
-    ShipModel *model;
+   // ShipModel *model;
     
     SteeringBehavior *steeringBehavior;
 }
@@ -23,12 +23,11 @@
 @property (nonatomic) BOOL isSelected;
 @property (nonatomic) CGPoint objective, velocity;
 @property (nonatomic, retain) SteeringBehavior *steeringBehavior;
-@property (nonatomic, retain) ShipModel *model;
+//@property (nonatomic, retain) ShipModel *model;
 
 
 -(id)initWithShipVO:(ShipVO*)shipVO;
 
--(void) update:(ccTime) dt;
 
 -(CGPoint) movement:(CGPoint) destination;
 

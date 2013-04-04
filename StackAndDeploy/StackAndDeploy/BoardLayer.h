@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class ShipLayer, BaseLayer, NodeLayer;
+@class ShipLayer, BaseLayer, NodeLayer, BulletLayer;
 @interface BoardLayer : CCLayer {
     ShipLayer *shipLayer;
     BaseLayer *baseLayer;
     NodeLayer *nodeLayer;
+    BulletLayer *bulletLayer;
+    
     
     
     //user movement around the map
@@ -26,6 +28,7 @@
 @property (nonatomic, assign) ShipLayer *shipLayer;
 @property (nonatomic, assign) BaseLayer *baseLayer;
 @property (nonatomic, assign) NodeLayer *nodeLayer;
+@property (nonatomic, assign) BulletLayer *bulletLayer;
 
 -(void) update:(ccTime)dt;
 

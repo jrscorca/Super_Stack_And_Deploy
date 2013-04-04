@@ -11,11 +11,10 @@
 #import "MatchDataManager.h"
 
 @implementation BaseSprite
-@synthesize model;
 
 -(id)init{
     if(self = [super initWithFile:@"Icon.png"]){
-        model = [[[BaseModel alloc] init] autorelease];
+        self.model = [[[BaseModel alloc] init] autorelease];
         CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", model.health] fontName:@"helvetica" fontSize:14];
         [self addChild:label];
         [self addToArray:MDM.bases];

@@ -41,4 +41,6 @@
 
 -(void) removeFromGameObjectSpriteArray;
 
+-(void) update:(ccTime) dt;
+
 @end

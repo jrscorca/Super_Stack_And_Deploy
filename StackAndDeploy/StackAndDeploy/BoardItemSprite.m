@@ -11,6 +11,9 @@
 
 
 @implementation BoardItemSprite
+
+//@synthesize model;
+
 -(id)init{
     if(self = [super initWithFile:@"Icon.png"]){
         [self addToArray:MDM.boardItems];

@@ -12,9 +12,9 @@
 
 @class NodeModel;
 @interface NodeSprite : BoardItemSprite {
-    NodeModel *model;
+   // NodeModel *model;
 }
 
-@property (nonatomic, retain) NodeModel *model;
+//@property (nonatomic, retain) NodeModel *model;
 
 @end

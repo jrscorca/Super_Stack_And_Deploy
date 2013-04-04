@@ -33,6 +33,10 @@
 		DE7CA781170CE22C006F1E6E /* SteeringBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA780170CE22C006F1E6E /* SteeringBehavior.m */; };
 		DE7CA785170D0512006F1E6E /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA784170D0512006F1E6E /* Status.m */; };
 		DE7CA789170D0C56006F1E6E /* TimeStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA788170D0C56006F1E6E /* TimeStatus.m */; };
+		DE7CA78D170D10E5006F1E6E /* WeaponStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA78C170D10E5006F1E6E /* WeaponStatus.m */; };
+		DE7CA790170D132D006F1E6E /* BulletSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA78F170D132D006F1E6E /* BulletSprite.m */; };
+		DE839F22170D221500CC6169 /* HealthOffsetStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F21170D221500CC6169 /* HealthOffsetStatus.m */; };
+		DE839F26170D238E00CC6169 /* BulletLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F25170D238E00CC6169 /* BulletLayer.m */; };
 		DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */; };
 		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
 		F22950CB1703CCEF0073B0E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */; };
@@ -231,6 +235,14 @@
 		DE7CA784170D0512006F1E6E /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Status.m; sourceTree = "<group>"; };
 		DE7CA787170D0C56006F1E6E /* TimeStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeStatus.h; sourceTree = "<group>"; };
 		DE7CA788170D0C56006F1E6E /* TimeStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeStatus.m; sourceTree = "<group>"; };
+		DE7CA78B170D10E5006F1E6E /* WeaponStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeaponStatus.h; sourceTree = "<group>"; };
+		DE7CA78C170D10E5006F1E6E /* WeaponStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeaponStatus.m; sourceTree = "<group>"; };
+		DE7CA78E170D132D006F1E6E /* BulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletSprite.h; sourceTree = "<group>"; };
+		DE7CA78F170D132D006F1E6E /* BulletSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletSprite.m; sourceTree = "<group>"; };
+		DE839F20170D221500CC6169 /* HealthOffsetStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthOffsetStatus.h; sourceTree = "<group>"; };
+		DE839F21170D221500CC6169 /* HealthOffsetStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthOffsetStatus.m; sourceTree = "<group>"; };
+		DE839F24170D238E00CC6169 /* BulletLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletLayer.h; sourceTree = "<group>"; };
+		DE839F25170D238E00CC6169 /* BulletLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletLayer.m; sourceTree = "<group>"; };
 		DE86EA2C17076DAA00841158 /* NSMutableArray+GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+GameObjects.h"; sourceTree = "<group>"; };
 		DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GameObjects.m"; sourceTree = "<group>"; };
 		DE86EA301707D71A00841158 /* MiniMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapLayer.h; sourceTree = "<group>"; };
@@ -611,6 +623,7 @@
 		DE273CEC1703E9430007B8D8 /* BoardLayer */ = {
 			isa = PBXGroup;
 			children = (
+				DE839F23170D237200CC6169 /* BulletLayer */,
 				DE130E76170516D6004CF1FA /* BaseLayer */,
 				DE130E74170516C2004CF1FA /* NodeLayer */,
 				DE273D10170405E60007B8D8 /* ShipLayer */,
@@ -687,9 +700,12 @@
 		DE7CA782170D04E9006F1E6E /* StatusSystem */ = {
 			isa = PBXGroup;
 			children = (
+				DE7CA78A170D10D3006F1E6E /* WeaponStatus */,
 				DE7CA786170D0C3B006F1E6E /* TimeStatus */,
 				DE7CA783170D0512006F1E6E /* Status.h */,
 				DE7CA784170D0512006F1E6E /* Status.m */,
+				DE839F20170D221500CC6169 /* HealthOffsetStatus.h */,
+				DE839F21170D221500CC6169 /* HealthOffsetStatus.m */,
 			);
 			name = StatusSystem;
 			sourceTree = "<group>";
@@ -701,6 +717,24 @@
 				DE7CA788170D0C56006F1E6E /* TimeStatus.m */,
 			);
 			name = TimeStatus;
+			sourceTree = "<group>";
+		};
+		DE7CA78A170D10D3006F1E6E /* WeaponStatus */ = {
+			isa = PBXGroup;
+			children = (
+				DE7CA78B170D10E5006F1E6E /* WeaponStatus.h */,
+				DE7CA78C170D10E5006F1E6E /* WeaponStatus.m */,
+			);
+			name = WeaponStatus;
+			sourceTree = "<group>";
+		};
+		DE839F23170D237200CC6169 /* BulletLayer */ = {
+			isa = PBXGroup;
+			children = (
+				DE839F24170D238E00CC6169 /* BulletLayer.h */,
+				DE839F25170D238E00CC6169 /* BulletLayer.m */,
+			);
+			name = BulletLayer;
 			sourceTree = "<group>";
 		};
 		DE86EA2A17076D5100841158 /* Utilities */ = {
@@ -1183,6 +1217,8 @@
 				DE130E811705187C004CF1FA /* BaseSprite.m */,
 				F26B048E170BC5EF00130E08 /* BoardItemSprite.h */,
 				F26B048F170BC5EF00130E08 /* BoardItemSprite.m */,
+				DE7CA78E170D132D006F1E6E /* BulletSprite.h */,
+				DE7CA78F170D132D006F1E6E /* BulletSprite.m */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -1407,6 +1443,10 @@
 				DE7CA781170CE22C006F1E6E /* SteeringBehavior.m in Sources */,
 				DE7CA785170D0512006F1E6E /* Status.m in Sources */,
 				DE7CA789170D0C56006F1E6E /* TimeStatus.m in Sources */,
+				DE7CA78D170D10E5006F1E6E /* WeaponStatus.m in Sources */,
+				DE7CA790170D132D006F1E6E /* BulletSprite.m in Sources */,
+				DE839F22170D221500CC6169 /* HealthOffsetStatus.m in Sources */,
+				DE839F26170D238E00CC6169 /* BulletLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,11 +15,12 @@
 
 @implementation ShipSprite
 
-@synthesize isSelected, objective, steeringBehavior, velocity, model;
+@synthesize isSelected, objective, steeringBehavior, velocity;
+//@synthesize model;
 
 -(id)initWithShipVO:(ShipVO*)shipVO{
     if(self = [super initWithFile:@"Icon.png"]){
-        model = [[[ShipModel alloc] init] autorelease];
+        self.model = [[[ShipModel alloc] init] autorelease];
         velocity = ccp(1,1);
         objective = ccp(200,200);
         isSelected = NO;

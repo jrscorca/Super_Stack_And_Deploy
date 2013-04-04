@@ -9,8 +9,11 @@
 #import "GameObjectSprite.h"
 #import "cocos2d.h"
 
+@class BoardItemModel;
 @interface BoardItemSprite : GameObjectSprite {
-    
+   BoardItemModel* model;
 }
+
+@property (nonatomic, retain) BoardItemModel* model;
 
 @end

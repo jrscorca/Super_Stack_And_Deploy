@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class BoardItemModel;
+@class BoardItemSprite;
 @interface Status : NSObject{
-    BoardItemModel *target;
+    BoardItemSprite *target;
     BOOL hasBeenApplied;
 }
 
--(void) addStatusToGameObject:(BoardItemModel*)gameObject;
+-(void) addStatusToGameObject:(BoardItemSprite*)gameObject;
 
 -(BOOL) checkStart;
 

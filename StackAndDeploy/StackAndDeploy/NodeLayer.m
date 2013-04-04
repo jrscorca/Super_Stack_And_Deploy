@@ -25,6 +25,9 @@
 
 
 -(void) update:(ccTime) dt{
+    for(NodeSprite *node in MDM.nodes){
+        [node update:dt];
+    }
 }
 
 @end

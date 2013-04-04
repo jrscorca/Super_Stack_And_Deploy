@@ -10,6 +10,8 @@
 #import "BaseSprite.h"
 #import "BaseModel.h"
 #import "MatchDataManager.h"
+
+
 @implementation BaseLayer
 
 - (id)init{
@@ -32,6 +34,9 @@
 }
 
 -(void) update:(ccTime) dt{
+    for(BaseSprite* base in MDM.bases){
+        [base update:dt];
+    }
 }
 
 @end

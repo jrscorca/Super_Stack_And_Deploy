@@ -11,11 +11,11 @@
 #import "MatchDataManager.h"
 
 @implementation NodeSprite
-@synthesize model;
+//@synthesize model;
 
 -(id)init{
     if(self = [super initWithFile:@"Icon.png"]){
-        model = [[[NodeModel alloc] init] autorelease];
+        self.model = [[[NodeModel alloc] init] autorelease];
         [self addToArray:MDM.nodes];
         
     }

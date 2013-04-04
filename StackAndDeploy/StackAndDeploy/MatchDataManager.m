@@ -14,7 +14,7 @@
 @implementation MatchDataManager
 
 
-@synthesize localPlayer, awayPlayer, cardItems, ships, boardSize, nodes, bases, boardItems, gameObjectSprites;
+@synthesize localPlayer, awayPlayer, cardItems, ships, boardSize, nodes, bases, boardItems, gameObjectSprites, bullets;
 
 static MatchDataManager *sharedInstance = nil;
 
@@ -37,6 +37,7 @@ static MatchDataManager *sharedInstance = nil;
         self.nodes = [GameObjectSpriteArray array];
         self.bases = [GameObjectSpriteArray array];
         self.gameObjectSprites = [GameObjectSpriteArray array];
+        self.bullets = [GameObjectSpriteArray array];
         boardSize = CGSizeMake(1000,1000);
         
     }
@@ -63,6 +64,9 @@ static MatchDataManager *sharedInstance = nil;
     
     [ships destroyObjectsInArray];
     [ships destroyArray];
+    
+    [bases destroyObjectsInArray];
+    [bases destroyArray];
     
     [super dealloc];
 }
