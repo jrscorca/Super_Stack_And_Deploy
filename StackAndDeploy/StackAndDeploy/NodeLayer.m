@@ -17,6 +17,10 @@
     if ((self = [super init])) {
         NodeSprite *node = [[[NodeSprite alloc] init] autorelease];
         node.model.ownership = NO_PLAYER;
+        
+        
+        
+        
         node.position = ccp(MDM.boardSize.width/2, MDM.boardSize.height/2);
         [self addChild:node];
     }

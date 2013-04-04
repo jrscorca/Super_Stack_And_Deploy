@@ -11,6 +11,7 @@
 @class ShipSprite;
 @interface UIShipSelectState : UIState{
     ShipSprite *selectedShip;
+    BOOL abilitySelected;
     
     
     

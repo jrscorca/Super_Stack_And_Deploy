@@ -10,9 +10,12 @@
 #import "BoardItemModel.h"
 
 @interface NodeModel : BoardItemModel{
-    
+    float maxResources;
+    float resourcesLeft;
     float capturePercentage;
     
 }
+
+@property (nonatomic) float maxResources, resourcesLeft, capturePercentage;
 
 @end

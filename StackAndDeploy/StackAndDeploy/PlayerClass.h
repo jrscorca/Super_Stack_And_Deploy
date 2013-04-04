@@ -12,7 +12,7 @@
 
 @class CardItem, Library;
 @interface PlayerClass : NSObject {
-    int resources;
+    float resources;
     int techPoints;
     BOOL isLocalPlayer;
     //draw card counter
@@ -24,7 +24,7 @@
 }
 
 @property (nonatomic, retain) Library *library;
-
+@property (nonatomic) float resources;
 -(void) drawCardFromDeck;
 -(void) update:(ccTime) dt;
 

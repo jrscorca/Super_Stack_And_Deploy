@@ -37,6 +37,8 @@
 		DE7CA790170D132D006F1E6E /* BulletSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA78F170D132D006F1E6E /* BulletSprite.m */; };
 		DE839F22170D221500CC6169 /* HealthOffsetStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F21170D221500CC6169 /* HealthOffsetStatus.m */; };
 		DE839F26170D238E00CC6169 /* BulletLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F25170D238E00CC6169 /* BulletLayer.m */; };
+		DE839F2A170E19A500CC6169 /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F29170E19A500CC6169 /* Ability.m */; };
+		DE839F2D170E1AAF00CC6169 /* ColonizeAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */; };
 		DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */; };
 		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
 		F22950CB1703CCEF0073B0E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */; };
@@ -243,6 +245,10 @@
 		DE839F21170D221500CC6169 /* HealthOffsetStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthOffsetStatus.m; sourceTree = "<group>"; };
 		DE839F24170D238E00CC6169 /* BulletLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletLayer.h; sourceTree = "<group>"; };
 		DE839F25170D238E00CC6169 /* BulletLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletLayer.m; sourceTree = "<group>"; };
+		DE839F28170E19A500CC6169 /* Ability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ability.h; sourceTree = "<group>"; };
+		DE839F29170E19A500CC6169 /* Ability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ability.m; sourceTree = "<group>"; };
+		DE839F2B170E1AAF00CC6169 /* ColonizeAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColonizeAbility.h; sourceTree = "<group>"; };
+		DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColonizeAbility.m; sourceTree = "<group>"; };
 		DE86EA2C17076DAA00841158 /* NSMutableArray+GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+GameObjects.h"; sourceTree = "<group>"; };
 		DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GameObjects.m"; sourceTree = "<group>"; };
 		DE86EA301707D71A00841158 /* MiniMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapLayer.h; sourceTree = "<group>"; };
@@ -737,6 +743,17 @@
 			name = BulletLayer;
 			sourceTree = "<group>";
 		};
+		DE839F27170E198B00CC6169 /* Abilities */ = {
+			isa = PBXGroup;
+			children = (
+				DE839F28170E19A500CC6169 /* Ability.h */,
+				DE839F29170E19A500CC6169 /* Ability.m */,
+				DE839F2B170E1AAF00CC6169 /* ColonizeAbility.h */,
+				DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */,
+			);
+			name = Abilities;
+			sourceTree = "<group>";
+		};
 		DE86EA2A17076D5100841158 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -795,6 +812,7 @@
 		F22950DC1703CCEF0073B0E5 /* StackAndDeploy */ = {
 			isa = PBXGroup;
 			children = (
+				DE839F27170E198B00CC6169 /* Abilities */,
 				DE7CA782170D04E9006F1E6E /* StatusSystem */,
 				DE273CD31703DC8D0007B8D8 /* GameScene */,
 				DE273D02170402150007B8D8 /* GameObjects */,
@@ -1447,6 +1465,8 @@
 				DE7CA790170D132D006F1E6E /* BulletSprite.m in Sources */,
 				DE839F22170D221500CC6169 /* HealthOffsetStatus.m in Sources */,
 				DE839F26170D238E00CC6169 /* BulletLayer.m in Sources */,
+				DE839F2A170E19A500CC6169 /* Ability.m in Sources */,
+				DE839F2D170E1AAF00CC6169 /* ColonizeAbility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,4 +33,6 @@
 
 + (MatchDataManager*)sharedInstance;
 
+-(PlayerClass*) getPlayer:(playerType) player;
+
 @end

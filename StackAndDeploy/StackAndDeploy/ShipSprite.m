@@ -12,7 +12,7 @@
 #import "MatchDataManager.h"
 #import "ShipModel.h"
 #import "SteeringBehavior.h"
-
+#import "ColonizeAbility.h"
 @implementation ShipSprite
 
 @synthesize isSelected, objective, steeringBehavior, velocity;
@@ -21,11 +21,18 @@
 -(id)initWithShipVO:(ShipVO*)shipVO{
     if(self = [super initWithFile:@"Icon.png"]){
         self.model = [[[ShipModel alloc] init] autorelease];
+        self.model.ownership = LOCAL_PLAYER;
         velocity = ccp(1,1);
         objective = ccp(200,200);
         isSelected = NO;
         [self addToArray:MDM.ships];
         self.steeringBehavior = [[[SteeringBehavior alloc] initWithShip:self] autorelease];
+        
+        
+        ColonizeAbility *ability = [[[ColonizeAbility alloc] initWithShip:self] autorelease];
+        [((ShipModel*)self.model).abilityArray addObject:ability];
+        
+        
     }
     return self;
 }

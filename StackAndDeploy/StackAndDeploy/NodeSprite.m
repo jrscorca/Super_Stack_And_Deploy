@@ -9,6 +9,7 @@
 #import "NodeSprite.h"
 #import "NodeModel.h"
 #import "MatchDataManager.h"
+#import "PlayerClass.h"
 
 @implementation NodeSprite
 //@synthesize model;
@@ -23,9 +24,18 @@
 }
 
 -(void) update:(ccTime) dt{
+    PlayerClass *player = [MDM getPlayer:self.model.ownership];
+    player.resources += 10*dt;
+    ((NodeModel*)self.model).resourcesLeft -= 10*dt;
     
     
     
+}
+
+
+-(void) playerCaptureNode:(playerType) player{
+    self.model.ownership = player;
+    self.color = ccBLUE;
 }
 
 @end

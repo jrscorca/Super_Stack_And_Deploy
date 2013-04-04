@@ -17,4 +17,6 @@
 
 //@property (nonatomic, retain) NodeModel *model;
 
+-(void) playerCaptureNode:(playerType) player;
+
 @end

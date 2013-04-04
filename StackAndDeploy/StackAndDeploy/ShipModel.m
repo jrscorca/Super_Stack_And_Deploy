@@ -10,4 +10,16 @@
 
 @implementation ShipModel
 
+@synthesize abilityArray;
+
+-(id) init{
+    if(self = [super init]){
+        self.abilityArray = [NSMutableArray array];
+        
+        //hardcode an ability
+        
+    }
+    return self;
+}
+
 @end

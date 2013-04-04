@@ -14,6 +14,7 @@
     HandLayer *handLayer;
     MiniMapLayer *miniMapLayer;
     ShipSelectLayer *shipSelectLayer;
+    CCLabelTTF *resourceLabel;
 }
 @property (nonatomic, assign) HandLayer *handLayer;
 @property (nonatomic, assign) MiniMapLayer *miniMapLayer;

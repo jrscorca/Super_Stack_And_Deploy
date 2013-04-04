@@ -71,4 +71,15 @@ static MatchDataManager *sharedInstance = nil;
     [super dealloc];
 }
 
+
+-(PlayerClass*) getPlayer:(playerType) player{
+    if(player == LOCAL_PLAYER){
+        return localPlayer;
+    }
+    if(player == AWAY_PLAYER){
+        return awayPlayer;
+    }
+    return nil;
+}
+
 @end

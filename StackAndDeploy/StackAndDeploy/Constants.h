@@ -24,6 +24,7 @@ typedef NSMutableArray GameObjectSpriteArray;
 #define INITIAL_HAND_SIZE 5
 #define BOARD_SIZE   CGSizeMake(1000,1000)
 #define MINIMAP_RECT CGRectMake(0,0,100,100)
+#define ABILITY_RECT CGRectMake(380, 0, 100, 100)
 
 
 typedef enum CardTypes

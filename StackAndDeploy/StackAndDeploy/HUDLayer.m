@@ -10,6 +10,9 @@
 #import "HandLayer.h"
 #import "MiniMapLayer.h"
 #import "ShipSelectLayer.h"
+#import "PlayerClass.h"
+#import "LocalPlayer.h"
+#import "MatchDataManager.h"
 
 @implementation HUDLayer
 
@@ -26,6 +29,12 @@
         self.shipSelectLayer = [ShipSelectLayer node];
         [self addChild:self.shipSelectLayer];
         self.shipSelectLayer.visible = NO;
+        
+        resourceLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"resources: %d", 0] fontName:@"helvetica" fontSize:14];
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        resourceLabel.position = ccp(winSize.width- 50, 20);
+        [self addChild:resourceLabel];
+        
     }
     return self;
 }
@@ -38,7 +47,9 @@
     [self.handLayer update:dt];
     [self.miniMapLayer update:dt];
     [self.shipSelectLayer update:dt];
+    [resourceLabel setString:[NSString stringWithFormat:@"resources: %f", MDM.localPlayer.resources]];
 }
+
 
 
 @end

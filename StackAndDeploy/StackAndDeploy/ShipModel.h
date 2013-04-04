@@ -10,7 +10,9 @@
 #import "BoardItemModel.h"
 
 @interface ShipModel : BoardItemModel{
+    NSMutableArray *abilityArray;
 
 }
+@property (nonatomic, retain) NSMutableArray *abilityArray;
 
 @end

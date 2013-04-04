@@ -16,6 +16,8 @@
 #import "ShipLayer.h"
 #import "ShipSprite.h"
 #import "ShipSelectLayer.h"
+#import "ShipModel.h"
+#import "Ability.h"
 #import "UINormalState.h"
 
 @implementation UIShipSelectState
@@ -27,7 +29,7 @@
     if(self = [super initWithState:state]){
         [_selectedShip assignObjectToPointer:&selectedShip];
         selectedShip.isSelected = YES;
-        
+        abilitySelected = NO;
     }
     return self;
 }
@@ -64,6 +66,10 @@
         [self cleanCameraVariables];
         return YES;
     }
+    if(CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
+        abilitySelected = YES;
+        return YES;
+    }
     
     
     [self transitionToNormalState];
@@ -77,7 +83,9 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    if(selectedShip){
+    
+    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+    if(selectedShip && !abilitySelected){
         //move ship to point on minimap or point on board
         CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
         if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
@@ -89,12 +97,16 @@
         
     }else if(isMiniMapSelected){
         isMiniMapSelected = NO;
+    }else if(abilitySelected && CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
+        //do ability
+        Ability *ability = [((ShipModel*)selectedShip.model).abilityArray objectAtIndex:0];
+        [ability activateAbility];
+        abilitySelected = NO;
     }
 }
 
 - (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event{
     if(selectedShip){
-        
         CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
         if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
             touchPoint = [self miniMapToBoardConversion:touch withEvent:event];
@@ -104,6 +116,8 @@
         [selectedShip moveShip:touchPoint];
     }else if(isMiniMapSelected){
         isMiniMapSelected = NO;
+    }else if(abilitySelected){
+        abilitySelected = NO;
     }
 }
 

@@ -10,4 +10,15 @@
 
 @implementation NodeModel
 
+@synthesize maxResources, resourcesLeft, capturePercentage;
+
+-(id) init{
+    if(self = [super init]){
+        maxResources = 200;
+        resourcesLeft = maxResources;
+        capturePercentage = 0;
+    }
+    return self;
+}
+
 @end
