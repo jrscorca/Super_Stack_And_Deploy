@@ -45,6 +45,20 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     
+    
+    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+    if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
+        isMiniMapSelected = YES;
+        [self moveMiniMap: touch withEvent:event];
+        [self cleanCameraVariables];
+        return YES;
+    }
+    if(CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
+        abilitySelected = YES;
+        return YES;
+    }
+    
+    
     [self cameraOnTouchBegan:touch withEvent:event];
 //    selectedShip
     
@@ -59,17 +73,7 @@
     }
     
     
-    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
-    if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
-        isMiniMapSelected = YES;
-        [self moveMiniMap: touch withEvent:event];
-        [self cleanCameraVariables];
-        return YES;
-    }
-    if(CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
-        abilitySelected = YES;
-        return YES;
-    }
+
     
     
     [self transitionToNormalState];

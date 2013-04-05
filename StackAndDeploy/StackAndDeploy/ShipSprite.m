@@ -44,7 +44,6 @@
 -(void) dealloc{
     [steeringBehavior release];
     steeringBehavior = nil;
-    //[model release];
     [super dealloc];
 }
 

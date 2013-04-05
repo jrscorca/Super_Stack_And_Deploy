@@ -16,6 +16,7 @@
 #import "UIState.h"
 #import "GameObjectSprite.h"
 #import "MiniMapLayer.h"
+#import "PlayerClass.h"
 
 
 @implementation PlayLayer
@@ -51,7 +52,7 @@
         [self scheduleUpdate];
         
         isTouchEnabled_ = YES;
-        
+        for (int i = 0; i < INITIAL_HAND_SIZE; ++i) [MDM.localPlayer drawCardFromDeck];
 
         
         

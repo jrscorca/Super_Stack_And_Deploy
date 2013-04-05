@@ -14,6 +14,11 @@
 -(id) init{
     if(self = [super init]){
  //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawCard:) name:kNotification_CardDrawLocal object:nil];
+//        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CCSprite *hud = [CCSprite spriteWithFile:@"abilities.png"];
+        hud.position = ccp(425, 47);
+        [self addChild:hud];
+        
     }
     return self;
 }
@@ -29,13 +34,6 @@
     */
 }
 
--(void) draw{
-    ccDrawColor4F(255,255,0,1);
-
-    ccDrawColor4F(255,0,0,1);
-    ccDrawRect(ccpAdd(self.position, ccp(160,0)), ccp(MINIMAP_RECT.size.width, MINIMAP_RECT.size.height));
-    [super draw];
-}
 
 
 @end

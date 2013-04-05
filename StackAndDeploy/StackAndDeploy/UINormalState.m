@@ -34,6 +34,16 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 
+    
+    //minimap touching code
+    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+    if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
+        isMiniMapSelected = YES;
+        [self moveMiniMap: touch withEvent:event];
+        [self cleanCameraVariables];
+        return YES;
+    }
+    
     GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
 //    [[self objectAtPoint:touch withEvent:event] assignObjectToPointer:&touchedObject];
     if(touchedObject){
@@ -47,14 +57,7 @@
     }
     
     
-    //minimap touching code
-    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
-    if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
-        isMiniMapSelected = YES;
-        [self moveMiniMap: touch withEvent:event];
-        [self cleanCameraVariables];
-        return YES;
-    }
+
     
     //camera/world movement
 //    previousTouchPoint = [playLayer.boardLayer convertTouchToNodeSpace:touch];

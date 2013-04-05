@@ -20,6 +20,11 @@
 
 - (id)init{
     if ((self = [super init])) {
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CCSprite *hud = [CCSprite spriteWithFile:@"overlay.png"];
+        hud.position = ccp(winSize.width/2, 75);
+        [self addChild:hud];
+        
         self.handLayer = [HandLayer node];
         [self addChild:self.handLayer];
         
@@ -30,9 +35,9 @@
         [self addChild:self.shipSelectLayer];
         self.shipSelectLayer.visible = NO;
         
-        resourceLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"resources: %d", 0] fontName:@"helvetica" fontSize:14];
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        resourceLabel.position = ccp(winSize.width- 50, 20);
+        resourceLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f", 0.0] fontName:@"helvetica" fontSize:14];
+
+        resourceLabel.position = ccp(winSize.width- 70, 300);
         [self addChild:resourceLabel];
         
     }
@@ -47,7 +52,7 @@
     [self.handLayer update:dt];
     [self.miniMapLayer update:dt];
     [self.shipSelectLayer update:dt];
-    [resourceLabel setString:[NSString stringWithFormat:@"resources: %f", MDM.localPlayer.resources]];
+    [resourceLabel setString:[NSString stringWithFormat:@"%.0f", MDM.localPlayer.resources]];
 }
 
 

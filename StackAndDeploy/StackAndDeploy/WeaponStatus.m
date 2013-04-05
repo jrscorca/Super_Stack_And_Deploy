@@ -55,6 +55,7 @@
                     [[NSNotificationCenter defaultCenter] postNotificationName:kBulletSpawned object:bullet];
                     [bullet release];
                     weaponCooldown = 5;
+                    return;
                 }
             }
         }

@@ -55,8 +55,10 @@ static PlayLayer *playLayer;
     //card movement
     CGPoint touchPoint = [playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
     for (CardItem *card in MDM.cardItems){
-        if (CGRectContainsPoint(card.boundingBox, touchPoint)) {
-            return card;
+        if(card.visible){
+            if (CGRectContainsPoint(card.boundingBox, touchPoint)) {
+                return card;
+            }
         }
     }
     
@@ -121,7 +123,7 @@ static PlayLayer *playLayer;
     cameraVelocity = CGPointMake(cameraVelocity.x + PAN_VELOCITY_SPEED*(deltaTouch.x)*dt, cameraVelocity.y + PAN_VELOCITY_SPEED*(deltaTouch.y)*dt);
     CGPoint newCameraVel = ccp(cameraVelocity.x * PAN_VELOCITY_FRICTION, cameraVelocity.y * PAN_VELOCITY_FRICTION);
     CGPoint cameraDif = ccpSub(cameraVelocity, newCameraVel);
-    cameraDif = ccpMult(cameraDif, dt* 15);
+    cameraDif = ccpMult(cameraDif, dt * 15);
   //  NSLog(@"cameraVel %f, %f", cameraVelocity.x, cameraVelocity.y);
   //  NSLog(@"CameraDif %f, %f", cameraDif.x, cameraDif.y);
     cameraVelocity = ccpSub(cameraVelocity, cameraDif);
@@ -142,9 +144,9 @@ static PlayLayer *playLayer;
         playLayer.boardLayer.position = ccp(0, playLayer.boardLayer.position.y);
         cameraVelocity = ccp(0, cameraVelocity.y);
     }
-       if(pos.y > 0){
-           playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, 0);
-           cameraVelocity = ccp(cameraVelocity.x, 0);
+       if(pos.y > 180){
+           playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, 180);
+           cameraVelocity = ccp(cameraVelocity.x, 180);
        }
     
     //board limit

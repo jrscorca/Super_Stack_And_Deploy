@@ -18,12 +18,12 @@ typedef NSMutableArray GameObjectSpriteArray;
 #define PAN_VELOCITY_SPEED 4.4
 #define PAN_VELOCITY_FRICTION .85
 #define PAN_VELOCITY_MAX 2000.0
-#define PAN_VELOCITY_MIN 0.6
+#define PAN_VELOCITY_MIN 0.3
 
 
 #define INITIAL_HAND_SIZE 5
 #define BOARD_SIZE   CGSizeMake(1000,1000)
-#define MINIMAP_RECT CGRectMake(0,0,100,100)
+#define MINIMAP_RECT CGRectMake(5,5,105,105)
 #define ABILITY_RECT CGRectMake(380, 0, 100, 100)
 
 #define BULLET_LIFETIME 0.3

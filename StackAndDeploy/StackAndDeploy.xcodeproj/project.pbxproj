@@ -41,6 +41,8 @@
 		DE839F2D170E1AAF00CC6169 /* ColonizeAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */; };
 		DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */; };
 		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
+		DEAE8578170F5043000126EE /* abilities-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAE8576170F5043000126EE /* abilities-hd.png */; };
+		DEAE8579170F5043000126EE /* overlay-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAE8577170F5043000126EE /* overlay-hd.png */; };
 		F22950CB1703CCEF0073B0E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */; };
 		F22950CD1703CCEF0073B0E5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */; };
 		F22950CF1703CCEF0073B0E5 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CE1703CCEF0073B0E5 /* OpenAL.framework */; };
@@ -254,6 +256,8 @@
 		DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GameObjects.m"; sourceTree = "<group>"; };
 		DE86EA301707D71A00841158 /* MiniMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapLayer.h; sourceTree = "<group>"; };
 		DE86EA311707D71A00841158 /* MiniMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniMapLayer.m; sourceTree = "<group>"; };
+		DEAE8576170F5043000126EE /* abilities-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abilities-hd.png"; sourceTree = "<group>"; };
+		DEAE8577170F5043000126EE /* overlay-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-hd.png"; sourceTree = "<group>"; };
 		F22950C71703CCEF0073B0E5 /* StackAndDeploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackAndDeploy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -844,6 +848,8 @@
 				F229526B1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.png */,
 				F229526C1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.png */,
 				F229526D1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet.png */,
+				DEAE8576170F5043000126EE /* abilities-hd.png */,
+				DEAE8577170F5043000126EE /* overlay-hd.png */,
 				F22950DE1703CCEF0073B0E5 /* Default.png */,
 				F22950E01703CCEF0073B0E5 /* Default-Landscape~ipad.png */,
 				F22950E21703CCEF0073B0E5 /* fps_images.png */,
@@ -1315,6 +1321,8 @@
 				F22952741703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist in Resources */,
 				F22952751703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist in Resources */,
 				F22952761703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist in Resources */,
+				DEAE8578170F5043000126EE /* abilities-hd.png in Resources */,
+				DEAE8579170F5043000126EE /* overlay-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
