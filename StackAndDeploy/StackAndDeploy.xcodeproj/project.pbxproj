@@ -182,6 +182,7 @@
 		F26B048A170B9D2A00130E08 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B0489170B9D2A00130E08 /* BaseModel.m */; };
 		F26B048D170BA04000130E08 /* BoardItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048C170BA04000130E08 /* BoardItemModel.m */; };
 		F26B0490170BC5EF00130E08 /* BoardItemSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048F170BC5EF00130E08 /* BoardItemSprite.m */; };
+		F2A2D5CD170E501400899679 /* BulletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A2D5CC170E501400899679 /* BulletModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -539,6 +540,8 @@
 		F26B048C170BA04000130E08 /* BoardItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemModel.m; sourceTree = "<group>"; };
 		F26B048E170BC5EF00130E08 /* BoardItemSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardItemSprite.h; sourceTree = "<group>"; };
 		F26B048F170BC5EF00130E08 /* BoardItemSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemSprite.m; sourceTree = "<group>"; };
+		F2A2D5CB170E501400899679 /* BulletModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletModel.h; sourceTree = "<group>"; };
+		F2A2D5CC170E501400899679 /* BulletModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1208,6 +1211,8 @@
 		F26B0484170B9CEF00130E08 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F2A2D5CB170E501400899679 /* BulletModel.h */,
+				F2A2D5CC170E501400899679 /* BulletModel.m */,
 				F26B0481170B9CE900130E08 /* ShipModel.h */,
 				F26B0482170B9CE900130E08 /* ShipModel.m */,
 				F26B0485170B9D1900130E08 /* NodeModel.h */,
@@ -1467,6 +1472,7 @@
 				DE839F26170D238E00CC6169 /* BulletLayer.m in Sources */,
 				DE839F2A170E19A500CC6169 /* Ability.m in Sources */,
 				DE839F2D170E1AAF00CC6169 /* ColonizeAbility.m in Sources */,
+				F2A2D5CD170E501400899679 /* BulletModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

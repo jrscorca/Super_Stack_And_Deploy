@@ -12,12 +12,8 @@
 #import "MatchDataManager.h"
 #import "ShipModel.h"
 #import "SteeringBehavior.h"
-<<<<<<< HEAD
 #import "ColonizeAbility.h"
-=======
 #import "WeaponStatus.h"
-
->>>>>>> test
 @implementation ShipSprite
 
 @synthesize isSelected, objective, steeringBehavior, velocity;
@@ -27,11 +23,8 @@
     if(self = [super initWithFile:@"Icon.png"]){
         WeaponStatus *weapon = [[[WeaponStatus alloc] initWithTarget:self] autorelease];
         self.model = [[[ShipModel alloc] init] autorelease];
-<<<<<<< HEAD
         self.model.ownership = LOCAL_PLAYER;
-=======
         [model.statuses addObject:weapon];
->>>>>>> test
         velocity = ccp(1,1);
         objective = ccp(200,200);
         isSelected = NO;
