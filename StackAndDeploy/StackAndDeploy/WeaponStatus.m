@@ -48,7 +48,7 @@
             if(![ship isEqual:target]){
                 float distance = ccpDistance(myPosition, ship.position);
                 if(distance < 200){
-                    Status *damage = [[[HealthOffsetStatus alloc] init] autorelease];
+                    Status *damage = [[[HealthOffsetStatus alloc] initWithTarget:ship] autorelease];
                     damage.target = ship;
                     //TODO: make a VO for bullets instead of passing around sprite objects?
                     BulletSprite *bullet = [[BulletSprite alloc] initWithBoardItemSprite:target andStatus:damage];

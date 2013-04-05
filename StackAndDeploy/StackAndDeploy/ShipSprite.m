@@ -25,6 +25,7 @@
         self.model = [[[ShipModel alloc] init] autorelease];
         self.model.ownership = LOCAL_PLAYER;
         [model.statuses addObject:weapon];
+        model.health = 50;
         velocity = ccp(1,1);
         objective = ccp(200,200);
         isSelected = NO;
@@ -43,7 +44,7 @@
 -(void) dealloc{
     [steeringBehavior release];
     steeringBehavior = nil;
-    [model release];
+    //[model release];
     [super dealloc];
 }
 
@@ -52,6 +53,10 @@
     [super update:dt];
     velocity = [steeringBehavior updateMovement]; //[self movement:objective];
     self.position = ccpAdd(self.position, ccpMult(velocity, 1));
+    if (model.health <=0) {
+        [MDM.gameObjectsToRemove addObject:self];
+        self.remove = YES;
+    }
     
 }
 

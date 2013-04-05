@@ -14,7 +14,7 @@
 
 -(id)initWithTarget:(BoardItemSprite *)_target{
     if(self = [super initWithTarget:_target]){
-        healthOffset = -10;
+        healthOffset = -20;
         hasBeenApplied = NO;
     }
     return self;
@@ -28,7 +28,7 @@
 
 -(void) applyStatus{
     hasBeenApplied = YES;
-    target.model.health -= healthOffset;
+    target.model.health += healthOffset;
     [target.model.statuses removeObject:self];
     
 }

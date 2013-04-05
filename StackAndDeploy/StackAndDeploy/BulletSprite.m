@@ -24,7 +24,7 @@
         self.position = source.position;
         [self addToArray:MDM.bullets];
         self.status = _status;
-        [self performSelector:@selector(bulletHit) withObject:nil afterDelay:BULLET_LIFETIME];
+        [self performSelector:@selector(move) withObject:nil afterDelay:BULLET_LIFETIME];
         CCMoveTo *moveTo = [CCMoveTo actionWithDuration:BULLET_LIFETIME position:destination.position];
         [self runAction:moveTo];
     }
@@ -43,8 +43,9 @@
 
 -(void) update:(ccTime) dt{
     [super update:dt];
-    if(destination == nil){
-        [self destroyObject];
+    if(destination == nil || destination.remove){
+        self.remove = YES;
+        [MDM.gameObjectsToRemove addObject:self];
     }else if(CGRectContainsRect(destination.boundingBox,self.boundingBox)){
         [self bulletHit];
     }
@@ -54,6 +55,11 @@
     [status addStatusToGameObject: destination];
     self.remove = YES;
     [MDM.gameObjectsToRemove addObject:self];
+    
+}
+
+-(void)move{
+    if(destination) self.position = destination.position;
 }
 
 @end
