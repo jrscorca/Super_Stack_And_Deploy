@@ -20,6 +20,9 @@ typedef NSMutableArray GameObjectSpriteArray;
 #define PAN_VELOCITY_MAX 2000.0
 #define PAN_VELOCITY_MIN 0.3
 
+#define OVERLAY_HEIGHT 110
+
+
 
 #define INITIAL_HAND_SIZE 5
 #define BOARD_SIZE   CGSizeMake(1000,1000)

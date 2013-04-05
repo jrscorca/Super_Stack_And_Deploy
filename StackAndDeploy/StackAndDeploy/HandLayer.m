@@ -35,7 +35,7 @@
 -(void) organizeHand{
     for(int i = 0; i < [MDM.cardItems count]; i++){
         CardItem *cardItem = [MDM.cardItems objectAtIndex:i];
-        cardItem.position = ccp(120 + i * cardItem.boundingBox.size.width, 44);
+        cardItem.position = ccp(140 + i * cardItem.boundingBox.size.width, 34);
     }
 }
 

@@ -144,9 +144,9 @@ static PlayLayer *playLayer;
         playLayer.boardLayer.position = ccp(0, playLayer.boardLayer.position.y);
         cameraVelocity = ccp(0, cameraVelocity.y);
     }
-       if(pos.y > 180){
-           playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, 180);
-           cameraVelocity = ccp(cameraVelocity.x, 180);
+       if(pos.y > OVERLAY_HEIGHT){
+           playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x, OVERLAY_HEIGHT);
+           cameraVelocity = ccp(cameraVelocity.x, 0);
        }
     
     //board limit
@@ -190,7 +190,7 @@ static PlayLayer *playLayer;
         // find percent spot touched on mini map
         CGPoint percentOnMiniMap = ccp(-touchPoint.x/MINIMAP_RECT.size.width, -touchPoint.y/MINIMAP_RECT.size.height);
         //TODO: this number should be a ratio between screen size and map size
-        percentOnMiniMap = ccpSub(percentOnMiniMap, ccp(-0.2, -0.2));
+        percentOnMiniMap = ccpSub(percentOnMiniMap, ccp(-0.2, -0.3));
         
         // move boardLayer to that relative spot
         CGSize limit = MDM.boardSize;

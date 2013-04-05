@@ -27,7 +27,6 @@
         [model.statuses addObject:weapon];
         model.health = 50;
         velocity = ccp(1,1);
-        objective = ccp(200,200);
         isSelected = NO;
         [self addToArray:MDM.ships];
         self.steeringBehavior = [[[SteeringBehavior alloc] initWithShip:self] autorelease];
@@ -62,7 +61,8 @@
 
 
 -(void)moveShip:(CGPoint)touch{
-    
+    //make sure point is on map
+//    CGSize limit = MDM.boardSize;
     self.steeringBehavior.objective = touch;
 }
 

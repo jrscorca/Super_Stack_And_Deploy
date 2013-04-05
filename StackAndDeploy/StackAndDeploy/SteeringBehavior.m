@@ -18,7 +18,7 @@
 
 -(id)initWithShip:(ShipSprite*) ship{
     if(self = [super init]){
-        self.objective = CGPointZero;
+        self.objective = ccp(200,200);
         [ship assignObjectToPointer:&myShip];
         steering = MOVETO;
     }

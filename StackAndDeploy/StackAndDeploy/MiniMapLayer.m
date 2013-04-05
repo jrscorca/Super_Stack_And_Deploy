@@ -39,16 +39,18 @@
     
     
     //find percent
+    
     viewRect = ccp((pos.x/widthLimit) * MINIMAP_RECT.size.width, (pos.y/heightLimit) * MINIMAP_RECT.size.height);
-    viewRect = ccpAdd(ccp(MINIMAP_RECT.origin.x, MINIMAP_RECT.origin.y), viewRect);
+    viewRect = ccpAdd(ccp(MINIMAP_RECT.origin.x, MINIMAP_RECT.origin.y + (OVERLAY_HEIGHT/-widthLimit) * MINIMAP_RECT.size.height ), viewRect);
 }
 
 -(void) draw{
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
     ccDrawColor4F(255,255,0,1);
     CGSize limit = MDM.boardSize;
     float widthLimit = limit.width;
     float heightLimit = limit.height;
-    ccDrawRect(viewRect,  ccpAdd(ccpSub(viewRect, ccp(MINIMAP_RECT.origin.x, MINIMAP_RECT.origin.y)), ccp((480/widthLimit) *MINIMAP_RECT.size.width, (320/heightLimit) * MINIMAP_RECT.size.height ))  );
+    ccDrawRect(viewRect,  ccpAdd(ccpSub(viewRect, ccp(MINIMAP_RECT.origin.x, MINIMAP_RECT.origin.y)), ccp((winSize.width/widthLimit) *MINIMAP_RECT.size.width, ((320 - OVERLAY_HEIGHT)/heightLimit) * MINIMAP_RECT.size.height ))  );
     
     
     ccDrawColor4F(255,0,0,1);

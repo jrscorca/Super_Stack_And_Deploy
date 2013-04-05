@@ -106,10 +106,11 @@
         CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
         if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
             touchPoint = [self miniMapToBoardConversion:touch withEvent:event];
-        }else{
+            [selectedShip moveShip:touchPoint];
+        }else if(touchPoint.y > OVERLAY_HEIGHT){
             touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
+            [selectedShip moveShip:touchPoint];
         }
-        [selectedShip moveShip:touchPoint];
     }
     screenMoved = NO;
     nothingTouched = NO;
@@ -123,10 +124,12 @@
         CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
         if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
             touchPoint = [self miniMapToBoardConversion:touch withEvent:event];
-        }else{
+            [selectedShip moveShip:touchPoint];
+        }else if(touchPoint.y > OVERLAY_HEIGHT){
             touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
+            [selectedShip moveShip:touchPoint];
         }
-        [selectedShip moveShip:touchPoint];
+
     }else if(isMiniMapSelected){
         isMiniMapSelected = NO;
     }else if(abilitySelected){

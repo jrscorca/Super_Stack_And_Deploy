@@ -10,8 +10,11 @@
 #import "cocos2d.h"
 
 @interface ShipSelectLayer : CCLayer {
-    
+    CCLabelTTF *healthLabel;
+    CCLabelTTF *shipNameLabel;
 }
+
+@property (nonatomic) CCLabelTTF *healthLabel, *shipNameLabel;
 
 -(void) update:(ccTime)dt;
 
