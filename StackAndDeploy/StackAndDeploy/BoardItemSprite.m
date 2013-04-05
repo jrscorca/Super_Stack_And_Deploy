@@ -8,18 +8,31 @@
 
 #import "BoardItemSprite.h"
 #import "MatchDataManager.h"
+#import "Status.h"
+#import "BoardItemModel.h"
 
 
 @implementation BoardItemSprite
 
-//@synthesize model;
+@synthesize model;
 
--(id)init{
+-(id)initWithFile:(NSString *)filename{
     if(self = [super initWithFile:@"Icon.png"]){
+        self.model = [[[BoardItemModel alloc] init] autorelease];
         [self addToArray:MDM.boardItems];
     }
     return self;
 }
 
+-(void)update:(ccTime)dt{
+    for (Status *status in model.statuses){
+        [status updateStatus:dt];
+    }
+}
+
+-(void)dealloc{
+    [model release];
+    [super dealloc];
+}
 
 @end

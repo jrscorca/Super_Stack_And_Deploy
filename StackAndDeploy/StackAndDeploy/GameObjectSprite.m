@@ -12,7 +12,7 @@
 
 @implementation GameObjectSprite
 
-@synthesize associationArrays, associationPointers;
+@synthesize associationArrays, associationPointers, remove;
 
 -(id) initWithFile:(NSString*) filename{
     if(self = [super initWithFile:filename]){

@@ -14,3 +14,5 @@ NSString* const kNotification_CardDrawLocal = @"kNotification_CardDrawLocal";
 
 NSString* const kCardPlayed = @"kCardPlayed";
 NSString* const kCardPutBack = @"kCardPutBack";
+
+NSString* const kBulletSpawned = @"kBulletSpawned";

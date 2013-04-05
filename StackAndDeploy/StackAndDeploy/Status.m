@@ -11,10 +11,11 @@
 #import "BoardItemSprite.h"
 
 @implementation Status
+@synthesize target;
 
--(id)init{
+-(id)initWithTarget:(BoardItemSprite *)_target{
     if(self = [super init]){
-
+        target = _target;
         hasBeenApplied = NO;
     }
     return self;

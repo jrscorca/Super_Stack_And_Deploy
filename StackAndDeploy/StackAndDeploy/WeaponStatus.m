@@ -16,8 +16,8 @@
 
 @implementation WeaponStatus
 
--(id)init{
-    if(self = [super init]){
+-(id)initWithTarget:(BoardItemSprite *)_target{
+    if(self = [super initWithTarget:_target]){
         hasBeenApplied = NO;
     }
     return self;
@@ -45,12 +45,14 @@
         CGPoint myPosition = target.position;
         for(ShipSprite *ship in MDM.ships){
             //dont fire bullets at yourself
-            if(ship != target){
+            if(![ship isEqual:target]){
                 float distance = ccpDistance(myPosition, ship.position);
                 if(distance < 100){
                     Status *damage = [[[HealthOffsetStatus alloc] init] autorelease];
+                    //TODO: make a VO for bullets instead of passing around sprite objects?
                     BulletSprite *bullet = [[BulletSprite alloc] initWithBoardItemSprite:target andStatus:damage];
-                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kBulletSpawned object:bullet];
+                    [bullet release];
                     weaponCooldown = 5;
                 }
             }

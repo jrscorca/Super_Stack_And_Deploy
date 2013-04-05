@@ -16,8 +16,12 @@
 
 -(id) init{
     if(self = [super init]){
+<<<<<<< HEAD
         drawCardCounter = 10;
         resources = 10;
+=======
+        drawCardCounter = 2;
+>>>>>>> test
         self.library = [[[Library alloc] init] autorelease];
         //start off with 5 cards
         for (int i = 0; i < INITIAL_HAND_SIZE; ++i) [self drawCardFromDeck];
@@ -34,7 +38,7 @@
 -(void) update:(ccTime) dt{
     drawCardCounter -= dt;
     if(drawCardCounter < 0){
-        drawCardCounter = 10;
+        drawCardCounter = 2;
         [self drawCardFromDeck];
     }
 }

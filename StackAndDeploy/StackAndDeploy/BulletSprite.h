@@ -15,8 +15,8 @@
     BoardItemSprite *target;
     Status *status;
 }
-
--(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) status;
+@property (nonatomic, assign) BoardItemSprite *target;
+-(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) _status;
 
 -(CGSize) getBounds;
 

@@ -45,11 +45,14 @@
 
 -(void) drawCardFromDeck: (NSString*) notificationName{
     //TODO, do length check and end game if no cards exist in deck
+    if (self.deck.count >0) {
+        
     CardVO *card = [self.deck objectAtIndex:0];
     [self.hand addObject:card];
     [self.deck removeObject:card];
     //NSNotification
     [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:card];
+    }
 }
 
 @end

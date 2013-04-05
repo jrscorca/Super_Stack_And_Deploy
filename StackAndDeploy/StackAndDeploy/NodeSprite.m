@@ -24,10 +24,14 @@
 }
 
 -(void) update:(ccTime) dt{
+<<<<<<< HEAD
     PlayerClass *player = [MDM getPlayer:self.model.ownership];
     player.resources += 10*dt;
     ((NodeModel*)self.model).resourcesLeft -= 10*dt;
     
+=======
+    [super update:dt];
+>>>>>>> test
     
     
 }

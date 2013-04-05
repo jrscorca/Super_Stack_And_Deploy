@@ -13,3 +13,5 @@ extern NSString* const kNotification_CardDrawLocal;
 
 extern NSString* const kCardPlayed;
 extern NSString* const kCardPutBack;
+
+extern NSString* const kBulletSpawned;

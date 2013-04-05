@@ -15,6 +15,10 @@
     BOOL hasBeenApplied;
 }
 
+@property (nonatomic, assign) BoardItemSprite *target;
+
+-(id)initWithTarget:(BoardItemSprite *)_target;
+
 -(void) addStatusToGameObject:(BoardItemSprite*)gameObject;
 
 -(BOOL) checkStart;

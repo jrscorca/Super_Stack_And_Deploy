@@ -13,9 +13,10 @@
     
     NSMutableArray *associationArrays;
     NSMutableArray *associationPointers;
+    BOOL remove;
     
 }
-
+@property (nonatomic, assign) BOOL remove;
 @property (nonatomic, retain) NSMutableArray *associationArrays, *associationPointers;
 
 

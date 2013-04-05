@@ -68,6 +68,9 @@ static MatchDataManager *sharedInstance = nil;
     [bases destroyObjectsInArray];
     [bases destroyArray];
     
+    [bullets destroyObjectsInArray];
+    [bullets destroyArray];
+    
     [super dealloc];
 }
 

@@ -10,17 +10,19 @@
 #import "BoardItemSprite.h"
 #import "Status.h"
 #import "MatchDataManager.h"
+#import "BoardItemModel.h"
+#import "BulletModel.h"
 
 @implementation BulletSprite
+@synthesize target;
 
-
--(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) status{
+-(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) _status{
     if(self = [super initWithFile:@"Icon-Small.png"]){
         [boardItem assignObjectToPointer:&target];
         self.scale = .2;
-        CCMoveTo *moveTo = [CCMoveTo actionWithDuration:.4 position:boardItem.position];
-        [self runAction:moveTo];
+        self.position = status.target.position;
         [self addToArray:MDM.bullets];
+        status = _status;
     }
     return self;
 }
@@ -35,17 +37,18 @@
 }
 
 -(void) update:(ccTime) dt{
+    [super update:dt];
     if(target == nil){
         [self destroyObject];
     }
     
     if(CGRectContainsRect(target.boundingBox,self.boundingBox)){
-        
-        [status addStatusToGameObject: target.model];
-        [self destroyObject];
-        
+        [status addStatusToGameObject: target];
+        //TODO: can't remove while array is being enumerated
+        //[self destroyObject];
+        remove = YES;
     }
-//    target
+    //target
     
     //move ship check collision
     

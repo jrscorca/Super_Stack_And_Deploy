@@ -65,6 +65,7 @@
     [nodeLayer update:dt];
     [baseLayer update:dt];
     [shipLayer update:dt];
+    [bulletLayer update:dt];
 }
 
 
