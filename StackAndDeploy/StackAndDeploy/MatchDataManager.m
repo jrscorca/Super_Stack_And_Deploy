@@ -10,11 +10,11 @@
 #import "PlayerClass.h"
 #import "LocalPlayer.h"
 #import "AwayPlayer.h"
-
+#import "GameObjectSprite.h"
 @implementation MatchDataManager
 
 
-@synthesize localPlayer, awayPlayer, cardItems, ships, boardSize, nodes, bases, boardItems, gameObjectSprites, bullets;
+@synthesize localPlayer, awayPlayer, cardItems, ships, boardSize, nodes, bases, boardItems, gameObjectSprites, bullets, gameObjectsToRemove;
 
 static MatchDataManager *sharedInstance = nil;
 
@@ -38,10 +38,18 @@ static MatchDataManager *sharedInstance = nil;
         self.bases = [GameObjectSpriteArray array];
         self.gameObjectSprites = [GameObjectSpriteArray array];
         self.bullets = [GameObjectSpriteArray array];
+        self.gameObjectsToRemove = [GameObjectSpriteArray array];
         boardSize = CGSizeMake(1000,1000);
         
     }
     return self;
+}
+
+-(void)cleanupGameObjects{
+    for (GameObjectSprite *sprite in gameObjectsToRemove){
+        [sprite destroyObject];
+    }
+    [gameObjectsToRemove removeAllObjects];
 }
 
 -(void) dealloc{
@@ -70,6 +78,9 @@ static MatchDataManager *sharedInstance = nil;
     
     [bullets destroyObjectsInArray];
     [bullets destroyArray];
+    
+    [gameObjectsToRemove destroyObjectsInArray];
+    [gameObjectsToRemove destroyArray];
     
     [super dealloc];
 }

@@ -12,10 +12,12 @@
 
 @class Status;
 @interface BulletSprite : BoardItemSprite {
-    BoardItemSprite *target;
+    BoardItemSprite *destination;
+    BoardItemSprite *source;
     Status *status;
 }
-@property (nonatomic, assign) BoardItemSprite *target;
+@property (nonatomic, assign) BoardItemSprite *source, *destination;
+@property (nonatomic, retain) Status *status;
 -(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) _status;
 
 -(CGSize) getBounds;

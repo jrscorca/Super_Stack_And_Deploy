@@ -14,21 +14,26 @@
 #import "BulletModel.h"
 
 @implementation BulletSprite
-@synthesize target;
+@synthesize source, destination, status;
 
 -(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) _status{
     if(self = [super initWithFile:@"Icon-Small.png"]){
-        [boardItem assignObjectToPointer:&target];
+        [boardItem assignObjectToPointer:&source];
+        [_status.target assignObjectToPointer:&destination];
         self.scale = .2;
-        self.position = status.target.position;
+        self.position = source.position;
         [self addToArray:MDM.bullets];
-        status = _status;
+        self.status = _status;
+        [self performSelector:@selector(bulletHit) withObject:nil afterDelay:BULLET_LIFETIME];
+        CCMoveTo *moveTo = [CCMoveTo actionWithDuration:BULLET_LIFETIME position:destination.position];
+        [self runAction:moveTo];
     }
     return self;
 }
 
 -(void) dealloc{
-    [target removeObjectFromPointer:&target];
+    [source removeObjectFromPointer:&source];
+    [destination removeObjectFromPointer:&destination];
     [super dealloc];
 }
 
@@ -38,22 +43,17 @@
 
 -(void) update:(ccTime) dt{
     [super update:dt];
-    if(target == nil){
+    if(destination == nil){
         [self destroyObject];
+    }else if(CGRectContainsRect(destination.boundingBox,self.boundingBox)){
+        [self bulletHit];
     }
-    
-    if(CGRectContainsRect(target.boundingBox,self.boundingBox)){
-        [status addStatusToGameObject: target];
-        //TODO: can't remove while array is being enumerated
-        //[self destroyObject];
-        remove = YES;
-    }
-    //target
-    
-    //move ship check collision
-    
-    
-    
+}
+
+-(void)bulletHit{
+    [status addStatusToGameObject: destination];
+    self.remove = YES;
+    [MDM.gameObjectsToRemove addObject:self];
 }
 
 @end

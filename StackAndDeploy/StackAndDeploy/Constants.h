@@ -26,6 +26,7 @@ typedef NSMutableArray GameObjectSpriteArray;
 #define MINIMAP_RECT CGRectMake(0,0,100,100)
 #define ABILITY_RECT CGRectMake(380, 0, 100, 100)
 
+#define BULLET_LIFETIME 0.3
 
 typedef enum CardTypes
 {

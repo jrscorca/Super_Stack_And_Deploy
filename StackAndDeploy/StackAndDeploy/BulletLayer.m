@@ -9,6 +9,7 @@
 #import "BulletLayer.h"
 #import "BulletSprite.h"
 #import "MatchDataManager.h"
+#import "WeaponStatus.h"
 
 @implementation BulletLayer
 
@@ -20,7 +21,6 @@
 }
 
 -(void) update:(ccTime) dt{
-    int asdf = [MDM.bullets count];
     for(BulletSprite *bullet in MDM.bullets){
         [bullet update:dt];
     }
@@ -31,11 +31,7 @@
 }
 
 -(void)drawBullet:(BulletSprite*)bulletSprite{
-    NSLog(@"BULLET: %f, %f", bulletSprite.position.x, bulletSprite.position.y);
-    NSLog(@"TARGET: %f, %f", bulletSprite.target.position.x, bulletSprite.target.position.y);
     [self addChild:bulletSprite];
-    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:.4 position:bulletSprite.target.position];
-    [self runAction:moveTo];
 }
 
 -(void)dealloc{

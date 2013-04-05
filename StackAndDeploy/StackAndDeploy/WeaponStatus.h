@@ -10,6 +10,7 @@
 
 @interface WeaponStatus : Status{
     float weaponCooldown;
+    
 }
 
 @end

@@ -99,6 +99,7 @@
 }
 
 -(void) update:(ccTime) dt{
+    [MDM cleanupGameObjects];
     [self.uiState updateState:dt];
     [self.hudLayer update:dt];
     [self.boardLayer update:dt];
