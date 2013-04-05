@@ -34,7 +34,7 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
 
-    
+    [self cameraOnTouchBegan:touch withEvent:event];
     //minimap touching code
     CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
     if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
@@ -61,7 +61,7 @@
     
     //camera/world movement
 //    previousTouchPoint = [playLayer.boardLayer convertTouchToNodeSpace:touch];
-    [self cameraOnTouchBegan:touch withEvent:event];
+
     
     return YES;
 }

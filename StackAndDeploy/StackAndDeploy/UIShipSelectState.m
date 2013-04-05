@@ -44,8 +44,7 @@
 
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    
-    
+    [self cameraOnTouchBegan:touch withEvent:event];
     CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
     if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
         isMiniMapSelected = YES;
@@ -59,7 +58,7 @@
     }
     
     
-    [self cameraOnTouchBegan:touch withEvent:event];
+
 //    selectedShip
     
     GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
@@ -71,25 +70,38 @@
             return YES;
         }
     }
-    
-    
 
-    
-    
-    [self transitionToNormalState];
+    nothingTouched = YES;
+
     return YES;
 }
 
 -(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
+
     if(isMiniMapSelected){
         [self moveMiniMap: touch withEvent:event];
+    }else if(nothingTouched){
+        screenMoved = YES;
+        [self cameraOnTouchMoved:touch withEvent:event];
     }
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    
+    [self cameraOnTouchEnded:touch withEvent:event];    
     CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
-    if(selectedShip && !abilitySelected){
+    if(isMiniMapSelected){
+    }else if(abilitySelected && CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
+        //do ability
+        Ability *ability = [((ShipModel*)selectedShip.model).abilityArray objectAtIndex:0];
+        [ability activateAbility];
+        //incase ship destroys itself with ability
+        if(!selectedShip){
+            [self transitionToNormalState];
+        }
+    }else if(nothingTouched && !screenMoved){
+
+        [self transitionToNormalState];
+    }else if(selectedShip && !screenMoved){
         //move ship to point on minimap or point on board
         CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
         if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
@@ -98,15 +110,12 @@
             touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
         }
         [selectedShip moveShip:touchPoint];
-        
-    }else if(isMiniMapSelected){
-        isMiniMapSelected = NO;
-    }else if(abilitySelected && CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
-        //do ability
-        Ability *ability = [((ShipModel*)selectedShip.model).abilityArray objectAtIndex:0];
-        [ability activateAbility];
-        abilitySelected = NO;
     }
+    screenMoved = NO;
+    nothingTouched = NO;
+    abilitySelected = NO;
+    isMiniMapSelected = NO;
+    
 }
 
 - (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event{

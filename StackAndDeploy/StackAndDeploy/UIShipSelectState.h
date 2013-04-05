@@ -12,6 +12,8 @@
 @interface UIShipSelectState : UIState{
     ShipSprite *selectedShip;
     BOOL abilitySelected;
+    BOOL nothingTouched;
+    BOOL screenMoved;
     
     
     

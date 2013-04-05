@@ -98,7 +98,7 @@ static PlayLayer *playLayer;
 //map movement functions
 -(void) cameraOnTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event{
     previousTouchPoint = [playLayer convertTouchToNodeSpace:touch];
-    cameraVelocity = CGPointZero;
+//    cameraVelocity = CGPointZero;
 }
 
 -(void) cameraOnTouchMoved:(UITouch*) touch withEvent:(UIEvent*) event{
