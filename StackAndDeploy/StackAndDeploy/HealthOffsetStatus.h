@@ -12,4 +12,6 @@
     int healthOffset;
 }
 
+-(id)initWithTarget:(BoardItemSprite *)_target andOffset:(int)offset;
+
 @end

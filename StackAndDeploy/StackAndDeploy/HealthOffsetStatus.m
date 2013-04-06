@@ -12,9 +12,9 @@
 
 @implementation HealthOffsetStatus
 
--(id)initWithTarget:(BoardItemSprite *)_target{
+-(id)initWithTarget:(BoardItemSprite *)_target andOffset:(int)offset{
     if(self = [super initWithTarget:_target]){
-        healthOffset = -20;
+        healthOffset = offset;
         hasBeenApplied = NO;
     }
     return self;
