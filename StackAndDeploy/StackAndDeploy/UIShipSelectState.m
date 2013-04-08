@@ -30,6 +30,10 @@
         [_selectedShip assignObjectToPointer:&selectedShip];
         selectedShip.isSelected = YES;
         abilitySelected = NO;
+        //send notification
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ShipSelected object:selectedShip];
+        
+
     }
     return self;
 }
@@ -40,7 +44,13 @@
     [super dealloc];
 }
 
-
+-(void) updateState:(ccTime)dt{
+    if(!selectedShip){
+        [self transitionToNormalState];
+    }
+    
+    [super updateState:dt];
+}
 
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -83,6 +93,8 @@
     }else if(nothingTouched){
         screenMoved = YES;
         [self cameraOnTouchMoved:touch withEvent:event];
+    }else{
+        [self sideCameraMovement:touch withEvent:event];
     }
 }
 

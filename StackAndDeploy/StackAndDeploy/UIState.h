@@ -51,6 +51,7 @@
 -(void) cameraOnTouchCancelled:(UITouch*) touch withEvent:(UIEvent*) event;
 -(void) checkCameraBounds;
 
+-(void) sideCameraMovement:(UITouch*) touch withEvent:(UIEvent*) event;
 - (void)updateCamera:(ccTime) dt;
 -(void) cleanCameraVariables;
 

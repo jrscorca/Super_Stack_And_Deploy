@@ -51,6 +51,8 @@ static PlayLayer *playLayer;
     [self updateCamera:dt];
 }
 
+#pragma mark - utility functions
+
 -(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
     //card movement
     CGPoint touchPoint = [playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
@@ -70,8 +72,8 @@ static PlayLayer *playLayer;
         }
     }
     return nil;
-    
 }
+
 
 #pragma mark - touch events
 
@@ -94,6 +96,26 @@ static PlayLayer *playLayer;
 
 
 #pragma mark - Camera Functionality
+
+
+-(void) sideCameraMovement:(UITouch*) touch withEvent:(UIEvent*) event{
+    CGPoint touchPoint = [playLayer convertTouchToNodeSpace:touch];
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    float edgeLimit = 40;
+    if(touchPoint.x < edgeLimit){
+        cameraVelocity = ccp(7, cameraVelocity.y);
+    }
+    if(touchPoint.x > winSize.width - edgeLimit){
+        cameraVelocity = ccp(-7, cameraVelocity.y);
+    }
+    if(touchPoint.y < edgeLimit){
+        cameraVelocity = ccp(cameraVelocity.x, 7);
+    }
+    if(touchPoint.y > winSize.height - edgeLimit){
+        cameraVelocity = ccp(cameraVelocity.x, -7);
+    }
+    
+}
 
 //map movement functions
 -(void) cameraOnTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event{

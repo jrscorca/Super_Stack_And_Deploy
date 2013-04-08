@@ -8,6 +8,8 @@
 
 #import "ShipSelectLayer.h"
 #import "MatchDataManager.h"
+#import "ShipSprite.h"
+#import "ShipModel.h"
 
 @implementation ShipSelectLayer
 
@@ -15,7 +17,7 @@
 
 -(id) init{
     if(self = [super init]){
- //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(drawCard:) name:kNotification_CardDrawLocal object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shipSelected:) name:kNotification_ShipSelected object:nil];
 //        CGSize winSize = [[CCDirector sharedDirector] winSize];
         CCSprite *hud = [CCSprite spriteWithFile:@"abilities.png"];
         hud.position = ccp(425, 47);
@@ -33,7 +35,17 @@
     return self;
 }
 
+-(void) dealloc{
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:kNotification_CardDrawLocal object:nil];
+    
+    //this removes all observers from this object
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [selectedShip removeObjectFromPointer:&selectedShip];
+    [super dealloc];
+}
+
 -(void) update:(ccTime)dt{
+    [self updateInterface];
     //board limit
 /*  CGSize limit = MDM.boardSize;
     float widthLimit = -limit.width;
@@ -42,6 +54,20 @@
     //find percent
     viewRect = ccp((pos.x/widthLimit) * MINIMAP_RECT.size.width, (pos.y/heightLimit) * MINIMAP_RECT.size.height);
     */
+}
+
+-(void)updateInterface{
+    if(selectedShip){
+        [self.shipNameLabel setString:[NSString stringWithFormat:@"%@", selectedShip.model.name]];
+        [self.healthLabel setString:[NSString stringWithFormat:@"%d/%d", selectedShip.model.health, selectedShip.model.maxHealth]];
+    }
+}
+
+
+-(void) shipSelected:(NSNotification*) notification{
+    ShipSprite *ship = notification.object;
+    [ship assignObjectToPointer:&selectedShip];
+    
 }
 
 

@@ -26,6 +26,7 @@
         self.model.ownership = LOCAL_PLAYER;
         [model.statuses addObject:weapon];
         model.health = 50;
+        model.maxHealth = 50;
         velocity = ccp(1,1);
         isSelected = NO;
         [self addToArray:MDM.ships];

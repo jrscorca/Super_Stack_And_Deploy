@@ -9,15 +9,18 @@
 #import "BoardItemModel.h"
 
 @implementation BoardItemModel
-@synthesize health, healthBuffer, ignoreCount, statuses, speed, speedBuffer, ownership;
+@synthesize health, healthBuffer, ignoreCount, statuses, speed, speedBuffer, ownership, name, maxHealth;
 -(id)init{
     if(self = [super init]){
         self.statuses = [[[NSMutableArray alloc] init] autorelease];
+        self.name = @"No Name";
+        self.maxHealth = 0;
     }
     return self;
 }
 
 -(void)dealloc{
+    [name release];
     [statuses release];
     [super dealloc];
 }

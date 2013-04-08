@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface BoardItemModel : NSObject{
+    int maxHealth;
+    
     int health;
     int healthBuffer;
     
@@ -16,15 +18,19 @@
     
     int speed;
     int speedBuffer;
+    
+    NSString *name;
     playerType ownership;
     
     NSMutableArray *statuses;
     
     
 }
+@property (assign) int maxHealth;
 @property (assign) playerType ownership;
 @property (assign) int health;
 @property (assign) int healthBuffer;
+@property (nonatomic, retain) NSString *name;
 
 @property (assign) int ignoreCount;
 

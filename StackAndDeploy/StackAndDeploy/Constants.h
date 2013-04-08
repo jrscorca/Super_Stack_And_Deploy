@@ -15,12 +15,12 @@ typedef NSMutableArray GameObjectSpriteArray;
 
 
 
-#define PAN_VELOCITY_SPEED 4.4
-#define PAN_VELOCITY_FRICTION .85
+#define PAN_VELOCITY_SPEED 6.8
+#define PAN_VELOCITY_FRICTION .70
 #define PAN_VELOCITY_MAX 2000.0
 #define PAN_VELOCITY_MIN 0.3
 
-#define OVERLAY_HEIGHT 110
+#define OVERLAY_HEIGHT 100
 
 
 

@@ -15,6 +15,7 @@
 -(id) init{
     if(self = [super init]){
         self.abilityArray = [NSMutableArray array];
+        self.maxHealth = 10;
         
         //hardcode an ability
         

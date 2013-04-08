@@ -12,6 +12,8 @@
 NSString* const kNotification_CardDrawAway = @"kNotification_CardDrawAway";
 NSString* const kNotification_CardDrawLocal = @"kNotification_CardDrawLocal";
 
+NSString *const kNotification_ShipSelected = @"kNotification_ShipSelected";
+
 NSString* const kCardPlayed = @"kCardPlayed";
 NSString* const kCardPutBack = @"kCardPutBack";
 

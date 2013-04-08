@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class ShipSprite;
 @interface ShipSelectLayer : CCLayer {
     CCLabelTTF *healthLabel;
     CCLabelTTF *shipNameLabel;
+    ShipSprite *selectedShip;
 }
 
-@property (nonatomic) CCLabelTTF *healthLabel, *shipNameLabel;
+@property (nonatomic, assign) CCLabelTTF *healthLabel, *shipNameLabel;
 
 -(void) update:(ccTime)dt;
+
+-(void) shipSelected:(NSNotification*) notification;
 
 @end
