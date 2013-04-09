@@ -14,11 +14,11 @@
 @interface BulletSprite : BoardItemSprite {
     BoardItemSprite *destination;
     BoardItemSprite *source;
-    Status *status;
+    NSArray *statuses;
 }
 @property (nonatomic, assign) BoardItemSprite *source, *destination;
-@property (nonatomic, retain) Status *status;
--(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) _status;
+@property (nonatomic, retain) NSArray *statuses;
+-(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatuses:(NSArray*) _statuses;
 
 -(CGSize) getBounds;
 

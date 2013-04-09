@@ -12,7 +12,10 @@
     float weaponCooldown;
     float fireRate;
     float range;
+    NSMutableArray *bulletStatuses;
     
 }
+
+@property (nonatomic, retain) NSMutableArray *bulletStatuses;
 
 @end

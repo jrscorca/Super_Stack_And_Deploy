@@ -54,18 +54,29 @@
 -(ShipVO*)testShipVO{
     //    float fireRate;
     //float range;
-    NSMutableDictionary *args = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *bulletStatusArgs = [[[NSMutableDictionary alloc] init] autorelease];
+    [bulletStatusArgs setObject:[NSNumber numberWithInt:-20] forKey:@"healthOffset"];
+    
+    NSMutableDictionary *bulletStatusDic = [[[NSMutableDictionary alloc] init] autorelease];
+    [bulletStatusDic setObject:@"HealthOffsetStatus" forKey:@"className"];
+    [bulletStatusDic setObject:bulletStatusArgs forKey:@"arguments"];
+    
+    NSMutableArray *bulStatuses = [[[NSMutableArray alloc] init] autorelease];
+    [bulStatuses addObject:bulletStatusDic];
+    
+    NSMutableDictionary *args = [[[NSMutableDictionary alloc] init] autorelease];
     [args setObject:[NSNumber numberWithFloat:5] forKey:@"fireRate"];
     [args setObject:[NSNumber numberWithFloat:150] forKey:@"range"];
+    [args setObject:bulStatuses forKey:@"bulletStatuses"];
 
-    NSMutableDictionary *SD = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *SD = [[[NSMutableDictionary alloc] init] autorelease];
     [SD setObject:@"WeaponStatus" forKey:@"className"];
     [SD setObject:args forKey:@"arguments"];
     NSMutableArray *statusDics = [[[NSMutableArray alloc] init] autorelease];
     [statusDics addObject:SD];
     
     
-    NSMutableDictionary *D = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *D = [[[NSMutableDictionary alloc] init] autorelease];
     [D setObject:[NSNumber numberWithInt:50] forKey:@"health"];
     [D setObject:[NSNumber numberWithFloat:5] forKey:@"speed"];
     [D setObject:statusDics forKey:@"statuses"];

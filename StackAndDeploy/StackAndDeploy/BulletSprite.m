@@ -14,16 +14,19 @@
 #import "BulletModel.h"
 
 @implementation BulletSprite
-@synthesize source, destination, status;
+@synthesize source, destination, statuses;
 
--(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatus:(Status*) _status{
+-(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatuses:(NSArray*) _statuses{
     if(self = [super initWithFile:@"Icon-Small.png"]){
         [boardItem assignObjectToPointer:&source];
-        [_status.target assignObjectToPointer:&destination];
+        statuses = [[NSArray alloc] initWithArray:_statuses];
+        for (Status *status in statuses){
+            [status.target assignObjectToPointer:&destination];
+        }
+        
         self.scale = .2;
         self.position = source.position;
         [self addToArray:MDM.bullets];
-        self.status = _status;
         [self performSelector:@selector(move) withObject:nil afterDelay:BULLET_LIFETIME];
         CCMoveTo *moveTo = [CCMoveTo actionWithDuration:BULLET_LIFETIME position:destination.position];
         [self runAction:moveTo];
@@ -52,10 +55,11 @@
 }
 
 -(void)bulletHit{
-    [status addStatusToGameObject: destination];
+    for (Status *status in statuses){
+        [status addStatusToGameObject: destination];
+    }
     self.remove = YES;
     [MDM.gameObjectsToRemove addObject:self];
-    
 }
 
 -(void)move{
