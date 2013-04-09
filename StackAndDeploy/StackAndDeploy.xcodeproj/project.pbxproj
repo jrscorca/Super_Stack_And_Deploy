@@ -43,6 +43,10 @@
 		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
 		DEAE8578170F5043000126EE /* abilities-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAE8576170F5043000126EE /* abilities-hd.png */; };
 		DEAE8579170F5043000126EE /* overlay-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAE8577170F5043000126EE /* overlay-hd.png */; };
+		F2261B86171379E900E5766F /* Ownership.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B85171379E900E5766F /* Ownership.m */; };
+		F2261B8917137D2100E5766F /* StatusVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8817137D2100E5766F /* StatusVO.m */; };
+		F2261B8C171389E500E5766F /* UIAbilityState.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8B171389E500E5766F /* UIAbilityState.m */; };
+		F2261B8F17138A8700E5766F /* UIAbilityTargetsSelectState.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8E17138A8700E5766F /* UIAbilityTargetsSelectState.m */; };
 		F22950CB1703CCEF0073B0E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */; };
 		F22950CD1703CCEF0073B0E5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */; };
 		F22950CF1703CCEF0073B0E5 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CE1703CCEF0073B0E5 /* OpenAL.framework */; };
@@ -258,6 +262,14 @@
 		DE86EA311707D71A00841158 /* MiniMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniMapLayer.m; sourceTree = "<group>"; };
 		DEAE8576170F5043000126EE /* abilities-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abilities-hd.png"; sourceTree = "<group>"; };
 		DEAE8577170F5043000126EE /* overlay-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-hd.png"; sourceTree = "<group>"; };
+		F2261B84171379E900E5766F /* Ownership.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ownership.h; sourceTree = "<group>"; };
+		F2261B85171379E900E5766F /* Ownership.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ownership.m; sourceTree = "<group>"; };
+		F2261B8717137D2100E5766F /* StatusVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusVO.h; sourceTree = "<group>"; };
+		F2261B8817137D2100E5766F /* StatusVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusVO.m; sourceTree = "<group>"; };
+		F2261B8A171389E500E5766F /* UIAbilityState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAbilityState.h; sourceTree = "<group>"; };
+		F2261B8B171389E500E5766F /* UIAbilityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAbilityState.m; sourceTree = "<group>"; };
+		F2261B8D17138A8600E5766F /* UIAbilityTargetsSelectState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAbilityTargetsSelectState.h; sourceTree = "<group>"; };
+		F2261B8E17138A8700E5766F /* UIAbilityTargetsSelectState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAbilityTargetsSelectState.m; sourceTree = "<group>"; };
 		F22950C71703CCEF0073B0E5 /* StackAndDeploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackAndDeploy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -597,6 +609,10 @@
 				DE6C52B417091E80000932C8 /* UIShipSelectState.m */,
 				DE6C52D0170B7546000932C8 /* UICardItemSelectedState.h */,
 				DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */,
+				F2261B8A171389E500E5766F /* UIAbilityState.h */,
+				F2261B8B171389E500E5766F /* UIAbilityState.m */,
+				F2261B8D17138A8600E5766F /* UIAbilityTargetsSelectState.h */,
+				F2261B8E17138A8700E5766F /* UIAbilityTargetsSelectState.m */,
 			);
 			name = UIStates;
 			sourceTree = "<group>";
@@ -679,6 +695,8 @@
 				DE273CF71703F3700007B8D8 /* CardVO.m */,
 				DE273CFF170401A60007B8D8 /* ShipVO.h */,
 				DE273D00170401A60007B8D8 /* ShipVO.m */,
+				F2261B8717137D2100E5766F /* StatusVO.h */,
+				F2261B8817137D2100E5766F /* StatusVO.m */,
 			);
 			name = VOs;
 			sourceTree = "<group>";
@@ -770,6 +788,8 @@
 				DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */,
 				DE7CA77F170CE22C006F1E6E /* SteeringBehavior.h */,
 				DE7CA780170CE22C006F1E6E /* SteeringBehavior.m */,
+				F2261B84171379E900E5766F /* Ownership.h */,
+				F2261B85171379E900E5766F /* Ownership.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1481,6 +1501,10 @@
 				DE839F2A170E19A500CC6169 /* Ability.m in Sources */,
 				DE839F2D170E1AAF00CC6169 /* ColonizeAbility.m in Sources */,
 				F2A2D5CD170E501400899679 /* BulletModel.m in Sources */,
+				F2261B86171379E900E5766F /* Ownership.m in Sources */,
+				F2261B8917137D2100E5766F /* StatusVO.m in Sources */,
+				F2261B8C171389E500E5766F /* UIAbilityState.m in Sources */,
+				F2261B8F17138A8700E5766F /* UIAbilityTargetsSelectState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

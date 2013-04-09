@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class Ownership;
 @interface BoardItemModel : NSObject{
     int maxHealth;
     
@@ -20,14 +20,14 @@
     int speedBuffer;
     
     NSString *name;
-    playerType ownership;
+    Ownership *ownership;
     
     NSMutableArray *statuses;
     
     
 }
 @property (assign) int maxHealth;
-@property (assign) playerType ownership;
+@property (assign) Ownership *ownership;
 @property (assign) int health;
 @property (assign) int healthBuffer;
 @property (nonatomic, retain) NSString *name;

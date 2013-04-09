@@ -45,6 +45,22 @@ typedef enum Players
     ALL_PlAYERS = 3
 }playerType;
 
+typedef enum PlayerNumbers
+{
+    PLAYER_ONE = 1,
+    PLAYER_TWO = 2
+}playerNumber;
+
+typedef enum BoardItemTypes
+{
+    LOCAL_SHIP = 0,
+    AWAY_SHIP = 1,
+    AWAY_RESOURCE_NODE = 2,
+    AWAY_TECH_NODE = 3,
+    LOCAL_TECH_NODE = 4,
+    LOCAL_RESOURCE_NODE = 5
+}boardItemType;
+
 typedef enum Steering
 {
     SEEK = 0,
