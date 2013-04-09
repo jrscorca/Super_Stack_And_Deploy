@@ -47,6 +47,7 @@
 -(void) updateState:(ccTime)dt{
     if(!selectedShip){
         [self transitionToNormalState];
+        return;
     }
     
     [super updateState:dt];
@@ -62,7 +63,6 @@
     // 0:ship moveTO
     if(commandNumber == 0){
         moveCommandSelected = YES;
-        moveCommandTargeting = YES;
         [object setIsEnabled:NO];
     }
     // 1: deselect
@@ -141,10 +141,12 @@
     //first if needs to be here
     if(isMiniMapSelected){
     }else if([self commandTouchEnded:touch withEvent:event]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+        moveCommandSelected = NO;
         [self executeCommand:commandTouched];
         //do ability
     }else if(nothingTouched && !screenMoved){
-        if(moveCommandTargeting){
+        if(moveCommandSelected){
             //move ship to point on minimap or point on board
             CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
             if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
@@ -155,7 +157,8 @@
                 [selectedShip moveShip:touchPoint];
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
-            moveCommandTargeting = NO;
+            moveCommandSelected = NO;
+            
         }else{
             [self transitionToNormalState];
         }
@@ -169,16 +172,14 @@
             touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
             [selectedShip moveShip:touchPoint];
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+        moveCommandSelected = NO;
     }
     screenMoved = NO;
     nothingTouched = NO;
     isMiniMapSelected = NO;
     commandTouched = -1;
-    if(!moveCommandSelected){
-        moveCommandTargeting = NO;
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
-    }
-    moveCommandSelected = NO;
+
     moveCameraDown = NO;
     moveCameraLeft = NO;
     moveCameraRight = NO;
@@ -201,7 +202,6 @@
     moveCommandSelected = NO;
     isMiniMapSelected = NO;
     commandTouched = -1;
-    moveCommandTargeting = NO;
     moveCameraDown = NO;
     moveCameraLeft = NO;
     moveCameraRight = NO;
