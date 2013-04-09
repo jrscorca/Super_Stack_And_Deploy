@@ -28,7 +28,6 @@
         self.model.ownership.playerType = LOCAL_PLAYER;
         self.model.ownership.playerNumber = PLAYER_ONE;
         for(StatusVO *status in shipVO.statuses){
-            //TODO: make sure these strings map up to the actual data model
             Class statusClass = NSClassFromString(status.className);
             id shipStatus = [[[statusClass alloc] initWithTarget:self andStatusVO:status] autorelease];
             [model.statuses addObject:shipStatus];
