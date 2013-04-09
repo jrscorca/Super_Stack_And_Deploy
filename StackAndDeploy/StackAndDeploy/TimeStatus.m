@@ -11,8 +11,9 @@
 #import "BoardItemModel.h"
 
 @implementation TimeStatus
--(id)initWithTarget:(BoardItemSprite *)_target{
-    if(self = [super initWithTarget:_target]){
+
+-(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO{
+    if(self = [super initWithTarget:_target andStatusVO:statusVO]){
         delay = 0;
         timeAlive = 0;
         duration = 0;

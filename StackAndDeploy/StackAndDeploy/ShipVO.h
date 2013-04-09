@@ -10,12 +10,12 @@
 #import "GameObjectVO.h"
 @interface ShipVO : GameObjectVO{
     int health;
-    NSArray *statuses;
+    NSMutableArray *statuses;
     float speed;
 }
 
 @property (assign) int health;
-@property (nonatomic, retain) NSArray *statuses;
+@property (nonatomic, retain) NSMutableArray *statuses;
 @property (assign) float speed;
 
 -(id)initWithDictionary:(NSDictionary*)dic;

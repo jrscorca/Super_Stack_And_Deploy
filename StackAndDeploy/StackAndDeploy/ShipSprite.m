@@ -15,6 +15,8 @@
 #import "ColonizeAbility.h"
 #import "WeaponStatus.h"
 #import "Ownership.h"
+#import "StatusVO.h"
+
 @implementation ShipSprite
 
 @synthesize isSelected, objective, steeringBehavior, velocity;
@@ -22,11 +24,16 @@
 
 -(id)initWithShipVO:(ShipVO*)shipVO{
     if(self = [super initWithFile:@"Icon.png"]){
-        WeaponStatus *weapon = [[[WeaponStatus alloc] initWithTarget:self] autorelease];
         self.model = [[[ShipModel alloc] init] autorelease];
         self.model.ownership.playerType = LOCAL_PLAYER;
         self.model.ownership.playerNumber = PLAYER_ONE;
-        [model.statuses addObject:weapon];
+        for(StatusVO *status in shipVO.statuses){
+            //TODO: make sure these strings map up to the actual data model
+            Class statusClass = NSClassFromString(status.className);
+            id shipStatus = [[[statusClass alloc] initWithTarget:self andStatusVO:status] autorelease];
+            [model.statuses addObject:shipStatus];
+        }
+
         model.health = 50;
         model.maxHealth = 50;
         velocity = ccp(1,1);

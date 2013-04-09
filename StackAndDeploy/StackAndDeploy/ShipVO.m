@@ -16,11 +16,19 @@
     if(self = [super init]){
         health = [[dic objectForKey:@"health"] intValue];
         speed =[[dic objectForKey:@"speed"] floatValue];
+        statuses = [[NSMutableArray alloc] init];
         for (NSDictionary *statusDic in [dic objectForKey:@"statuses"]){
-            StatusVO *status = [[StatusVO alloc] initWithDictionary:statusDic];
+            [statuses addObject:[[StatusVO alloc] initWithDictionary:statusDic]];
         }
+
+        
     }
     return self;
+}
+
+-(void)dealloc{
+    [statuses release];
+    [super dealloc];
 }
 
 @end

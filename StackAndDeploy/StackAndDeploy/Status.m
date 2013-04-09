@@ -9,11 +9,11 @@
 #import "Status.h"
 #import "BoardItemModel.h"
 #import "BoardItemSprite.h"
-
+#import "StatusVO.h"
 @implementation Status
 @synthesize target;
 
--(id)initWithTarget:(BoardItemSprite *)_target{
+-(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO{
     if(self = [super init]){
         target = _target;
         hasBeenApplied = NO;

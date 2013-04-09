@@ -9,12 +9,13 @@
 #import "HealthOffsetStatus.h"
 #import "BoardItemModel.h"
 #import "BoardItemSprite.h"
+#import "StatusVO.h"
 
 @implementation HealthOffsetStatus
 
--(id)initWithTarget:(BoardItemSprite *)_target andOffset:(int)offset{
-    if(self = [super initWithTarget:_target]){
-        healthOffset = offset;
+-(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO{
+    if(self = [super initWithTarget:_target andStatusVO:statusVO]){
+        healthOffset = [[statusVO.arguments objectForKey:@"healthOffset"] intValue];
         hasBeenApplied = NO;
     }
     return self;

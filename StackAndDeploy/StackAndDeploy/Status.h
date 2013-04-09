@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class BoardItemSprite;
+@class BoardItemSprite, StatusVO;
 @interface Status : NSObject{
     BoardItemSprite *target;
     BOOL hasBeenApplied;
@@ -17,7 +17,7 @@
 
 @property (nonatomic, assign) BoardItemSprite *target;
 
--(id)initWithTarget:(BoardItemSprite *)_target;
+-(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO;
 
 -(void) addStatusToGameObject:(BoardItemSprite*)gameObject;
 

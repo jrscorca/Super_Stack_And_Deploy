@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface StatusVO : NSObject{
-    
+    NSString *className;
+    NSDictionary *arguments;
 }
+
+@property(nonatomic, retain) NSString *className;
+@property(nonatomic, retain) NSDictionary *arguments;
+
 -(id)initWithDictionary:(NSDictionary*)dic;
 @end

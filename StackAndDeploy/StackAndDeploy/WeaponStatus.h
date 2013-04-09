@@ -10,6 +10,8 @@
 
 @interface WeaponStatus : Status{
     float weaponCooldown;
+    float fireRate;
+    float range;
     
 }
 
