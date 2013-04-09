@@ -15,11 +15,13 @@
 #import "BoardLayer.h"
 #import "ShipLayer.h"
 #import "ShipSprite.h"
-#import "ShipSelectLayer.h"
 #import "ShipModel.h"
 #import "Ability.h"
 #import "UINormalState.h"
 #import "CommandLayer.h"
+#import "NodeSprite.h"
+#import "DetailsLayer.h"
+#import "UINodeSelectedState.h"
 
 @implementation UIShipSelectState
 
@@ -31,9 +33,9 @@
         [_selectedShip assignObjectToPointer:&selectedShip];
         selectedShip.isSelected = YES;
         //send notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ShipSelected object:selectedShip];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SpriteSelected object:selectedShip];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
-
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ChangeCommandButtons object:selectedShip];
     }
     return self;
 }
@@ -104,26 +106,30 @@
     }
     
     
-
-//    selectedShip
     
-    GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
-    if(touchedObject){
-        if([touchedObject isKindOfClass:[CardItem class]]){
-            NSLog(@"error: no card should exist here in UIShipSelectedState");
-        }else if([touchedObject isKindOfClass:[ShipSprite class]]){
-            [self transitionToShipSelectState:(ShipSprite*)touchedObject];
-            return YES;
+    //    selectedShip
+    if(!moveCommandSelected){
+        GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
+        if(touchedObject){
+            if([touchedObject isKindOfClass:[CardItem class]]){
+                NSLog(@"error: no card should exist here in UIShipSelectedState");
+            }else if([touchedObject isKindOfClass:[ShipSprite class]]){
+                [self transitionToShipSelectState:(ShipSprite*)touchedObject];
+                return YES;
+            }else if( [touchedObject isKindOfClass:[NodeSprite class]]){
+                [self transitionToNodeSelectState:(NodeSprite*)touchedObject];
+                return YES;
+            }
         }
     }
-
+    
     nothingTouched = YES;
-
+    
     return YES;
 }
 
 -(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
-
+    
     if(isMiniMapSelected){
         [self moveMiniMap: touch withEvent:event];
     }else if(nothingTouched){
@@ -135,8 +141,8 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    [self cameraOnTouchEnded:touch withEvent:event];    
-//    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+    [self cameraOnTouchEnded:touch withEvent:event];
+    //    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
     
     //first if needs to be here
     if(isMiniMapSelected){
@@ -179,7 +185,7 @@
     nothingTouched = NO;
     isMiniMapSelected = NO;
     commandTouched = -1;
-
+    
     moveCameraDown = NO;
     moveCameraLeft = NO;
     moveCameraRight = NO;
@@ -214,19 +220,31 @@
 #pragma mark - Transitions
 
 -(void) transitionToNormalState{
-    UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
-    UIState.playLayer.hudLayer.handLayer.visible = YES;
-    UIState.playLayer.hudLayer.shipSelectLayer.visible = NO;
-    UIState.playLayer.hudLayer.commandLayer.visible = NO;
     selectedShip.isSelected = NO;
+    UIState.playLayer.hudLayer.handLayer.visible = YES;
+    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
+    UIState.playLayer.hudLayer.commandLayer.visible = NO;
+    UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
     [UIState.playLayer changeUIState:normalState];
     [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
     
 }
 
+
+-(void) transitionToNodeSelectState:(NodeSprite *)node{
+    selectedShip.isSelected = NO;
+    UIState.playLayer.hudLayer.handLayer.visible = NO;
+    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
+    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    UINodeSelectedState *nodeSelectedState = [[[UINodeSelectedState alloc] initWithSelectedNode:node andState:self] autorelease];
+    [UIState.playLayer changeUIState:nodeSelectedState];
+}
+
 -(void) transitionToShipSelectState:(ShipSprite *)ship{
+    selectedShip.isSelected = NO;
     UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     [UIState.playLayer changeUIState:shipSelectState];
+    
 }
 
 

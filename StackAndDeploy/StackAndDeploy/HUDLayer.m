@@ -9,15 +9,15 @@
 #import "HUDLayer.h"
 #import "HandLayer.h"
 #import "MiniMapLayer.h"
-#import "ShipSelectLayer.h"
 #import "PlayerClass.h"
 #import "LocalPlayer.h"
 #import "MatchDataManager.h"
 #import "CommandLayer.h"
+#import "DetailsLayer.h"
 
 @implementation HUDLayer
 
-@synthesize handLayer, miniMapLayer, shipSelectLayer, commandLayer;
+@synthesize handLayer, miniMapLayer, detailsLayer, commandLayer;
 
 - (id)init{
     if ((self = [super init])) {
@@ -32,9 +32,9 @@
         self.miniMapLayer = [MiniMapLayer node];
         [self addChild:self.miniMapLayer];
         
-        self.shipSelectLayer = [ShipSelectLayer node];
-        [self addChild:self.shipSelectLayer];
-        self.shipSelectLayer.visible = NO;
+        self.detailsLayer = [DetailsLayer node];
+        [self addChild:self.detailsLayer];
+        self.detailsLayer.visible = NO;
         
         self.commandLayer = [CommandLayer node];
         [self addChild:self.commandLayer];
@@ -56,7 +56,7 @@
 -(void) update:(ccTime)dt{
     [self.handLayer update:dt];
     [self.miniMapLayer update:dt];
-    [self.shipSelectLayer update:dt];
+    [self.detailsLayer update:dt];
     [self.commandLayer update:dt];
     [resourceLabel setString:[NSString stringWithFormat:@"%.0f", MDM.localPlayer.resources]];
 }

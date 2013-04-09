@@ -14,6 +14,7 @@
 #import "NodeSprite.h"
 #import "ShipModel.h"
 #import "ShipSprite.h"
+#import "Ownership.h"
 
 @implementation ColonizeAbility
 
@@ -34,7 +35,7 @@
         if(node.model.ownership == NO_PLAYER){
             //if node is neutral capture node and delete ship
             if(ccpDistance(node.position, abilityOf.position) < 50){
-                playerType owner = abilityOf.model.ownership;
+                Ownership *owner = abilityOf.model.ownership;
                 [node playerCaptureNode:owner];
                 [abilityOf destroyObject];
             }

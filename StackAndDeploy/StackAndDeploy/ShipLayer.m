@@ -14,6 +14,8 @@
 #import "GameObjectSprite.h"
 #import "StatusVO.h"
 #import "ShipVO.h"
+#import "ShipModel.h"
+#import "Ownership.h"
 
 @implementation ShipLayer
 
@@ -42,6 +44,7 @@
     CardItem *card = notification.object;
     if (card.cardVO.type == SHIP) {
         ShipSprite *ship = [[[ShipSprite alloc] initWithShipVO:[self testShipVO]] autorelease];
+        ship.model.ownership = [[[Ownership alloc] initWithPlayerType:LOCAL_PLAYER] autorelease];
         ship.position = ccp(90, 90);
         [self addChild:ship];
 

@@ -19,7 +19,7 @@
 
 @implementation ShipSprite
 
-@synthesize isSelected, objective, steeringBehavior, velocity;
+@synthesize isSelected, steeringBehavior, velocity;
 //@synthesize model;
 
 -(id)initWithShipVO:(ShipVO*)shipVO{

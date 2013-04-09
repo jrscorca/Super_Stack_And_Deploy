@@ -13,6 +13,7 @@
 #import "ShipSprite.h"
 #import "HUDLayer.h"
 #import "CardItem.h"
+#import "NodeSprite.h"
 #import "MatchDataManager.h"
 
 
@@ -63,7 +64,7 @@ static PlayLayer *playLayer;
 #pragma mark - utility functions
 
 -(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event{
-    //card movement
+    //cards
     CGPoint touchPoint = [playLayer.hudLayer.handLayer convertTouchToNodeSpace: touch];
     for (CardItem *card in MDM.cardItems){
         if(card.visible){
@@ -73,13 +74,23 @@ static PlayLayer *playLayer;
         }
     }
     
-    //ship movement
+    //ships
     touchPoint = [playLayer.boardLayer.shipLayer convertTouchToNodeSpace:touch];
     for (ShipSprite *ship in MDM.ships){
         if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
             return ship;
         }
     }
+    
+    //nodes
+    for(NodeSprite *node in MDM.nodes){
+        if(CGRectContainsPoint(node.boundingBox, touchPoint)){
+            return node;
+        }
+    }
+    
+    
+    
     return nil;
 }
 
@@ -311,6 +322,10 @@ static PlayLayer *playLayer;
 
 -(void) transitionToCardSelectState:(CardItem*) card{
     NSLog(@"card select transition");    
+}
+
+-(void) transitionToNodeSelectState:(NodeSprite*) node{
+    NSLog(@"node select transitoin");
 }
 
 @end

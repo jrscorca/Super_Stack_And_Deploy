@@ -22,6 +22,7 @@
 -(void)dealloc{
     [name release];
     [statuses release];
+    [ownership release];
     [super dealloc];
 }
 

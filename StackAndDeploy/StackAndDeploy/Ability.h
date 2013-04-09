@@ -11,8 +11,11 @@
 @class ShipSprite;
 @interface Ability : NSObject{
     ShipSprite *abilityOf;
+    
+    NSString *normalCommandImage, *selectedCommandImage, *disabledCommandImage;
 }
 
+@property (nonatomic, retain) NSString *normalCommandImage, *selectedCommandImage, *disabledCommandImage;
 
 -(id) initWithShip:(ShipSprite*) ship;
 

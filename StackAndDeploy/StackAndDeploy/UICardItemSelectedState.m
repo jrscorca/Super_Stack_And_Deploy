@@ -15,7 +15,7 @@
 #import "BoardLayer.h"
 #import "ShipLayer.h"
 #import "ShipSprite.h"
-#import "ShipSelectLayer.h"
+#import "DetailsLayer.h"
 #import "UINormalState.h"
 
 @implementation UICardItemSelectedState
@@ -104,7 +104,7 @@
 -(void) transitionToNormalState{
     UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = YES;
-    UIState.playLayer.hudLayer.shipSelectLayer.visible = NO;
+    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
 //    cardSele.isSelected = NO;
     [UIState.playLayer changeUIState:normalState];
     

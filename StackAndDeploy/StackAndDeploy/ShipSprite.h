@@ -13,15 +13,14 @@
 @class ShipVO, ShipModel,SteeringBehavior;
 @interface ShipSprite : BoardItemSprite {
     CGPoint velocity;
-    CGPoint objective;
     BOOL isSelected;
-   // ShipModel *model;
     
     SteeringBehavior *steeringBehavior;
+    
 }
 
 @property (nonatomic) BOOL isSelected;
-@property (nonatomic) CGPoint objective, velocity;
+@property (nonatomic) CGPoint velocity;
 @property (nonatomic, retain) SteeringBehavior *steeringBehavior;
 //@property (nonatomic, retain) ShipModel *model;
 

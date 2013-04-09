@@ -27,7 +27,7 @@
     
 }
 @property (assign) int maxHealth;
-@property (assign) Ownership *ownership;
+@property (nonatomic, retain) Ownership *ownership;
 @property (assign) int health;
 @property (assign) int healthBuffer;
 @property (nonatomic, retain) NSString *name;

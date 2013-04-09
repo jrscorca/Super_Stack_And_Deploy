@@ -30,8 +30,9 @@
 		DE61DAF71713A1B800374FAC /* Command_Pressed-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DE61DAF51713A1B800374FAC /* Command_Pressed-hd.png */; };
 		DE61DAF81713A1B800374FAC /* Command-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DE61DAF61713A1B800374FAC /* Command-hd.png */; };
 		DE61DAFC1713A5FB00374FAC /* CommandLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE61DAFB1713A5FB00374FAC /* CommandLayer.m */; };
+		DE61DAFF1714BC2700374FAC /* UINodeSelectedState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE61DAFE1714BC2600374FAC /* UINodeSelectedState.m */; };
+		DE61DB031714C83900374FAC /* DetailsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE61DB021714C83900374FAC /* DetailsLayer.m */; };
 		DE6C52B517091E80000932C8 /* UIShipSelectState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B417091E80000932C8 /* UIShipSelectState.m */; };
-		DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B9170937A9000932C8 /* ShipSelectLayer.m */; };
 		DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */; };
 		DE7CA781170CE22C006F1E6E /* SteeringBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA780170CE22C006F1E6E /* SteeringBehavior.m */; };
 		DE7CA785170D0512006F1E6E /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = DE7CA784170D0512006F1E6E /* Status.m */; };
@@ -239,10 +240,12 @@
 		DE61DAF61713A1B800374FAC /* Command-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Command-hd.png"; sourceTree = "<group>"; };
 		DE61DAFA1713A5FB00374FAC /* CommandLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandLayer.h; sourceTree = "<group>"; };
 		DE61DAFB1713A5FB00374FAC /* CommandLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandLayer.m; sourceTree = "<group>"; };
+		DE61DAFD1714BC2500374FAC /* UINodeSelectedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UINodeSelectedState.h; sourceTree = "<group>"; };
+		DE61DAFE1714BC2600374FAC /* UINodeSelectedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UINodeSelectedState.m; sourceTree = "<group>"; };
+		DE61DB011714C83900374FAC /* DetailsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsLayer.h; sourceTree = "<group>"; };
+		DE61DB021714C83900374FAC /* DetailsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsLayer.m; sourceTree = "<group>"; };
 		DE6C52B317091E80000932C8 /* UIShipSelectState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIShipSelectState.h; sourceTree = "<group>"; };
 		DE6C52B417091E80000932C8 /* UIShipSelectState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIShipSelectState.m; sourceTree = "<group>"; };
-		DE6C52B8170937A9000932C8 /* ShipSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipSelectLayer.h; sourceTree = "<group>"; };
-		DE6C52B9170937A9000932C8 /* ShipSelectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipSelectLayer.m; sourceTree = "<group>"; };
 		DE6C52D0170B7546000932C8 /* UICardItemSelectedState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICardItemSelectedState.h; sourceTree = "<group>"; };
 		DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICardItemSelectedState.m; sourceTree = "<group>"; };
 		DE7CA77F170CE22C006F1E6E /* SteeringBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SteeringBehavior.h; sourceTree = "<group>"; };
@@ -620,6 +623,8 @@
 				F2261B8B171389E500E5766F /* UIAbilityState.m */,
 				F2261B8D17138A8600E5766F /* UIAbilityTargetsSelectState.h */,
 				F2261B8E17138A8700E5766F /* UIAbilityTargetsSelectState.m */,
+				DE61DAFD1714BC2500374FAC /* UINodeSelectedState.h */,
+				DE61DAFE1714BC2600374FAC /* UINodeSelectedState.m */,
 			);
 			name = UIStates;
 			sourceTree = "<group>";
@@ -647,8 +652,8 @@
 		DE273CEB1703E90E0007B8D8 /* HUDLayer */ = {
 			isa = PBXGroup;
 			children = (
+				DE61DB001714C82B00374FAC /* DetailsLayer */,
 				DE61DAF91713A5E900374FAC /* CommandLayer */,
-				DE6C52B717093768000932C8 /* ShipSelectLayer */,
 				DE86EA2F1707D6FC00841158 /* MiniMapLayer */,
 				DE273CED1703E96B0007B8D8 /* HandLayer */,
 				F22952681703D2E60073B0E5 /* HUDLayer.h */,
@@ -736,13 +741,13 @@
 			name = CommandLayer;
 			sourceTree = "<group>";
 		};
-		DE6C52B717093768000932C8 /* ShipSelectLayer */ = {
+		DE61DB001714C82B00374FAC /* DetailsLayer */ = {
 			isa = PBXGroup;
 			children = (
-				DE6C52B8170937A9000932C8 /* ShipSelectLayer.h */,
-				DE6C52B9170937A9000932C8 /* ShipSelectLayer.m */,
+				DE61DB011714C83900374FAC /* DetailsLayer.h */,
+				DE61DB021714C83900374FAC /* DetailsLayer.m */,
 			);
-			name = ShipSelectLayer;
+			name = DetailsLayer;
 			sourceTree = "<group>";
 		};
 		DE7CA782170D04E9006F1E6E /* StatusSystem */ = {
@@ -1504,7 +1509,6 @@
 				DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */,
 				DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */,
 				DE6C52B517091E80000932C8 /* UIShipSelectState.m in Sources */,
-				DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */,
 				DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */,
 				F26B0480170B902100130E08 /* GameObjectVO.m in Sources */,
 				F26B0483170B9CE900130E08 /* ShipModel.m in Sources */,
@@ -1527,6 +1531,8 @@
 				F2261B8C171389E500E5766F /* UIAbilityState.m in Sources */,
 				F2261B8F17138A8700E5766F /* UIAbilityTargetsSelectState.m in Sources */,
 				DE61DAFC1713A5FB00374FAC /* CommandLayer.m in Sources */,
+				DE61DAFF1714BC2700374FAC /* UINodeSelectedState.m in Sources */,
+				DE61DB031714C83900374FAC /* DetailsLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

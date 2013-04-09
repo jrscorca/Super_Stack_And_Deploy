@@ -10,13 +10,15 @@
 #import "cocos2d.h"
 #import "BoardItemSprite.h"
 
-@class NodeModel;
+@class NodeModel, Ownership;
 @interface NodeSprite : BoardItemSprite {
    // NodeModel *model;
+    BOOL isSelected;
 }
 
-//@property (nonatomic, retain) NodeModel *model;
 
--(void) playerCaptureNode:(playerType) player;
+@property (nonatomic) BOOL isSelected;
+
+-(void) playerCaptureNode:(Ownership*) owner;
 
 @end

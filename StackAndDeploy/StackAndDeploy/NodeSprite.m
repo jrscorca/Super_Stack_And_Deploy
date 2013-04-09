@@ -10,9 +10,11 @@
 #import "NodeModel.h"
 #import "MatchDataManager.h"
 #import "PlayerClass.h"
+#import "Ownership.h"
 
 @implementation NodeSprite
-//@synthesize model;
+
+@synthesize isSelected;
 
 -(id)init{
     if(self = [super initWithFile:@"Icon.png"]){
@@ -25,14 +27,17 @@
 
 -(void) update:(ccTime) dt{
     [super update:dt];
-    PlayerClass *player = [MDM getPlayer:self.model.ownership];
-    player.resources += 10*dt;
-    ((NodeModel*)self.model).resourcesLeft -= 10*dt;    
+    PlayerClass *player = [MDM getPlayer:self.model.ownership.playerType];
+    if(((NodeModel*)self.model).resourcesLeft > 0 && player != nil){
+        player.resources += 10*dt;
+        ((NodeModel*)self.model).resourcesLeft -= 10*dt;
+    }
 }
 
 
--(void) playerCaptureNode:(playerType) player{
-    self.model.ownership = player;
+-(void) playerCaptureNode:(Ownership*) owner{
+    Ownership *newOwner = [[[Ownership alloc] initWithOwner:owner] autorelease];
+    self.model.ownership = newOwner;
     self.color = ccBLUE;
 }
 

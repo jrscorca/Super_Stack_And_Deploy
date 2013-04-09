@@ -17,4 +17,10 @@
 @property (assign) playerNumber playerNumber;
 @property (assign) playerType playerType;
 
+-(id) initWithOwner:(Ownership*)owner;
+
+-(id) initWithPlayerNumber:(playerNumber) number;
+
+-(id) initWithPlayerType:(playerType) type;
+
 @end

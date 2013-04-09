@@ -16,9 +16,11 @@
 #import "ShipLayer.h"
 #import "ShipSprite.h"
 #import "UIShipSelectState.h"
-#import "ShipSelectLayer.h"
 #import "UICardItemSelectedState.h"
+#import "UINodeSelectedState.h"
 #import "CommandLayer.h"
+#import "DetailsLayer.h"
+#import "NodeSprite.h"
 
 @implementation UINormalState
 
@@ -53,6 +55,9 @@
             return YES;
         }else if([touchedObject isKindOfClass:[ShipSprite class]]){
             [self transitionToShipSelectState:(ShipSprite*)touchedObject];
+            return YES;
+        }else if( [touchedObject isKindOfClass:[NodeSprite class]]){
+            [self transitionToNodeSelectState:(NodeSprite*)touchedObject];
             return YES;
         }
     }
@@ -96,11 +101,19 @@
 
 #pragma mark - Transitions
 -(void) transitionToShipSelectState:(ShipSprite*) ship{
-    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = NO;
-    UIState.playLayer.hudLayer.shipSelectLayer.visible = YES;
+    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
     UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     [UIState.playLayer changeUIState:shipSelectState];
+}
+
+-(void) transitionToNodeSelectState:(NodeSprite *)node{
+    UIState.playLayer.hudLayer.handLayer.visible = NO;
+    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
+    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    UINodeSelectedState *nodeSelectedState = [[[UINodeSelectedState alloc] initWithSelectedNode:node andState:self] autorelease];
+    [UIState.playLayer changeUIState:nodeSelectedState];
 }
 
 -(void) transitionToCardSelectState:(CardItem *)card{

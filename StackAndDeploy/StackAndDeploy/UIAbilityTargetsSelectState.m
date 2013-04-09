@@ -15,7 +15,7 @@
 #import "HUDLayer.h"
 #import "UINormalState.h"
 #import "HandLayer.h"
-#import "ShipSelectLayer.h"
+#import "DetailsLayer.h"
 #import "Status.h"
 #import "BoardItemModel.h"
 #import "StatusVO.h"
@@ -124,7 +124,7 @@
 -(void) transitionToNormalState{
     UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = YES;
-    UIState.playLayer.hudLayer.shipSelectLayer.visible = NO;
+    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
     [UIState.playLayer changeUIState:normalState];
     
 }

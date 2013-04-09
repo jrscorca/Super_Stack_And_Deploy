@@ -14,7 +14,7 @@
 @class PlayLayer;
 
 
-@class ShipSprite, GameObjectSprite, CardItem;
+@class ShipSprite, GameObjectSprite, CardItem, NodeSprite;
 @interface UIState : NSObject{
 
     
@@ -81,5 +81,6 @@
 -(void) transitionToNormalState;
 -(void) transitionToShipSelectState:(ShipSprite*) ship;
 -(void) transitionToCardSelectState:(CardItem*) card;
+-(void) transitionToNodeSelectState:(NodeSprite*) node;
 
 @end

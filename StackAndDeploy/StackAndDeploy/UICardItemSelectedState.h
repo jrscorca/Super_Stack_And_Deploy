@@ -13,7 +13,7 @@
     CardItem *selectedCard;
 }
 
--(id) initWithSelectedCardItem:(CardItem*) cardItem;
+-(id) initWithSelectedCardItem:(CardItem*) cardItem andState:(UIState*) state;
 
 -(void)cardPlayed:(CardItem*)card;
 
