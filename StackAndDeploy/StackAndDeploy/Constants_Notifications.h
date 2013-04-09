@@ -12,6 +12,8 @@ extern NSString* const kNotification_CardDrawAway;
 extern NSString* const kNotification_CardDrawLocal;
 
 extern NSString *const kNotification_ShipSelected;
+extern NSString *const kNotification_CommandPressed;
+extern NSString *const kNotification_ControlCommandButtons;
 
 extern NSString* const kCardPlayed;
 extern NSString* const kCardPutBack;

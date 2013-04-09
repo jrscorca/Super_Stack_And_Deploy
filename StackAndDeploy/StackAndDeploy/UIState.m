@@ -33,6 +33,7 @@ static PlayLayer *playLayer;
 - (id) initWithState:(UIState*) state{
     if(self = [super init]){
 //        self.playLayer = _playLayer;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commandExecuted:) name:kNotification_CommandPressed object:nil];
         if(state){
             previousTouchPoint = state.previousTouchPoint;
             cameraVelocity = state.cameraVelocity;
@@ -42,14 +43,22 @@ static PlayLayer *playLayer;
             previousTouchPoint = ccp(0, 0);
             cameraVelocity = ccp(0,0);
             deltaTouch = ccp(0,0);
+            commandTouched = -1;
         }
     }
     return self;
 }
 
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
+}
+
 -(void) updateState:(ccTime) dt{
     [self updateCamera:dt];
 }
+
+
 
 #pragma mark - utility functions
 
@@ -74,6 +83,49 @@ static PlayLayer *playLayer;
     return nil;
 }
 
+
+-(BOOL) commandTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event{
+    CGPoint touchPoint = [playLayer convertTouchToNodeSpace: touch];
+    //command rect collision detections
+    if(CGRectContainsPoint(COMMAND_RECT0, touchPoint)){
+        commandTouched = 0;
+        return YES;
+    }else if(CGRectContainsPoint(COMMAND_RECT1, touchPoint)){
+        commandTouched = 1;
+        return YES;
+    }else if(CGRectContainsPoint(COMMAND_RECT2, touchPoint)){
+        commandTouched = 2;
+        return YES;
+    }else if(CGRectContainsPoint(COMMAND_RECT3, touchPoint)){
+        commandTouched = 3;
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL) commandTouchEnded:(UITouch*) touch withEvent:(UIEvent*) event{
+    CGPoint touchPoint = [playLayer convertTouchToNodeSpace: touch];
+    //command rect collision detections
+    if(CGRectContainsPoint(COMMAND_RECT0, touchPoint) && commandTouched == 0){
+        return YES;
+    }else if(CGRectContainsPoint(COMMAND_RECT1, touchPoint)  && commandTouched == 1){
+        return YES;
+    }else if(CGRectContainsPoint(COMMAND_RECT2, touchPoint) && commandTouched == 2){
+        return YES;
+    }else if(CGRectContainsPoint(COMMAND_RECT3, touchPoint) && commandTouched == 3){
+        return YES;
+    }
+    return NO;
+}
+
+-(void) executeCommand:(int) commandNumber{
+    
+}
+
+-(void) commandExecuted:(NSNotification*) notification{
+    CCMenuItem *object = notification.object;
+    NSLog(@"menu: %d", object.tag);
+}
 
 #pragma mark - touch events
 
@@ -101,18 +153,26 @@ static PlayLayer *playLayer;
 -(void) sideCameraMovement:(UITouch*) touch withEvent:(UIEvent*) event{
     CGPoint touchPoint = [playLayer convertTouchToNodeSpace:touch];
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    float edgeLimit = 40;
+    float edgeLimit = 50;
+    moveCameraDown = NO;
+    moveCameraLeft = NO;
+    moveCameraRight = NO;
+    moveCameraUp = NO;
     if(touchPoint.x < edgeLimit){
-        cameraVelocity = ccp(7, cameraVelocity.y);
+//        cameraVelocity = ccp(7, cameraVelocity.y);
+        moveCameraUp = YES;
     }
     if(touchPoint.x > winSize.width - edgeLimit){
-        cameraVelocity = ccp(-7, cameraVelocity.y);
+//        cameraVelocity = ccp(-7, cameraVelocity.y);
+        moveCameraDown = YES;
     }
     if(touchPoint.y < edgeLimit){
-        cameraVelocity = ccp(cameraVelocity.x, 7);
+  //      cameraVelocity = ccp(cameraVelocity.x, 7);
+        moveCameraLeft = YES;
     }
     if(touchPoint.y > winSize.height - edgeLimit){
-        cameraVelocity = ccp(cameraVelocity.x, -7);
+//        cameraVelocity = ccp(cameraVelocity.x, -7);
+        moveCameraRight = YES;
     }
     
 }
@@ -153,6 +213,19 @@ static PlayLayer *playLayer;
 	if(ccpLength(cameraVelocity) * dt  < PAN_VELOCITY_MIN * dt){
 		cameraVelocity = CGPointMake(0.0, 0.0);
 	}
+    
+    if(moveCameraUp){
+        cameraVelocity = ccp(7, cameraVelocity.y);
+    }
+    if(moveCameraDown){
+        cameraVelocity = ccp(-7, cameraVelocity.y);
+    }
+    if(moveCameraLeft){
+        cameraVelocity = ccp(cameraVelocity.x, 7);
+    }
+    if(moveCameraRight){
+        cameraVelocity = ccp(cameraVelocity.x, -7);
+    }
     playLayer.boardLayer.position = ccp(playLayer.boardLayer.position.x + cameraVelocity.x, playLayer.boardLayer.position.y + cameraVelocity.y);
      
 //    playLayer.boardLayer.position =;
@@ -190,6 +263,10 @@ static PlayLayer *playLayer;
     cameraVelocity = CGPointZero;
     deltaTouch = CGPointZero;
     previousTouchPoint = CGPointZero;
+    moveCameraDown = NO;
+    moveCameraLeft = NO;
+    moveCameraRight = NO;
+    moveCameraUp = NO;
 }
 
 

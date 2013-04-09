@@ -18,6 +18,7 @@
 #import "UIShipSelectState.h"
 #import "ShipSelectLayer.h"
 #import "UICardItemSelectedState.h"
+#import "CommandLayer.h"
 
 @implementation UINormalState
 
@@ -98,6 +99,7 @@
     UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = NO;
     UIState.playLayer.hudLayer.shipSelectLayer.visible = YES;
+    UIState.playLayer.hudLayer.commandLayer.visible = YES;
     [UIState.playLayer changeUIState:shipSelectState];
 }
 

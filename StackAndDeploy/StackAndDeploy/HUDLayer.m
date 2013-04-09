@@ -13,10 +13,11 @@
 #import "PlayerClass.h"
 #import "LocalPlayer.h"
 #import "MatchDataManager.h"
+#import "CommandLayer.h"
 
 @implementation HUDLayer
 
-@synthesize handLayer, miniMapLayer, shipSelectLayer;
+@synthesize handLayer, miniMapLayer, shipSelectLayer, commandLayer;
 
 - (id)init{
     if ((self = [super init])) {
@@ -35,6 +36,10 @@
         [self addChild:self.shipSelectLayer];
         self.shipSelectLayer.visible = NO;
         
+        self.commandLayer = [CommandLayer node];
+        [self addChild:self.commandLayer];
+        self.commandLayer.visible = NO;
+        
         resourceLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%.0f", 0.0] fontName:@"helvetica" fontSize:14];
 
         resourceLabel.position = ccp(winSize.width- 70, 300);
@@ -52,6 +57,7 @@
     [self.handLayer update:dt];
     [self.miniMapLayer update:dt];
     [self.shipSelectLayer update:dt];
+    [self.commandLayer update:dt];
     [resourceLabel setString:[NSString stringWithFormat:@"%.0f", MDM.localPlayer.resources]];
 }
 

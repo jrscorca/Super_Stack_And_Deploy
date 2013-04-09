@@ -26,6 +26,12 @@
     //minimap
     BOOL isMiniMapSelected;
     
+    
+    int commandTouched;
+    BOOL moveCameraUp;
+    BOOL moveCameraDown;
+    BOOL moveCameraLeft;
+    BOOL moveCameraRight;
 }
 
 @property CGPoint previousTouchPoint, deltaTouch, cameraVelocity;
@@ -43,6 +49,11 @@
 - (void) updateState:(ccTime) dt;
 
 -(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event;
+
+-(BOOL) commandTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event;
+-(BOOL) commandTouchEnded:(UITouch*) touch withEvent:(UIEvent*) event;
+-(void) executeCommand:(int) commandNumber;
+-(void) commandExecuted:(NSNotification*) notification;
 //camera stuff
 //map movement functions
 -(void) cameraOnTouchBegan:(UITouch*) touch withEvent:(UIEvent*) event;

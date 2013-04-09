@@ -27,6 +27,9 @@
 		DE273D0C170404E20007B8D8 /* UtilityFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D0B170404E10007B8D8 /* UtilityFunctions.m */; };
 		DE273D0F170405D00007B8D8 /* ShipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D0E170405D00007B8D8 /* ShipLayer.m */; };
 		DE273D13170406F00007B8D8 /* GameObjectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = DE273D12170406F00007B8D8 /* GameObjectSprite.m */; };
+		DE61DAF71713A1B800374FAC /* Command_Pressed-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DE61DAF51713A1B800374FAC /* Command_Pressed-hd.png */; };
+		DE61DAF81713A1B800374FAC /* Command-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DE61DAF61713A1B800374FAC /* Command-hd.png */; };
+		DE61DAFC1713A5FB00374FAC /* CommandLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE61DAFB1713A5FB00374FAC /* CommandLayer.m */; };
 		DE6C52B517091E80000932C8 /* UIShipSelectState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B417091E80000932C8 /* UIShipSelectState.m */; };
 		DE6C52BA170937A9000932C8 /* ShipSelectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52B9170937A9000932C8 /* ShipSelectLayer.m */; };
 		DE6C52D2170B7547000932C8 /* UICardItemSelectedState.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6C52D1170B7546000932C8 /* UICardItemSelectedState.m */; };
@@ -232,6 +235,10 @@
 		DE273D0E170405D00007B8D8 /* ShipLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShipLayer.m; sourceTree = "<group>"; };
 		DE273D11170406F00007B8D8 /* GameObjectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectSprite.h; sourceTree = "<group>"; };
 		DE273D12170406F00007B8D8 /* GameObjectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameObjectSprite.m; sourceTree = "<group>"; };
+		DE61DAF51713A1B800374FAC /* Command_Pressed-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Command_Pressed-hd.png"; sourceTree = "<group>"; };
+		DE61DAF61713A1B800374FAC /* Command-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Command-hd.png"; sourceTree = "<group>"; };
+		DE61DAFA1713A5FB00374FAC /* CommandLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandLayer.h; sourceTree = "<group>"; };
+		DE61DAFB1713A5FB00374FAC /* CommandLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandLayer.m; sourceTree = "<group>"; };
 		DE6C52B317091E80000932C8 /* UIShipSelectState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIShipSelectState.h; sourceTree = "<group>"; };
 		DE6C52B417091E80000932C8 /* UIShipSelectState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIShipSelectState.m; sourceTree = "<group>"; };
 		DE6C52B8170937A9000932C8 /* ShipSelectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShipSelectLayer.h; sourceTree = "<group>"; };
@@ -640,6 +647,7 @@
 		DE273CEB1703E90E0007B8D8 /* HUDLayer */ = {
 			isa = PBXGroup;
 			children = (
+				DE61DAF91713A5E900374FAC /* CommandLayer */,
 				DE6C52B717093768000932C8 /* ShipSelectLayer */,
 				DE86EA2F1707D6FC00841158 /* MiniMapLayer */,
 				DE273CED1703E96B0007B8D8 /* HandLayer */,
@@ -717,6 +725,15 @@
 				DE273D0E170405D00007B8D8 /* ShipLayer.m */,
 			);
 			name = ShipLayer;
+			sourceTree = "<group>";
+		};
+		DE61DAF91713A5E900374FAC /* CommandLayer */ = {
+			isa = PBXGroup;
+			children = (
+				DE61DAFA1713A5FB00374FAC /* CommandLayer.h */,
+				DE61DAFB1713A5FB00374FAC /* CommandLayer.m */,
+			);
+			name = CommandLayer;
 			sourceTree = "<group>";
 		};
 		DE6C52B717093768000932C8 /* ShipSelectLayer */ = {
@@ -868,6 +885,8 @@
 				F229526B1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.png */,
 				F229526C1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.png */,
 				F229526D1703D5FF0073B0E5 /* SNDSpriteSheet_UntitledSheet.png */,
+				DE61DAF51713A1B800374FAC /* Command_Pressed-hd.png */,
+				DE61DAF61713A1B800374FAC /* Command-hd.png */,
 				DEAE8576170F5043000126EE /* abilities-hd.png */,
 				DEAE8577170F5043000126EE /* overlay-hd.png */,
 				F22950DE1703CCEF0073B0E5 /* Default.png */,
@@ -1343,6 +1362,8 @@
 				F22952761703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist in Resources */,
 				DEAE8578170F5043000126EE /* abilities-hd.png in Resources */,
 				DEAE8579170F5043000126EE /* overlay-hd.png in Resources */,
+				DE61DAF71713A1B800374FAC /* Command_Pressed-hd.png in Resources */,
+				DE61DAF81713A1B800374FAC /* Command-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1505,6 +1526,7 @@
 				F2261B8917137D2100E5766F /* StatusVO.m in Sources */,
 				F2261B8C171389E500E5766F /* UIAbilityState.m in Sources */,
 				F2261B8F17138A8700E5766F /* UIAbilityTargetsSelectState.m in Sources */,
+				DE61DAFC1713A5FB00374FAC /* CommandLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

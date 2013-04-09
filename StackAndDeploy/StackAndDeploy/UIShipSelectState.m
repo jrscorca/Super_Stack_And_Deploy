@@ -19,6 +19,7 @@
 #import "ShipModel.h"
 #import "Ability.h"
 #import "UINormalState.h"
+#import "CommandLayer.h"
 
 @implementation UIShipSelectState
 
@@ -29,10 +30,9 @@
     if(self = [super initWithState:state]){
         [_selectedShip assignObjectToPointer:&selectedShip];
         selectedShip.isSelected = YES;
-        abilitySelected = NO;
         //send notification
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ShipSelected object:selectedShip];
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
 
     }
     return self;
@@ -52,6 +52,43 @@
     [super updateState:dt];
 }
 
+-(void) commandExecuted:(NSNotification*) notification{
+    CCMenuItemSprite *object = notification.object;
+    NSLog(@"menu: %d", object.tag);
+    int commandNumber = object.tag;
+    if(commandNumber == -1){
+        return;
+    }
+    // 0:ship moveTO
+    if(commandNumber == 0){
+        moveCommandSelected = YES;
+        moveCommandTargeting = YES;
+        [object setIsEnabled:NO];
+    }
+    // 1: deselect
+    if(commandNumber == 1){
+        [self transitionToNormalState];
+    }
+    // 2: ability
+    // 3:ability
+    
+    if(commandNumber == 2){
+        NSMutableArray *abilities = ((ShipModel*)selectedShip.model).abilityArray;
+        if([abilities count] > 0){
+            Ability *ability = [abilities objectAtIndex:0];
+            [ability activateAbility];
+        }
+    }
+    
+    if(commandNumber == 3){
+        NSMutableArray *abilities = ((ShipModel*)selectedShip.model).abilityArray;
+        if([abilities count] > 1){
+            Ability *ability = [abilities objectAtIndex:1];
+            [ability activateAbility];
+        }
+    }
+}
+
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     [self cameraOnTouchBegan:touch withEvent:event];
@@ -62,8 +99,7 @@
         [self cleanCameraVariables];
         return YES;
     }
-    if(CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
-        abilitySelected = YES;
+    if([self commandTouchBegan:touch withEvent:event]) {
         return YES;
     }
     
@@ -100,19 +136,29 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     [self cameraOnTouchEnded:touch withEvent:event];    
-    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+//    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+    
+    //first if needs to be here
     if(isMiniMapSelected){
-    }else if(abilitySelected && CGRectContainsPoint(ABILITY_RECT, touchPoint)) {
+    }else if([self commandTouchEnded:touch withEvent:event]) {
+        [self executeCommand:commandTouched];
         //do ability
-        Ability *ability = [((ShipModel*)selectedShip.model).abilityArray objectAtIndex:0];
-        [ability activateAbility];
-        //incase ship destroys itself with ability
-        if(!selectedShip){
+    }else if(nothingTouched && !screenMoved){
+        if(moveCommandTargeting){
+            //move ship to point on minimap or point on board
+            CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
+            if (CGRectContainsPoint(MINIMAP_RECT, touchPoint)) {
+                touchPoint = [self miniMapToBoardConversion:touch withEvent:event];
+                [selectedShip moveShip:touchPoint];
+            }else if(touchPoint.y > OVERLAY_HEIGHT){
+                touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
+                [selectedShip moveShip:touchPoint];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+            moveCommandTargeting = NO;
+        }else{
             [self transitionToNormalState];
         }
-    }else if(nothingTouched && !screenMoved){
-
-        [self transitionToNormalState];
     }else if(selectedShip && !screenMoved){
         //move ship to point on minimap or point on board
         CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
@@ -126,8 +172,18 @@
     }
     screenMoved = NO;
     nothingTouched = NO;
-    abilitySelected = NO;
     isMiniMapSelected = NO;
+    commandTouched = -1;
+    if(!moveCommandSelected){
+        moveCommandTargeting = NO;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+    }
+    moveCommandSelected = NO;
+    moveCameraDown = NO;
+    moveCameraLeft = NO;
+    moveCameraRight = NO;
+    moveCameraUp = NO;
+    
     
 }
 
@@ -141,13 +197,18 @@
             touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
             [selectedShip moveShip:touchPoint];
         }
-
-    }else if(isMiniMapSelected){
-        isMiniMapSelected = NO;
-    }else if(abilitySelected){
-        abilitySelected = NO;
     }
+    moveCommandSelected = NO;
+    isMiniMapSelected = NO;
+    commandTouched = -1;
+    moveCommandTargeting = NO;
+    moveCameraDown = NO;
+    moveCameraLeft = NO;
+    moveCameraRight = NO;
+    moveCameraUp = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
 }
+
 
 
 #pragma mark - Transitions
@@ -156,8 +217,10 @@
     UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
     UIState.playLayer.hudLayer.handLayer.visible = YES;
     UIState.playLayer.hudLayer.shipSelectLayer.visible = NO;
+    UIState.playLayer.hudLayer.commandLayer.visible = NO;
     selectedShip.isSelected = NO;
     [UIState.playLayer changeUIState:normalState];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
     
 }
 

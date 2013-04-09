@@ -14,6 +14,8 @@
     CCLabelTTF *healthLabel;
     CCLabelTTF *shipNameLabel;
     ShipSprite *selectedShip;
+    
+    
 }
 
 @property (nonatomic, assign) CCLabelTTF *healthLabel, *shipNameLabel;

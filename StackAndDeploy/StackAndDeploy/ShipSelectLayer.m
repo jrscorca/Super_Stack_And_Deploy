@@ -19,10 +19,10 @@
     if(self = [super init]){
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shipSelected:) name:kNotification_ShipSelected object:nil];
 //        CGSize winSize = [[CCDirector sharedDirector] winSize];
-        CCSprite *hud = [CCSprite spriteWithFile:@"abilities.png"];
+/*        CCSprite *hud = [CCSprite spriteWithFile:@"abilities.png"];
         hud.position = ccp(425, 47);
         [self addChild:hud];
-        
+        */
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.healthLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"HP:%.0f", 10.0] fontName:@"helvetica" fontSize:14];
         healthLabel.position = ccp(winSize.width/2, 40);
@@ -31,6 +31,8 @@
         self.shipNameLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Wraith"] fontName:@"helvetica" fontSize:14];
         shipNameLabel.position = ccp(winSize.width/2, 54);
         [self addChild:shipNameLabel];
+        
+        
     }
     return self;
 }
