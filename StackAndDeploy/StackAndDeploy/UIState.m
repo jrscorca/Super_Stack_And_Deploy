@@ -35,6 +35,7 @@ static PlayLayer *playLayer;
     if(self = [super init]){
 //        self.playLayer = _playLayer;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commandExecuted:) name:kNotification_CommandPressed object:nil];
+        [self activateInterfaceElements];
         if(state){
             previousTouchPoint = state.previousTouchPoint;
             cameraVelocity = state.cameraVelocity;
@@ -48,6 +49,14 @@ static PlayLayer *playLayer;
         }
     }
     return self;
+}
+
+-(void)activateInterfaceElements{
+    
+}
+
+-(void)deactivateInterfaceElements{
+    
 }
 
 -(void)dealloc{

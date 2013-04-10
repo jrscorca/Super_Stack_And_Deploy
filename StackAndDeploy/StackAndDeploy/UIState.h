@@ -46,6 +46,10 @@
 
 - (id) initWithState:(UIState*) state;
 
+-(void)activateInterfaceElements;
+
+-(void)deactivateInterfaceElements;
+
 - (void) updateState:(ccTime) dt;
 
 -(GameObjectSprite*) objectAtPoint:(UITouch*) touch withEvent:(UIEvent*) event;

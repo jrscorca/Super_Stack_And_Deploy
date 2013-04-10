@@ -37,6 +37,13 @@
     [super dealloc];
 }
 
+-(void)activateInterfaceElements{
+    UIState.playLayer.hudLayer.handLayer.visible = YES;
+}
+
+-(void)deactivateInterfaceElements{
+    UIState.playLayer.hudLayer.handLayer.visible = NO;
+}
 
 
 
@@ -102,15 +109,14 @@
 #pragma mark - Transitions
 
 -(void) transitionToNormalState{
+    [self deactivateInterfaceElements];
     UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
-    UIState.playLayer.hudLayer.handLayer.visible = YES;
-    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
-//    cardSele.isSelected = NO;
     [UIState.playLayer changeUIState:normalState];
     
 }
 
 -(void) transitionToCardSelectState:(CardItem *)card{
+    [self deactivateInterfaceElements];
     UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card andState:self] autorelease];
     [UIState.playLayer changeUIState:cardItemSelectedState];
 }

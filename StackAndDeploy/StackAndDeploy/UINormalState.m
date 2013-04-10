@@ -31,6 +31,15 @@
     return self;
 }
 
+-(void)activateInterfaceElements{
+    UIState.playLayer.hudLayer.handLayer.visible = YES;
+}
+
+-(void)deactivateInterfaceElements{
+    UIState.playLayer.hudLayer.handLayer.visible = NO;
+}
+
+
 -(void)dealloc{
     [super dealloc];
 }
@@ -101,22 +110,19 @@
 
 #pragma mark - Transitions
 -(void) transitionToShipSelectState:(ShipSprite*) ship{
-    UIState.playLayer.hudLayer.handLayer.visible = NO;
-    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
-    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    [self deactivateInterfaceElements];
     UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     [UIState.playLayer changeUIState:shipSelectState];
 }
 
 -(void) transitionToNodeSelectState:(NodeSprite *)node{
-    UIState.playLayer.hudLayer.handLayer.visible = NO;
-    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
-    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    [self deactivateInterfaceElements];
     UINodeSelectedState *nodeSelectedState = [[[UINodeSelectedState alloc] initWithSelectedNode:node andState:self] autorelease];
     [UIState.playLayer changeUIState:nodeSelectedState];
 }
 
 -(void) transitionToCardSelectState:(CardItem *)card{
+    [self deactivateInterfaceElements];
     UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card andState:self] autorelease];
     [UIState.playLayer changeUIState:cardItemSelectedState];
 }

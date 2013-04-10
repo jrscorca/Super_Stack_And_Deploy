@@ -41,6 +41,18 @@
 }
 
 
+-(void)activateInterfaceElements{
+    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
+    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+}
+
+-(void)deactivateInterfaceElements{
+    selectedShip.isSelected = NO;
+    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
+    UIState.playLayer.hudLayer.commandLayer.visible = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+}
+
 -(void)dealloc{
     [selectedShip removeObjectFromPointer:&selectedShip];
     [super dealloc];
@@ -220,28 +232,20 @@
 #pragma mark - Transitions
 
 -(void) transitionToNormalState{
-    selectedShip.isSelected = NO;
-    UIState.playLayer.hudLayer.handLayer.visible = YES;
-    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
-    UIState.playLayer.hudLayer.commandLayer.visible = NO;
+    [self deactivateInterfaceElements];
     UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
     [UIState.playLayer changeUIState:normalState];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
-    
 }
 
 
 -(void) transitionToNodeSelectState:(NodeSprite *)node{
-    selectedShip.isSelected = NO;
-    UIState.playLayer.hudLayer.handLayer.visible = NO;
-    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
-    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    [self deactivateInterfaceElements];
     UINodeSelectedState *nodeSelectedState = [[[UINodeSelectedState alloc] initWithSelectedNode:node andState:self] autorelease];
     [UIState.playLayer changeUIState:nodeSelectedState];
 }
 
 -(void) transitionToShipSelectState:(ShipSprite *)ship{
-    selectedShip.isSelected = NO;
+    [self deactivateInterfaceElements];
     UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     [UIState.playLayer changeUIState:shipSelectState];
     

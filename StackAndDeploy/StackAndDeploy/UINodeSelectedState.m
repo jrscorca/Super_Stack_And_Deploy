@@ -44,6 +44,18 @@
     [super dealloc];
 }
 
+-(void)activateInterfaceElements{
+    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
+    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+}
+
+-(void)deactivateInterfaceElements{
+    selectedNode.isSelected = NO;
+    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
+    UIState.playLayer.hudLayer.commandLayer.visible = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+}
+
 -(void) updateState:(ccTime)dt{
     if(!selectedNode){
         [self transitionToNormalState];
@@ -141,7 +153,6 @@
 }
 
 - (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event{
-
     isMiniMapSelected = NO;
     commandTouched = -1;
     moveCameraDown = NO;
@@ -156,22 +167,19 @@
 #pragma mark - Transitions
 
 -(void) transitionToNormalState{
+    [self deactivateInterfaceElements];
     UINormalState *normalState = [[[UINormalState alloc] initWithState:self] autorelease];
-    UIState.playLayer.hudLayer.handLayer.visible = YES;
-    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
-    UIState.playLayer.hudLayer.commandLayer.visible = NO;
-    selectedNode.isSelected = NO;
     [UIState.playLayer changeUIState:normalState];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
 }
 
 -(void) transitionToShipSelectState:(ShipSprite *)ship{
-    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
+    [self deactivateInterfaceElements];
     UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     [UIState.playLayer changeUIState:shipSelectState];
 }
 
 -(void) transitionToNodeSelectState:(NodeSprite*) node{
+    [self deactivateInterfaceElements];
     UINodeSelectedState *nodeSelectState = [[[UINodeSelectedState alloc] initWithSelectedNode:node andState:self] autorelease];
     [UIState.playLayer changeUIState:nodeSelectState];
 }
