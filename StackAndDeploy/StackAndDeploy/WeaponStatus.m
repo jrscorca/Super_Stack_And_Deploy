@@ -14,6 +14,7 @@
 #import "BulletSprite.h"
 #import "HealthOffsetStatus.h"
 #import "StatusVO.h"
+#import "HinderedHealthOffsetStatus.h"
 
 @implementation WeaponStatus
 @synthesize bulletStatuses;

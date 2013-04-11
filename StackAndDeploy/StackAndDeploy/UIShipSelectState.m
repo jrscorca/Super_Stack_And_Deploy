@@ -22,6 +22,7 @@
 #import "NodeSprite.h"
 #import "DetailsLayer.h"
 #import "UINodeSelectedState.h"
+#import "UIAbilityTargetsSelectState.h"
 
 @implementation UIShipSelectState
 
@@ -90,7 +91,7 @@
         NSMutableArray *abilities = ((ShipModel*)selectedShip.model).abilityArray;
         if([abilities count] > 0){
             Ability *ability = [abilities objectAtIndex:0];
-            [ability activateAbility];
+            [ability activateAbility:self];
         }
     }
     
@@ -98,7 +99,7 @@
         NSMutableArray *abilities = ((ShipModel*)selectedShip.model).abilityArray;
         if([abilities count] > 1){
             Ability *ability = [abilities objectAtIndex:1];
-            [ability activateAbility];
+            [ability activateShipAbility:self];
         }
     }
 }
@@ -154,7 +155,6 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
     [self cameraOnTouchEnded:touch withEvent:event];
-    //    CGPoint touchPoint = [UIState.playLayer convertTouchToNodeSpace: touch];
     
     //first if needs to be here
     if(isMiniMapSelected){
@@ -249,6 +249,12 @@
     UIShipSelectState *shipSelectState = [[[UIShipSelectState alloc] initWithSelectedShip:ship andState:self] autorelease];
     [UIState.playLayer changeUIState:shipSelectState];
     
+}
+
+-(void) transitionToAbilityTargetsSelectState:(Ability *)ability{
+    [self deactivateInterfaceElements];
+    UIAbilityTargetsSelectState *abilityTargetsSelectState = [[[UIAbilityTargetsSelectState alloc] initWithState:self andAbility:ability] autorelease];
+    [UIState.playLayer changeUIState:abilityTargetsSelectState];
 }
 
 

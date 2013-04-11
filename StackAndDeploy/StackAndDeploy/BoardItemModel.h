@@ -12,12 +12,12 @@
     int maxHealth;
     
     int health;
-    int healthBuffer;
     
     int ignoreCount;
     
+    int armor;
+    
     int speed;
-    int speedBuffer;
     
     NSString *name;
     Ownership *ownership;
@@ -29,14 +29,17 @@
 @property (assign) int maxHealth;
 @property (nonatomic, retain) Ownership *ownership;
 @property (assign) int health;
-@property (assign) int healthBuffer;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic) int armor;
 
 @property (assign) int ignoreCount;
 
 @property (assign) int speed;
-@property (assign) int speedBuffer;
 
 @property (nonatomic, retain) NSMutableArray *statuses;
+
+
+
+-(void) hinderedHealthOffset:(int) healthOffset;
 
 @end

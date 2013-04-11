@@ -8,17 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
-@class ShipSprite;
+@class ShipSprite, UIState, BoardLayer, UIShipSelectState;
 @interface Ability : NSObject{
-    ShipSprite *abilityOf;
     
     NSString *normalCommandImage, *selectedCommandImage, *disabledCommandImage;
 }
 
 @property (nonatomic, retain) NSString *normalCommandImage, *selectedCommandImage, *disabledCommandImage;
 
--(id) initWithShip:(ShipSprite*) ship;
+-(id) init;
 
--(void) activateAbility;
+
+//initial call when ability is used
+-(void) activateAbility:(UIState*) state;
+
+-(void) activateShipAbility:(UIShipSelectState*) state;
+
+//targets objects to use ability on
+-(void) targetObject:(BoardLayer*) boardLayer withTouch:(UITouch*) touch;
+
+// checks whether the ability can be used
+-(BOOL) isAbilityReady;
+
+//does what the ability should do
+-(void) useAbility;
 
 @end

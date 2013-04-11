@@ -62,7 +62,7 @@
     [bulletStatusArgs setObject:[NSNumber numberWithInt:-20] forKey:@"healthOffset"];
     
     NSMutableDictionary *bulletStatusDic = [[[NSMutableDictionary alloc] init] autorelease];
-    [bulletStatusDic setObject:@"HealthOffsetStatus" forKey:@"className"];
+    [bulletStatusDic setObject:@"HinderedHealthOffsetStatus" forKey:@"className"];
     [bulletStatusDic setObject:bulletStatusArgs forKey:@"arguments"];
     
     NSMutableArray *bulStatuses = [[[NSMutableArray alloc] init] autorelease];

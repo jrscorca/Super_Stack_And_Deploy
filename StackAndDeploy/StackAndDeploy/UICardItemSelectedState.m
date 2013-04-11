@@ -18,7 +18,10 @@
 #import "DetailsLayer.h"
 #import "UINormalState.h"
 #import "UIAbilityTargetsSelectState.h"
+<<<<<<< HEAD
 #import "CardModel.h"
+=======
+>>>>>>> - targeting with abilities works
 
 @implementation UICardItemSelectedState
 
@@ -127,11 +130,11 @@
     [UIState.playLayer changeUIState:cardItemSelectedState];
 }
 
--(void) transitionToAbilityTargetsSelectState:(CardItem *)card{
-    UIAbilityTargetsSelectState *abilityTargetsSelectState = [[[UIAbilityTargetsSelectState alloc] initWithState:self andStatuses:card.model.statuses andTargetTypes:card.model.statuses andTargetNumber:1] autorelease];
+-(void) transitionToAbilityTargetsSelectState:(Ability *)ability{
+    [self deactivateInterfaceElements];
+    UIAbilityTargetsSelectState *abilityTargetsSelectState = [[[UIAbilityTargetsSelectState alloc] initWithState:self andAbility:ability] autorelease];
     [UIState.playLayer changeUIState:abilityTargetsSelectState];
 }
-
 
 
 

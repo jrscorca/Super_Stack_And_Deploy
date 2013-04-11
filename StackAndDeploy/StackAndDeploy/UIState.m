@@ -337,4 +337,8 @@ static PlayLayer *playLayer;
     NSLog(@"node select transitoin");
 }
 
+-(void) transitionToAbilityTargetsSelectState:(Ability *)ability{
+    NSLog(@"ability select transition");
+}
+
 @end

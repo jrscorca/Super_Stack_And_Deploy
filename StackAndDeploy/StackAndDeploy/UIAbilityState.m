@@ -10,15 +10,19 @@
 #import "StatusVO.h"
 @implementation UIAbilityState
 
--(id)initWithState:(UIState *)_state andStatuses:(NSArray*)_statuses{
+@synthesize previousState, ability;
+
+-(id)initWithState:(UIState *)_state andAbility:(Ability*) _ability{
     if(self = [super initWithState:_state]){
-        statuses = [[NSArray alloc] initWithArray:_statuses];
+        self.previousState = _state;
+        self.ability = _ability;
     }
     return self;
 }
 
 -(void)dealloc{
-    [statuses release];
+    [previousState release];
+    [ability release];
     [super dealloc];
 }
 

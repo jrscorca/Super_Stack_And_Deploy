@@ -16,6 +16,7 @@
 #import "WeaponStatus.h"
 #import "Ownership.h"
 #import "StatusVO.h"
+#import "DirectDamageToShipAbility.h"
 
 @implementation ShipSprite
 
@@ -39,8 +40,10 @@
         self.model.health = 50;
         self.model.maxHealth = 50;
         
-        ColonizeAbility *ability = [[[ColonizeAbility alloc] initWithShip:self] autorelease];
+        ColonizeAbility *ability = [[[ColonizeAbility alloc] init] autorelease];
+        DirectDamageToShipAbility *ability2 = [[[DirectDamageToShipAbility alloc] init] autorelease];
         [((ShipModel*)self.model).abilityArray addObject:ability];
+        [((ShipModel*)self.model).abilityArray addObject:ability2];
         
         
     }

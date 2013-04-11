@@ -43,6 +43,8 @@
 		DE839F26170D238E00CC6169 /* BulletLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F25170D238E00CC6169 /* BulletLayer.m */; };
 		DE839F2A170E19A500CC6169 /* Ability.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F29170E19A500CC6169 /* Ability.m */; };
 		DE839F2D170E1AAF00CC6169 /* ColonizeAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */; };
+		DE83CBFB171738BE001E1506 /* HinderedHealthOffsetStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83CBFA171738BE001E1506 /* HinderedHealthOffsetStatus.m */; };
+		DE83CBFE17174792001E1506 /* DirectDamageToShipAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = DE83CBFD17174792001E1506 /* DirectDamageToShipAbility.m */; };
 		DE86EA2E17076DAA00841158 /* NSMutableArray+GameObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */; };
 		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
 		DEAE8578170F5043000126EE /* abilities-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAE8576170F5043000126EE /* abilities-hd.png */; };
@@ -274,6 +276,10 @@
 		DE839F29170E19A500CC6169 /* Ability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ability.m; sourceTree = "<group>"; };
 		DE839F2B170E1AAF00CC6169 /* ColonizeAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColonizeAbility.h; sourceTree = "<group>"; };
 		DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColonizeAbility.m; sourceTree = "<group>"; };
+		DE83CBF9171738BE001E1506 /* HinderedHealthOffsetStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HinderedHealthOffsetStatus.h; sourceTree = "<group>"; };
+		DE83CBFA171738BE001E1506 /* HinderedHealthOffsetStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HinderedHealthOffsetStatus.m; sourceTree = "<group>"; };
+		DE83CBFC17174792001E1506 /* DirectDamageToShipAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectDamageToShipAbility.h; sourceTree = "<group>"; };
+		DE83CBFD17174792001E1506 /* DirectDamageToShipAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectDamageToShipAbility.m; sourceTree = "<group>"; };
 		DE86EA2C17076DAA00841158 /* NSMutableArray+GameObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+GameObjects.h"; sourceTree = "<group>"; };
 		DE86EA2D17076DAA00841158 /* NSMutableArray+GameObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+GameObjects.m"; sourceTree = "<group>"; };
 		DE86EA301707D71A00841158 /* MiniMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiniMapLayer.h; sourceTree = "<group>"; };
@@ -783,6 +789,8 @@
 				DE7CA784170D0512006F1E6E /* Status.m */,
 				DE839F20170D221500CC6169 /* HealthOffsetStatus.h */,
 				DE839F21170D221500CC6169 /* HealthOffsetStatus.m */,
+				DE83CBF9171738BE001E1506 /* HinderedHealthOffsetStatus.h */,
+				DE83CBFA171738BE001E1506 /* HinderedHealthOffsetStatus.m */,
 			);
 			name = StatusSystem;
 			sourceTree = "<group>";
@@ -821,6 +829,8 @@
 				DE839F29170E19A500CC6169 /* Ability.m */,
 				DE839F2B170E1AAF00CC6169 /* ColonizeAbility.h */,
 				DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */,
+				DE83CBFC17174792001E1506 /* DirectDamageToShipAbility.h */,
+				DE83CBFD17174792001E1506 /* DirectDamageToShipAbility.m */,
 			);
 			name = Abilities;
 			sourceTree = "<group>";
@@ -1589,6 +1599,8 @@
 				F2261BC4171760A700E5766F /* SBJsonParser.m in Sources */,
 				F2261BC5171760A700E5766F /* SBJsonWriter.m in Sources */,
 				F2261BC81717631E00E5766F /* CardModel.m in Sources */,
+				DE83CBFB171738BE001E1506 /* HinderedHealthOffsetStatus.m in Sources */,
+				DE83CBFE17174792001E1506 /* DirectDamageToShipAbility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

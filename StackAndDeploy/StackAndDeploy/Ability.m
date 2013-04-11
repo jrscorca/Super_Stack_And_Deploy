@@ -12,9 +12,8 @@
 
 @synthesize selectedCommandImage, normalCommandImage, disabledCommandImage;
 
--(id) initWithShip:(ShipSprite*) ship{
+-(id) init{
     if(self = [super init]){
-        abilityOf = ship;
         self.selectedCommandImage = @"Command_Pressed.png";
         self.normalCommandImage = @"Command.png";
         self.disabledCommandImage = @"Command_Pressed.png";
@@ -29,8 +28,24 @@
     [super dealloc];
 }
 
--(void) activateAbility{
+-(void) activateAbility:(UIState*) state{
     
 }
+
+//targets objects to use ability on
+-(void) targetObject:(BoardLayer*) boardLayer withTouch:(UITouch*) touch{
+    
+}
+
+// checks whether the ability can be used
+-(BOOL) isAbilityReady{
+    return YES;
+}
+
+//does what the ability should do
+-(void) useAbility{
+    
+}
+
 
 @end
