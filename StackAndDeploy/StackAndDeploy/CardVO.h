@@ -9,8 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "GameObjectVO.h"
 
-@interface CardVO : GameObjectVO
+@class UIAbilityState;
+@interface CardVO : GameObjectVO{
+    NSString *name;
+    NSString *details;
+    //requirements
+    UIAbilityState *abilityState;
+    NSMutableArray *statuses;
+    cardType type;
+}
 
 @property (assign) cardType type;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *details;
+//requirements
+@property (nonatomic, retain) UIAbilityState *abilityState;
+@property (nonatomic, retain) NSMutableArray *statuses;
+
+-(id)initWithDictionary:(NSDictionary*)dic;
 
 @end

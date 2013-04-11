@@ -17,6 +17,8 @@
 #import "ShipSprite.h"
 #import "DetailsLayer.h"
 #import "UINormalState.h"
+#import "UIAbilityTargetsSelectState.h"
+#import "CardModel.h"
 
 @implementation UICardItemSelectedState
 
@@ -86,7 +88,11 @@
     if(selectedCard){
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         if (selectedCard.position.y > winSize.height*.2) {
-            [self cardPlayed:selectedCard];
+            if (selectedCard.model.type == SHIP) {
+                [self cardPlayed:selectedCard];
+            }else{
+                [self transitionToAbilityTargetsSelectState:selectedCard];
+            }
             [selectedCard destroyObject];
             
         }
@@ -119,6 +125,11 @@
     [self deactivateInterfaceElements];
     UICardItemSelectedState *cardItemSelectedState = [[[UICardItemSelectedState alloc] initWithSelectedCardItem:card andState:self] autorelease];
     [UIState.playLayer changeUIState:cardItemSelectedState];
+}
+
+-(void) transitionToAbilityTargetsSelectState:(CardItem *)card{
+    UIAbilityTargetsSelectState *abilityTargetsSelectState = [[[UIAbilityTargetsSelectState alloc] initWithState:self andStatuses:card.model.statuses andTargetTypes:card.model.statuses andTargetNumber:1] autorelease];
+    [UIState.playLayer changeUIState:abilityTargetsSelectState];
 }
 
 

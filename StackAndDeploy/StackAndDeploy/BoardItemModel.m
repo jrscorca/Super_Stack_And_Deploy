@@ -7,7 +7,7 @@
 //
 
 #import "BoardItemModel.h"
-
+#import "Ownership.h"
 @implementation BoardItemModel
 @synthesize health, healthBuffer, ignoreCount, statuses, speed, speedBuffer, ownership, name, maxHealth;
 -(id)init{
@@ -15,6 +15,7 @@
         self.statuses = [[[NSMutableArray alloc] init] autorelease];
         self.name = @"No Name";
         self.maxHealth = 0;
+        self.ownership = [[[Ownership alloc] init] autorelease];
     }
     return self;
 }

@@ -24,22 +24,20 @@
 
 -(id)initWithShipVO:(ShipVO*)shipVO{
     if(self = [super initWithFile:@"Icon.png"]){
-        self.model = [[[ShipModel alloc] init] autorelease];
-        self.model.ownership.playerType = LOCAL_PLAYER;
-        self.model.ownership.playerNumber = PLAYER_ONE;
+        self.model = [[[ShipModel alloc] initWithShipVO:shipVO] autorelease];
+        
         for(StatusVO *status in shipVO.statuses){
             Class statusClass = NSClassFromString(status.className);
             id shipStatus = [[[statusClass alloc] initWithTarget:self andStatusVO:status] autorelease];
             [model.statuses addObject:shipStatus];
         }
-
-        model.health = 50;
-        model.maxHealth = 50;
+        
         velocity = ccp(1,1);
         isSelected = NO;
         [self addToArray:MDM.ships];
         self.steeringBehavior = [[[SteeringBehavior alloc] initWithShip:self] autorelease];
-        
+        self.model.health = 50;
+        self.model.maxHealth = 50;
         
         ColonizeAbility *ability = [[[ColonizeAbility alloc] initWithShip:self] autorelease];
         [((ShipModel*)self.model).abilityArray addObject:ability];

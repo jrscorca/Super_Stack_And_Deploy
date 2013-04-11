@@ -9,18 +9,15 @@
 #import "CardItem.h"
 #import "CardVO.h"
 #import "MatchDataManager.h"
+#import "CardModel.h"
 
 @implementation CardItem
 
-@synthesize name, details, cost, techReq;
+@synthesize model;
 
 -(id) initWithCardVO:(CardVO*) cardVO{
     if(self = [super initWithFile:@"Icon-72.png"]){
-        self.name = @"first Card";
-        self.details = @"something";
-        self.cost = 2;
-        self.techReq = 2;
-        self.cardVO = cardVO;
+        self.model = [[[CardModel alloc] initWithCardVO:cardVO] autorelease];
         [self addToArray:MDM.cardItems];
     }
     return self;
@@ -28,8 +25,7 @@
 
 
 -(void) dealloc{
-    [name release];
-    [details release];
+    [model release];
     [super dealloc];
 }
 

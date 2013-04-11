@@ -10,20 +10,12 @@
 #import "cocos2d.h"
 #import "GameObjectSprite.h"
 
-@class CardVO;
+@class CardModel, CardVO;
 @interface CardItem : GameObjectSprite {
-    int cost;
-    int techReq;
-    
-    NSString *name;
-    NSString *details;
     CGPoint oldPosition;
+    CardModel *model;
 }
-
-@property (nonatomic) int cost, techReq;
-@property (nonatomic, retain) NSString* name, *details;
-@property (nonatomic, assign) CardVO* cardVO;
-
+@property (nonatomic, retain) CardModel *model;
 -(id) initWithCardVO:(CardVO*) cardVO;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "Library.h"
 #import "CardVO.h"
+#import "JSON.h"
 
 
 
@@ -36,10 +37,29 @@
 
 
 -(void) fillDeck{
-    for(int i = 0; i < 20; i++){
-        CardVO* card = [[[CardVO alloc] init] autorelease];
-        card.type = SHIP;
-        [deck addObject:card];
+    CardVO* card = [[[CardVO alloc] init] autorelease];
+    card.type = SHIP;
+    [deck addObject:card];
+    CardVO* card2 = [[[CardVO alloc] init] autorelease];
+    card2.type = SHIP;
+    [deck addObject:card2];
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cards" ofType:@"json"];
+    if (filePath) {
+        NSError *error = nil;
+        NSString *myText = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+        if(error){
+            NSLog(@"ERROR: Tip library could not be parsed");
+        }
+
+    
+    SBJSON *parser = [[[SBJSON alloc] init] autorelease];
+	NSDictionary *resultDic = [parser objectWithString:myText error:nil];
+        NSArray *cards = [resultDic objectForKey:@"cards"];
+        for(NSDictionary *cardsDic in cards){
+            CardVO *card = [[[CardVO alloc] initWithDictionary:cardsDic] autorelease];
+            [deck addObject:card];
+        }
     }
 }
 

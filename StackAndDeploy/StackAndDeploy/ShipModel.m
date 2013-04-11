@@ -7,15 +7,18 @@
 //
 
 #import "ShipModel.h"
+#import "ShipVO.h"
 
 @implementation ShipModel
 
 @synthesize abilityArray;
 
--(id) init{
+-(id) initWithShipVO:(ShipVO*)shipVO{
     if(self = [super init]){
         self.abilityArray = [NSMutableArray array];
-        self.maxHealth = 10;
+        self.maxHealth = shipVO.health;
+        self.health = shipVO.health;
+
         
         //hardcode an ability
         

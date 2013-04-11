@@ -51,6 +51,14 @@
 		F2261B8917137D2100E5766F /* StatusVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8817137D2100E5766F /* StatusVO.m */; };
 		F2261B8C171389E500E5766F /* UIAbilityState.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8B171389E500E5766F /* UIAbilityState.m */; };
 		F2261B8F17138A8700E5766F /* UIAbilityTargetsSelectState.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8E17138A8700E5766F /* UIAbilityTargetsSelectState.m */; };
+		F2261B9117150B2C00E5766F /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = F2261B9017150B2C00E5766F /* cards.json */; };
+		F2261BC0171760A700E5766F /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261BB5171760A700E5766F /* NSObject+SBJSON.m */; };
+		F2261BC1171760A700E5766F /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261BB7171760A700E5766F /* NSString+SBJSON.m */; };
+		F2261BC2171760A700E5766F /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261BB9171760A700E5766F /* SBJSON.m */; };
+		F2261BC3171760A700E5766F /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261BBB171760A700E5766F /* SBJsonBase.m */; };
+		F2261BC4171760A700E5766F /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261BBD171760A700E5766F /* SBJsonParser.m */; };
+		F2261BC5171760A700E5766F /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261BBF171760A700E5766F /* SBJsonWriter.m */; };
+		F2261BC81717631E00E5766F /* CardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261BC71717631E00E5766F /* CardModel.m */; };
 		F22950CB1703CCEF0073B0E5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */; };
 		F22950CD1703CCEF0073B0E5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */; };
 		F22950CF1703CCEF0073B0E5 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F22950CE1703CCEF0073B0E5 /* OpenAL.framework */; };
@@ -280,6 +288,22 @@
 		F2261B8B171389E500E5766F /* UIAbilityState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAbilityState.m; sourceTree = "<group>"; };
 		F2261B8D17138A8600E5766F /* UIAbilityTargetsSelectState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAbilityTargetsSelectState.h; sourceTree = "<group>"; };
 		F2261B8E17138A8700E5766F /* UIAbilityTargetsSelectState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAbilityTargetsSelectState.m; sourceTree = "<group>"; };
+		F2261B9017150B2C00E5766F /* cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cards.json; sourceTree = "<group>"; };
+		F2261BB3171760A700E5766F /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		F2261BB4171760A700E5766F /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		F2261BB5171760A700E5766F /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		F2261BB6171760A700E5766F /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		F2261BB7171760A700E5766F /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		F2261BB8171760A700E5766F /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		F2261BB9171760A700E5766F /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		F2261BBA171760A700E5766F /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		F2261BBB171760A700E5766F /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		F2261BBC171760A700E5766F /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		F2261BBD171760A700E5766F /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		F2261BBE171760A700E5766F /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		F2261BBF171760A700E5766F /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		F2261BC61717631E00E5766F /* CardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardModel.h; sourceTree = "<group>"; };
+		F2261BC71717631E00E5766F /* CardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardModel.m; sourceTree = "<group>"; };
 		F22950C71703CCEF0073B0E5 /* StackAndDeploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackAndDeploy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22950CA1703CCEF0073B0E5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F22950CC1703CCEF0073B0E5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -804,6 +828,7 @@
 		DE86EA2A17076D5100841158 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F2261BB21717609700E5766F /* JSON */,
 				DE273D0A170404E00007B8D8 /* UtilityFunctions.h */,
 				DE273D0B170404E10007B8D8 /* UtilityFunctions.m */,
 				DE86EA2C17076DAA00841158 /* NSMutableArray+GameObjects.h */,
@@ -823,6 +848,26 @@
 				DE86EA311707D71A00841158 /* MiniMapLayer.m */,
 			);
 			name = MiniMapLayer;
+			sourceTree = "<group>";
+		};
+		F2261BB21717609700E5766F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				F2261BB3171760A700E5766F /* JSON.h */,
+				F2261BB4171760A700E5766F /* NSObject+SBJSON.h */,
+				F2261BB5171760A700E5766F /* NSObject+SBJSON.m */,
+				F2261BB6171760A700E5766F /* NSString+SBJSON.h */,
+				F2261BB7171760A700E5766F /* NSString+SBJSON.m */,
+				F2261BB8171760A700E5766F /* SBJSON.h */,
+				F2261BB9171760A700E5766F /* SBJSON.m */,
+				F2261BBA171760A700E5766F /* SBJsonBase.h */,
+				F2261BBB171760A700E5766F /* SBJsonBase.m */,
+				F2261BBC171760A700E5766F /* SBJsonParser.h */,
+				F2261BBD171760A700E5766F /* SBJsonParser.m */,
+				F2261BBE171760A700E5766F /* SBJsonWriter.h */,
+				F2261BBF171760A700E5766F /* SBJsonWriter.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		F22950BE1703CCEF0073B0E5 = {
@@ -884,6 +929,7 @@
 		F22950DD1703CCEF0073B0E5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2261B9017150B2C00E5766F /* cards.json */,
 				F22952711703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-hd.plist */,
 				F22952721703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet-ipadhd.plist */,
 				F22952731703D6450073B0E5 /* SNDSpriteSheet_UntitledSheet.plist */,
@@ -1271,6 +1317,8 @@
 				F26B0489170B9D2A00130E08 /* BaseModel.m */,
 				F26B048B170BA04000130E08 /* BoardItemModel.h */,
 				F26B048C170BA04000130E08 /* BoardItemModel.m */,
+				F2261BC61717631E00E5766F /* CardModel.h */,
+				F2261BC71717631E00E5766F /* CardModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1369,6 +1417,7 @@
 				DEAE8579170F5043000126EE /* overlay-hd.png in Resources */,
 				DE61DAF71713A1B800374FAC /* Command_Pressed-hd.png in Resources */,
 				DE61DAF81713A1B800374FAC /* Command-hd.png in Resources */,
+				F2261B9117150B2C00E5766F /* cards.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1533,6 +1582,13 @@
 				DE61DAFC1713A5FB00374FAC /* CommandLayer.m in Sources */,
 				DE61DAFF1714BC2700374FAC /* UINodeSelectedState.m in Sources */,
 				DE61DB031714C83900374FAC /* DetailsLayer.m in Sources */,
+				F2261BC0171760A700E5766F /* NSObject+SBJSON.m in Sources */,
+				F2261BC1171760A700E5766F /* NSString+SBJSON.m in Sources */,
+				F2261BC2171760A700E5766F /* SBJSON.m in Sources */,
+				F2261BC3171760A700E5766F /* SBJsonBase.m in Sources */,
+				F2261BC4171760A700E5766F /* SBJsonParser.m in Sources */,
+				F2261BC5171760A700E5766F /* SBJsonWriter.m in Sources */,
+				F2261BC81717631E00E5766F /* CardModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

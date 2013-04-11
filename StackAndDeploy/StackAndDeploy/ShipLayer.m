@@ -16,6 +16,7 @@
 #import "ShipVO.h"
 #import "ShipModel.h"
 #import "Ownership.h"
+#import "CardModel.h"
 
 @implementation ShipLayer
 
@@ -42,12 +43,15 @@
 
 -(void)cardPlayed:(NSNotification*)notification{
     CardItem *card = notification.object;
-    if (card.cardVO.type == SHIP) {
+    if (card.model.type == SHIP) {
+        //TODO: change this fromt tst code to a real VO
         ShipSprite *ship = [[[ShipSprite alloc] initWithShipVO:[self testShipVO]] autorelease];
-        ship.model.ownership = [[[Ownership alloc] initWithPlayerType:LOCAL_PLAYER] autorelease];
+        ship.model.ownership.playerType = LOCAL_PLAYER;
+        ship.model.ownership.playerNumber = PLAYER_ONE;
         ship.position = ccp(90, 90);
         [self addChild:ship];
-
+    }else{
+        //TODO: implement utility card
     }
 }
 
