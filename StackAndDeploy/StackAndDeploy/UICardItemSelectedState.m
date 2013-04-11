@@ -18,10 +18,7 @@
 #import "DetailsLayer.h"
 #import "UINormalState.h"
 #import "UIAbilityTargetsSelectState.h"
-<<<<<<< HEAD
 #import "CardModel.h"
-=======
->>>>>>> - targeting with abilities works
 
 @implementation UICardItemSelectedState
 
