@@ -15,4 +15,6 @@
 
 @property (nonatomic, retain) GameObjectSpriteArray *targetedShips;
 
+-(id) initWithAbilityVO:(AbilityVO*) _abilityVO;
+
 @end

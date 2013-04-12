@@ -10,27 +10,24 @@
 #import "CardVO.h"
 #import "StatusVO.h"
 #import "Status.h"
+#import "AbilityVO.h"
+#import "TargetShipAbility.h"
 @implementation CardModel
-@synthesize name, details, type, statuses;
+@synthesize name, details, type, ability;
 
 -(id) initWithCardVO:(CardVO*) cardVO{
-    name =  cardVO.name;
-    details = cardVO.details;
-    type = cardVO.type;
     if(self = [super init]){
-        self.statuses = [[[NSMutableArray alloc] init] autorelease];
-        for(StatusVO *status in cardVO.statuses){
-            Class statusClass = NSClassFromString(status.className);
-            id stat = [[[statusClass alloc] initWithTarget:nil andStatusVO:status] autorelease];
-            [self.statuses addObject:stat];
-        }
-
+        name =  cardVO.name;
+        details = cardVO.details;
+        type = cardVO.type;
+        Class abilityClass = NSClassFromString(cardVO.ability.className);
+        id _ability = [[[abilityClass alloc] initWithAbilityVO:cardVO.ability] autorelease];
+        self.ability = _ability;
     }
     return self;
 }
 
 -(void) dealloc{
-    [statuses release];
     [super dealloc];
 }
 @end

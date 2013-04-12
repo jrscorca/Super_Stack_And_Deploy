@@ -10,43 +10,20 @@
               "requirements": {
               "resourceCost": 100
               },
-              "abilityStateDic": {
-              "abilityStateName": "UIAbilityTargetsSelectState",
-              "targetType": 0
-              },
+              "ability": {
+              "className": "TargetShipAbility",
+              "arguments": {
+              "shipsToTarget": 1,
               "statuses": [
                            {
                            "className": "HealthOffsetStatus",
                            "arguments": {
-                                         "healthOffset": -500
-                                         }
-                                         
+                           "healthOffset": -500
+                           }
                            }
                            ]
-              },
-              {
-              "ID": 0,
-              "name": "Missile Barrage",
-              "type": 0,
-              "cardImage_thumb": "iconFireSmall11.png",
-              "cardImage_large": "cardFire11.png",
-              "details": "a description of what the card does",
-              "requirements": {
-              "resourceCost": 100
-              },
-              "abilityStateDic": {
-              "abilityStateName": "UIAbilityTargetsSelectState",
-              "targetType": 0
-              },
-              "statuses": [
-                           {
-                           "className": "HealthOffsetStatus",
-                           "arguments": {
-                                         "healthOffset": -500
-                                         }
-                                         
-                           }
-                           ]
+              }
+              }
               }
               ]
 }

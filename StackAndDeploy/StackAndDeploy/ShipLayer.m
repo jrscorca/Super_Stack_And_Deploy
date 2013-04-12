@@ -17,6 +17,7 @@
 #import "ShipModel.h"
 #import "Ownership.h"
 #import "CardModel.h"
+#import "Ability.h"
 
 @implementation ShipLayer
 

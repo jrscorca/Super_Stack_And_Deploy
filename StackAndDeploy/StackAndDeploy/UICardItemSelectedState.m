@@ -19,6 +19,7 @@
 #import "UINormalState.h"
 #import "UIAbilityTargetsSelectState.h"
 #import "CardModel.h"
+#import "Ability.h"
 
 @implementation UICardItemSelectedState
 
@@ -89,13 +90,16 @@
     if(selectedCard){
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         if (selectedCard.position.y > winSize.height*.2) {
-            if (selectedCard.model.type == SHIP) {
+            if(selectedCard.model.type == SHIP){
                 [self cardPlayed:selectedCard];
             }else{
-                [self transitionToAbilityTargetsSelectState:selectedCard];
+                if ([selectedCard.model.ability isAbilityActivatable:self]) {
+                    [selectedCard.model.ability activateAbility:self];
+                }
+
             }
+
             [selectedCard destroyObject];
-            
         }
         
         //TODO: make notificaiton for this shitttt

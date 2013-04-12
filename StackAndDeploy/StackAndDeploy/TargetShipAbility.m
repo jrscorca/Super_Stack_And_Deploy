@@ -19,6 +19,7 @@
 #import "UIShipSelectState.h"
 #import "StatusVO.h"
 #import "Status.h"
+#import "AbilityVO.h"
 
 @implementation TargetShipAbility
 
@@ -29,22 +30,9 @@
         self.targetedShips = [GameObjectSpriteArray array];
         
         //ability info should be stored in AbilityVO
-        shipsToTarget = 1;
+        shipsToTarget = [[_abilityVO.arguments objectForKey:@"shipsToTarget"] intValue];
         
-        
-        
-        //statusVOs should be in an array inside of abilityVO
-        NSMutableDictionary *bulletStatusArgs = [[[NSMutableDictionary alloc] init] autorelease];
-        [bulletStatusArgs setObject:[NSNumber numberWithInt:-20] forKey:@"healthOffset"];
-        
-        NSMutableDictionary *bulletStatusDic = [[[NSMutableDictionary alloc] init] autorelease];
-        [bulletStatusDic setObject:@"HinderedHealthOffsetStatus" forKey:@"className"];
-        [bulletStatusDic setObject:bulletStatusArgs forKey:@"arguments"];
-        
-        NSMutableArray *statusArray = [NSMutableArray array];
-        [statusArray addObject:bulletStatusDic];
-        
-        for (NSDictionary *statusDic in statusArray){
+        for (NSDictionary *statusDic in [_abilityVO.arguments objectForKey:@"statuses"]){
             [statuses addObject:[[StatusVO alloc] initWithDictionary:statusDic]];
         }
         
@@ -67,9 +55,9 @@
 
 -(void) activateAbility:(UIState*) state{
     //transition to abilityTargetsSelectState
-    if([state isKindOfClass:[UIShipSelectState class]]){
+    //if([state isKindOfClass:[UIShipSelectState class]]){
         [state transitionToAbilityTargetsSelectState:self];
-    }
+    //}
 }
 
 //targets objects to use ability on

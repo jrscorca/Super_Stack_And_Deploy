@@ -7,17 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-@class CardVO;
+@class CardVO, Ability;
 @interface CardModel : NSObject{
     NSString *name;
     NSString *details;
     cardType type;
-    NSMutableArray *statuses;
+    Ability *ability;
 
 }
 @property (assign) cardType type;
 @property (nonatomic, retain) NSString* name, *details;
-@property (nonatomic, retain) NSMutableArray *statuses;
+@property (nonatomic, retain) Ability *ability;
+
 -(id) initWithCardVO:(CardVO*) cardVO;
 
 @end
