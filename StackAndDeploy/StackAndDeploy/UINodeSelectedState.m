@@ -27,13 +27,8 @@
 
 
 -(id) initWithSelectedNode:(NodeSprite*) _selectedNode andState:(UIState*) state{
+    [_selectedNode assignObjectToPointer:&selectedNode];
     if(self = [super initWithState:state]){
-        [_selectedNode assignObjectToPointer:&selectedNode];
-        _selectedNode.isSelected = YES;
-        //send notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SpriteSelected object:selectedNode];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ChangeCommandButtons object:selectedNode];
     }
     return self;
 }
@@ -47,6 +42,11 @@
 -(void)activateInterfaceElements{
     UIState.playLayer.hudLayer.detailsLayer.visible = YES;
     UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    self.selectedNode.isSelected = YES;
+    //send notification
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SpriteSelected object:selectedNode];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ChangeCommandButtons object:selectedNode];
 }
 
 -(void)deactivateInterfaceElements{

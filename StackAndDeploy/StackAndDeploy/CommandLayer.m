@@ -89,14 +89,18 @@
 }
 
 -(void)changeCommands:(NSNotification*) notification{
-    GameObjectSprite *sprite = (GameObjectSprite*)notification.object;
+    id object = (id)notification.object;
     
-    Class spriteClass = [sprite class];
+    Class objectClass = [object class];
 
-    if(spriteClass == [ShipSprite class]){
-        [self shipCommands:(ShipSprite*)sprite];
-    }else if(spriteClass == [NodeSprite class]){
-        [self nodeCommands:(NodeSprite*)sprite];
+    
+    if(objectClass == [ShipSprite class]){
+        [self shipCommands:(ShipSprite*)object];
+    }else if(objectClass == [NodeSprite class]){
+        [self nodeCommands:(NodeSprite*)object];
+    }else if(object != NULL){
+        //assum ability commands if nothing else matches
+        [self abilityCommands:(Ability*)object];
     }
     
 }
@@ -187,6 +191,28 @@
     commandItem1.selectedImage = pressed1;
     commandItem1.disabledImage = disabled1;
     commandItem1.normalImage   = idle1;
+    
+}
+
+-(void) abilityCommands:(Ability*) ability{
+    commandItem0.visible = NO;
+    commandItem0.isEnabled = NO;
+    commandItem2.visible = NO;
+    commandItem2.isEnabled = NO;
+    commandItem3.visible = NO;
+    commandItem3.isEnabled = NO;
+    
+    
+    //cancel command
+    commandItem1.visible = YES;
+    commandItem1.isEnabled = YES;
+    CCSprite *idle1 = [CCSprite spriteWithFile:@"Command.png"];
+    CCSprite *pressed1 = [CCSprite spriteWithFile:@"Command_Pressed.png"];
+    CCSprite *disabled1 = [CCSprite spriteWithFile:@"Command_Pressed.png"];
+    commandItem1.selectedImage = pressed1;
+    commandItem1.disabledImage = disabled1;
+    commandItem1.normalImage   = idle1;
+
     
 }
 

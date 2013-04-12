@@ -20,6 +20,7 @@
 #import "BoardItemModel.h"
 #import "StatusVO.h"
 #import "Ability.h"
+#import "CommandLayer.h"
 
 @implementation UIAbilityTargetsSelectState
 
@@ -36,6 +37,50 @@
     [super dealloc];
 }
 
+
+
+-(void)activateInterfaceElements{
+    UIState.playLayer.hudLayer.detailsLayer.visible = YES;
+    UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    // send description to details page
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_AbilitySelected object:ability];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ChangeCommandButtons object:ability];
+    
+}
+
+-(void)deactivateInterfaceElements{
+    UIState.playLayer.hudLayer.detailsLayer.visible = NO;
+    UIState.playLayer.hudLayer.commandLayer.visible = NO;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+}
+
+
+-(void) commandExecuted:(NSNotification*) notification{
+    CCMenuItemSprite *object = notification.object;
+
+    int commandNumber = object.tag;
+    if(commandNumber == -1){
+        return;
+    }
+    // 0:ship moveTO
+    if(commandNumber == 0){
+    }
+    // 1: deselect
+    if(commandNumber == 1){
+        [self transitionToPreviousState];
+    }
+    // 2: ability
+    // 3:ability
+    
+    if(commandNumber == 2){
+        
+    }
+    
+    if(commandNumber == 3){
+        
+    }
+}
 
 
 -(void) updateState:(ccTime)dt{

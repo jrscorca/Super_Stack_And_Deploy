@@ -25,8 +25,9 @@
 
 
 -(id) initWithSelectedCardItem:(CardItem*) cardItem andState:(UIState*) state{
+    [cardItem assignObjectToPointer:&selectedCard];
     if(self = [super initWithState:state]){
-        [cardItem assignObjectToPointer:&selectedCard];
+
 //        selectedCard.isSelected = YES;
         
     }

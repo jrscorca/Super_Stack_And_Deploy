@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 
-@class ShipSprite, NodeSprite;
+@class ShipSprite, NodeSprite, Ability;
 @interface CommandLayer : CCLayer {
     CCMenu *commandMenu;
     CCMenuItemSprite *commandItem0, *commandItem1, *commandItem2, *commandItem3;
@@ -25,4 +25,5 @@
 
 -(void) shipCommands:(ShipSprite*) ship;
 -(void) nodeCommands:(NodeSprite*) node;
+-(void) abilityCommands:(Ability*) ability;
 @end

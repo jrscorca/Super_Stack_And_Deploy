@@ -30,13 +30,11 @@
 
 
 -(id) initWithSelectedShip:(ShipSprite*) _selectedShip andState:(UIState*) state{
+    [_selectedShip assignObjectToPointer:&selectedShip];
     if(self = [super initWithState:state]){
-        [_selectedShip assignObjectToPointer:&selectedShip];
-        selectedShip.isSelected = YES;
+
         //send notification
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SpriteSelected object:selectedShip];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ChangeCommandButtons object:selectedShip];
+
     }
     return self;
 }
@@ -45,6 +43,10 @@
 -(void)activateInterfaceElements{
     UIState.playLayer.hudLayer.detailsLayer.visible = YES;
     UIState.playLayer.hudLayer.commandLayer.visible = YES;
+    selectedShip.isSelected = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_SpriteSelected object:selectedShip];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ChangeCommandButtons object:selectedShip];
 }
 
 -(void)deactivateInterfaceElements{

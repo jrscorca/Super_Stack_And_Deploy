@@ -13,9 +13,11 @@
 @synthesize previousState, ability;
 
 -(id)initWithState:(UIState *)_state andAbility:(Ability*) _ability{
+    self.ability = _ability;
+    self.previousState = _state;
     if(self = [super initWithState:_state]){
-        self.previousState = _state;
-        self.ability = _ability;
+
+
     }
     return self;
 }
