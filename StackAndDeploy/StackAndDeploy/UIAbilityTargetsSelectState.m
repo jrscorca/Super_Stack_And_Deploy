@@ -159,6 +159,7 @@
 
 
 -(void) transitionToPreviousState{
+    [self deactivateInterfaceElements];
     [previousState activateInterfaceElements];
     [self deactivateInterfaceElements];
     [UIState.playLayer changeUIState:previousState];

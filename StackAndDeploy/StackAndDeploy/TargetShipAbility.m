@@ -33,7 +33,7 @@
         shipsToTarget = [[_abilityVO.arguments objectForKey:@"shipsToTarget"] intValue];
         
         for (NSDictionary *statusDic in [_abilityVO.arguments objectForKey:@"statuses"]){
-            [statuses addObject:[[StatusVO alloc] initWithDictionary:statusDic]];
+            [self.statuses addObject:[[[StatusVO alloc] initWithDictionary:statusDic] autorelease]];
         }
         
         
@@ -74,7 +74,7 @@
 
 // checks whether the ability can be used
 -(BOOL) isAbilityReady{
-    if([targetedShips count] > shipsToTarget){
+    if([targetedShips count] > shipsToTarget - 1){
         return YES;
     }
     return NO;

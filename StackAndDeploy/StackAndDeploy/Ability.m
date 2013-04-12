@@ -32,7 +32,7 @@
 
 
 -(BOOL) isAbilityActivatable:(UIState*) state{
-    
+    return YES;
 }
 
 -(void) activateAbility:(UIState*) state{

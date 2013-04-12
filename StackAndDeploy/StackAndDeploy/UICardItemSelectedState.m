@@ -41,6 +41,9 @@
     [super dealloc];
 }
 
+
+
+
 -(void)activateInterfaceElements{
     UIState.playLayer.hudLayer.handLayer.visible = YES;
 }
@@ -49,6 +52,14 @@
     UIState.playLayer.hudLayer.handLayer.visible = NO;
 }
 
+-(void) updateState:(ccTime)dt{
+    if(!selectedCard){
+        [self transitionToNormalState];
+        return;
+    }
+    
+    [super updateState:dt];
+}
 
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -100,12 +111,14 @@
             }
 
             [selectedCard destroyObject];
+        }else{
+            [self transitionToNormalState];
         }
         
         //TODO: make notificaiton for this shitttt
         [UIState.playLayer.hudLayer.handLayer organizeHand];
     }
-    [self transitionToNormalState];
+    
 }
 
 - (void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event{
