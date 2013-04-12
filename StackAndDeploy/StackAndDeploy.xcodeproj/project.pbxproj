@@ -49,6 +49,8 @@
 		DE86EA321707D71A00841158 /* MiniMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DE86EA311707D71A00841158 /* MiniMapLayer.m */; };
 		DEAE8578170F5043000126EE /* abilities-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAE8576170F5043000126EE /* abilities-hd.png */; };
 		DEAE8579170F5043000126EE /* overlay-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DEAE8577170F5043000126EE /* overlay-hd.png */; };
+		DEEAD728171889EC001DAEF5 /* TargetShipAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEAD727171889EB001DAEF5 /* TargetShipAbility.m */; };
+		DEEAD72B17188C30001DAEF5 /* AbilityVO.m in Sources */ = {isa = PBXBuildFile; fileRef = DEEAD72A17188C30001DAEF5 /* AbilityVO.m */; };
 		F2261B86171379E900E5766F /* Ownership.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B85171379E900E5766F /* Ownership.m */; };
 		F2261B8917137D2100E5766F /* StatusVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8817137D2100E5766F /* StatusVO.m */; };
 		F2261B8C171389E500E5766F /* UIAbilityState.m in Sources */ = {isa = PBXBuildFile; fileRef = F2261B8B171389E500E5766F /* UIAbilityState.m */; };
@@ -286,6 +288,10 @@
 		DE86EA311707D71A00841158 /* MiniMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiniMapLayer.m; sourceTree = "<group>"; };
 		DEAE8576170F5043000126EE /* abilities-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abilities-hd.png"; sourceTree = "<group>"; };
 		DEAE8577170F5043000126EE /* overlay-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "overlay-hd.png"; sourceTree = "<group>"; };
+		DEEAD726171889EB001DAEF5 /* TargetShipAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetShipAbility.h; sourceTree = "<group>"; };
+		DEEAD727171889EB001DAEF5 /* TargetShipAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetShipAbility.m; sourceTree = "<group>"; };
+		DEEAD72917188C30001DAEF5 /* AbilityVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityVO.h; sourceTree = "<group>"; };
+		DEEAD72A17188C30001DAEF5 /* AbilityVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityVO.m; sourceTree = "<group>"; };
 		F2261B84171379E900E5766F /* Ownership.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ownership.h; sourceTree = "<group>"; };
 		F2261B85171379E900E5766F /* Ownership.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ownership.m; sourceTree = "<group>"; };
 		F2261B8717137D2100E5766F /* StatusVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusVO.h; sourceTree = "<group>"; };
@@ -732,6 +738,8 @@
 		DE273CF51703F3600007B8D8 /* VOs */ = {
 			isa = PBXGroup;
 			children = (
+				DEEAD72917188C30001DAEF5 /* AbilityVO.h */,
+				DEEAD72A17188C30001DAEF5 /* AbilityVO.m */,
 				F26B047E170B902100130E08 /* GameObjectVO.h */,
 				F26B047F170B902100130E08 /* GameObjectVO.m */,
 				DE273CF61703F3700007B8D8 /* CardVO.h */,
@@ -831,6 +839,8 @@
 				DE839F2C170E1AAF00CC6169 /* ColonizeAbility.m */,
 				DE83CBFC17174792001E1506 /* DirectDamageToShipAbility.h */,
 				DE83CBFD17174792001E1506 /* DirectDamageToShipAbility.m */,
+				DEEAD726171889EB001DAEF5 /* TargetShipAbility.h */,
+				DEEAD727171889EB001DAEF5 /* TargetShipAbility.m */,
 			);
 			name = Abilities;
 			sourceTree = "<group>";
@@ -1601,6 +1611,8 @@
 				F2261BC81717631E00E5766F /* CardModel.m in Sources */,
 				DE83CBFB171738BE001E1506 /* HinderedHealthOffsetStatus.m in Sources */,
 				DE83CBFE17174792001E1506 /* DirectDamageToShipAbility.m in Sources */,
+				DEEAD728171889EC001DAEF5 /* TargetShipAbility.m in Sources */,
+				DEEAD72B17188C30001DAEF5 /* AbilityVO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

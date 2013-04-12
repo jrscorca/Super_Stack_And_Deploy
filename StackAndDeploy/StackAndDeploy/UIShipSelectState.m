@@ -101,7 +101,7 @@
         NSMutableArray *abilities = ((ShipModel*)selectedShip.model).abilityArray;
         if([abilities count] > 1){
             Ability *ability = [abilities objectAtIndex:1];
-            [ability activateShipAbility:self];
+            [ability activateAbility:self];
         }
     }
 }

@@ -39,8 +39,7 @@
 -(void) activateAbility:(UIState*) state{
     //transition to abilityTargetsSelectState
     if([state isKindOfClass:[UIShipSelectState class]]){
-        UIShipSelectState *shipSelectState = (UIShipSelectState*) shipSelectState;
-        [shipSelectState transitionToAbilityTargetsSelectState:self];
+        [state transitionToAbilityTargetsSelectState:self];
     }
 }
 
