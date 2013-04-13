@@ -204,6 +204,7 @@
 		F26B048A170B9D2A00130E08 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B0489170B9D2A00130E08 /* BaseModel.m */; };
 		F26B048D170BA04000130E08 /* BoardItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048C170BA04000130E08 /* BoardItemModel.m */; };
 		F26B0490170BC5EF00130E08 /* BoardItemSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048F170BC5EF00130E08 /* BoardItemSprite.m */; };
+		F28763A11718C26300641667 /* SpawnShipStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F28763A01718C26300641667 /* SpawnShipStatus.m */; };
 		F2A2D5CD170E501400899679 /* BulletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A2D5CC170E501400899679 /* BulletModel.m */; };
 /* End PBXBuildFile section */
 
@@ -602,6 +603,8 @@
 		F26B048C170BA04000130E08 /* BoardItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemModel.m; sourceTree = "<group>"; };
 		F26B048E170BC5EF00130E08 /* BoardItemSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardItemSprite.h; sourceTree = "<group>"; };
 		F26B048F170BC5EF00130E08 /* BoardItemSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardItemSprite.m; sourceTree = "<group>"; };
+		F287639F1718C26300641667 /* SpawnShipStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpawnShipStatus.h; sourceTree = "<group>"; };
+		F28763A01718C26300641667 /* SpawnShipStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpawnShipStatus.m; sourceTree = "<group>"; };
 		F2A2D5CB170E501400899679 /* BulletModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletModel.h; sourceTree = "<group>"; };
 		F2A2D5CC170E501400899679 /* BulletModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -799,6 +802,8 @@
 				DE839F21170D221500CC6169 /* HealthOffsetStatus.m */,
 				DE83CBF9171738BE001E1506 /* HinderedHealthOffsetStatus.h */,
 				DE83CBFA171738BE001E1506 /* HinderedHealthOffsetStatus.m */,
+				F287639F1718C26300641667 /* SpawnShipStatus.h */,
+				F28763A01718C26300641667 /* SpawnShipStatus.m */,
 			);
 			name = StatusSystem;
 			sourceTree = "<group>";
@@ -1613,6 +1618,7 @@
 				DE83CBFE17174792001E1506 /* DirectDamageToShipAbility.m in Sources */,
 				DEEAD728171889EC001DAEF5 /* TargetShipAbility.m in Sources */,
 				DEEAD72B17188C30001DAEF5 /* AbilityVO.m in Sources */,
+				F28763A11718C26300641667 /* SpawnShipStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

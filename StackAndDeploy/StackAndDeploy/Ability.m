@@ -10,7 +10,7 @@
 
 @implementation Ability
 
-@synthesize selectedCommandImage, normalCommandImage, disabledCommandImage, statuses;
+@synthesize selectedCommandImage, normalCommandImage, disabledCommandImage, statuses, isTargetRequired;
 
 -(id) initWithAbilityVO:(AbilityVO*) _abilityVO{
     if(self = [super init]){
@@ -31,6 +31,7 @@
 }
 
 
+<<<<<<< HEAD
 -(BOOL) isAbilityActivatable:(UIState*) state{
     return YES;
 }
@@ -55,4 +56,6 @@
 }
 
 
+=======
+>>>>>>> committing ability code
 @end

@@ -24,6 +24,50 @@
                            ]
               }
               }
+              },
+              {
+              "ID": 1,
+              "name": "Goliath",
+              "type": 0,
+              "cardImage_thumb": "iconFireSmall11.png",
+              "cardImage_large": "cardFire11.png",
+              "details": "a description of what the card does",
+              "requirements": {
+              "resourceCost": 100
+              },
+              "ability": {
+              "className": "TargetShipAbility",
+              "arguments": {
+              "shipsToTarget": 1,
+              "statuses": [
+                           {
+                           "className": "SpawnShipStatus",
+                           "arguments": {
+                           "health": 100,
+                           "maxHealth":100,
+                           "speed":5,
+                           "statuses": [
+                                        {
+                                        "className": "WeaponStatus",
+                                        "arguments": {
+                                        "fireRate":5,
+                                        "range":150
+                                        "statuses":[
+                                                    {
+                                                    "className": "HealthOffsetStatus",
+                                                    "arguments": {
+                                                    "healthOffset": -20
+                                                    }
+                                                    }
+                                        ]
+                                        }
+                                        }
+                                        ]
+                           }
+                           }
+                           ]
+              }
+              }
               }
               ]
 }
