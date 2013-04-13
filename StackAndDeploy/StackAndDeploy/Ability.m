@@ -30,32 +30,4 @@
     [super dealloc];
 }
 
-
-<<<<<<< HEAD
--(BOOL) isAbilityActivatable:(UIState*) state{
-    return YES;
-}
-
--(void) activateAbility:(UIState*) state{
-    
-}
-
-//targets objects to use ability on
--(void) targetObject:(BoardLayer*) boardLayer withTouch:(UITouch*) touch{
-    
-}
-
-// checks whether the ability can be used
--(BOOL) isAbilityReady{
-    return YES;
-}
-
-//does what the ability should do
--(void) useAbility{
-    
-}
-
-
-=======
->>>>>>> committing ability code
 @end
