@@ -32,6 +32,7 @@
         //ability info should be stored in AbilityVO
         shipsToTarget = [[_abilityVO.arguments objectForKey:@"shipsToTarget"] intValue];
         
+        
         for (NSDictionary *statusDic in [_abilityVO.arguments objectForKey:@"statuses"]){
             [self.statuses addObject:[[[StatusVO alloc] initWithDictionary:statusDic] autorelease]];
         }
@@ -63,6 +64,7 @@
 //targets objects to use ability on
 -(void) targetObject:(BoardLayer*) boardLayer withTouch:(UITouch*) touch{
     //ships
+    //can't selection the same ship twice
     CGPoint touchPoint = [boardLayer.shipLayer convertTouchToNodeSpace:touch];
     for (ShipSprite *ship in MDM.ships){
         if (CGRectContainsPoint(ship.boundingBox, touchPoint)) {
@@ -74,7 +76,8 @@
 
 // checks whether the ability can be used
 -(BOOL) isAbilityReady{
-    if([targetedShips count] > shipsToTarget - 1){
+    int count = [targetedShips count];
+    if(count > (shipsToTarget - 1)){
         return YES;
     }
     return NO;

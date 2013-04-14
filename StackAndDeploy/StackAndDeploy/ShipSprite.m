@@ -42,12 +42,6 @@
         self.model.health = 50;
         self.model.maxHealth = 50;
         
-     //   ColonizeAbility *ability = [[[ColonizeAbility alloc] init] autorelease];
-        TargetShipAbility *ability2 = [[[TargetShipAbility alloc] initWithAbilityVO:nil] autorelease];
-       // [((ShipModel*)self.model).abilityArray addObject:ability];
-        [((ShipModel*)self.model).abilityArray addObject:ability2];
-        
-        
     }
     return self;
 }

@@ -68,7 +68,6 @@
                         [_bulletStatuses addObject:damage];
                         
                     }
-
                     //TODO: make a VO for bullets instead of passing around sprite objects?
                     BulletSprite *bullet = [[BulletSprite alloc] initWithBoardItemSprite:target andStatuses:_bulletStatuses];
                     [[NSNotificationCenter defaultCenter] postNotificationName:kBulletSpawned object:bullet];
