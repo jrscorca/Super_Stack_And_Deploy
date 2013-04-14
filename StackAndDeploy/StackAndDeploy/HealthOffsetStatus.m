@@ -13,8 +13,8 @@
 
 @implementation HealthOffsetStatus
 
--(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO{
-    if(self = [super initWithTarget:_target andStatusVO:statusVO]){
+-(id)initWithStatusVO:(StatusVO*)statusVO{
+    if(self = [super initWithStatusVO:statusVO]){
         healthOffset = [[statusVO.arguments objectForKey:@"healthOffset"] intValue];
         hasBeenApplied = NO;
     }

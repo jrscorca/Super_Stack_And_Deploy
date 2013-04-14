@@ -11,10 +11,11 @@
 #import "NodeLayer.h"
 #import "BaseLayer.h" 
 #import "BulletLayer.h"
+#import "Status.h"
 
 @implementation BoardLayer
 
-@synthesize shipLayer, baseLayer, nodeLayer, bulletLayer;
+@synthesize shipLayer, baseLayer, nodeLayer, bulletLayer, statuses;
 
 - (id)init{
     if ((self = [super init])) {
@@ -49,6 +50,8 @@
         
         self.bulletLayer = [[[BulletLayer alloc] init] autorelease];
         [self addChild:self.bulletLayer];
+        
+        self.statuses = [NSMutableArray array];
     }
     return self;
 }
@@ -58,6 +61,7 @@
     [nodeLayer release];
     [baseLayer release];
     [bulletLayer release];
+    [statuses release];
     [super dealloc];
 }
 
@@ -66,6 +70,10 @@
     [baseLayer update:dt];
     [shipLayer update:dt];
     [bulletLayer update:dt];
+    
+    for (Status *status in self.statuses){
+        [status updateStatus:dt];
+    }
 }
 
 

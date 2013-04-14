@@ -54,7 +54,7 @@
         isTouchEnabled_ = YES;
         for (int i = 0; i < INITIAL_HAND_SIZE; ++i) [MDM.localPlayer drawCardFromDeck];
 
-        
+        MDM.playLayer = self;
         
 //        NSMutableArray *
         

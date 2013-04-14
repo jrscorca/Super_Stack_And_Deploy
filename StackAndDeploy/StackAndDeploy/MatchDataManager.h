@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class PlayerClass, LocalPlayer, AwayPlayer;
+@class PlayerClass, LocalPlayer, AwayPlayer, PlayLayer;
 @interface MatchDataManager : NSObject{
     LocalPlayer *localPlayer;
     AwayPlayer *awayPlayer;
@@ -17,6 +17,7 @@
     
     GameObjectSpriteArray *gameObjectSprites;
     
+    PlayLayer             *playLayer;
     GameObjectSpriteArray *cardItems;
     GameObjectSpriteArray *boardItems;
     GameObjectSpriteArray *bullets;
@@ -26,6 +27,8 @@
     GameObjectSpriteArray *gameObjectsToRemove;
     
 }
+
+@property (nonatomic, assign) PlayLayer *playLayer;
 @property (assign) CGSize boardSize;
 @property (nonatomic, retain) LocalPlayer *localPlayer;
 @property (nonatomic, retain) AwayPlayer *awayPlayer;

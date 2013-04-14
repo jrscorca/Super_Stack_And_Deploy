@@ -86,7 +86,7 @@
         //apply statuses to targetedShips
         for(StatusVO *status in self.statuses){
             Class statusClass = NSClassFromString(status.className);
-            id shipStatus = [[[statusClass alloc] initWithTarget:ship andStatusVO:status] autorelease];
+            id shipStatus = [[[statusClass alloc] initWithStatusVO:status] autorelease];
             [shipStatus addStatusToGameObject: ship];
 //            [ship.model.statuses addObject:shipStatus];
         }

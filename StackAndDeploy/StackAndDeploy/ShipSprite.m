@@ -30,7 +30,8 @@
         
         for(StatusVO *status in shipVO.statuses){
             Class statusClass = NSClassFromString(status.className);
-            id shipStatus = [[[statusClass alloc] initWithTarget:self andStatusVO:status] autorelease];
+            id shipStatus = [[[statusClass alloc] initWithStatusVO:status] autorelease];
+            [shipStatus addStatusToGameObject:self];
             [model.statuses addObject:shipStatus];
         }
         

@@ -14,7 +14,7 @@
 @implementation MatchDataManager
 
 
-@synthesize localPlayer, awayPlayer, cardItems, ships, boardSize, nodes, bases, boardItems, gameObjectSprites, bullets, gameObjectsToRemove;
+@synthesize localPlayer, awayPlayer, cardItems, ships, boardSize, nodes, bases, boardItems, gameObjectSprites, bullets, gameObjectsToRemove, playLayer;
 
 static MatchDataManager *sharedInstance = nil;
 

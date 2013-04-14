@@ -10,22 +10,37 @@
 #import "BoardItemModel.h"
 #import "BoardItemSprite.h"
 #import "StatusVO.h"
+#import "MatchDataManager.h"
+#import "PlayLayer.h"
+#import "BoardLayer.h"
+
+
 @implementation Status
 @synthesize target;
 
--(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO{
+-(id)initWithStatusVO:(StatusVO*)statusVO{
     if(self = [super init]){
-        target = _target;
         hasBeenApplied = NO;
+        targetPoint = CGPointZero;
     }
     return self;
 }
 
 -(void) addStatusToGameObject:(BoardItemSprite*)gameObject{
+    [gameObject assignObjectToPointer:&target];
     [gameObject.model.statuses addObject:self];
     if([self checkStart]){
         [self applyStatus];
     }
+}
+
+-(void) addStatusToGameBoard:(CGPoint)point{
+    [MDM.playLayer.boardLayer.statuses addObject:self];
+    targetPoint = point;
+    if([self checkStart]){
+        [self applyStatus];
+    }
+    
 }
 
 -(BOOL) checkStart{

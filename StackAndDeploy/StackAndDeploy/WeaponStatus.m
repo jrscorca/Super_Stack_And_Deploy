@@ -20,8 +20,8 @@
 @synthesize bulletStatuses;
 
 
--(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO{
-    if(self = [super initWithTarget:_target andStatusVO:statusVO]){
+-(id)initWithStatusVO:(StatusVO*)statusVO{
+    if(self = [super initWithStatusVO:statusVO]){
         hasBeenApplied = NO;
         range = [[statusVO.arguments objectForKey:@"range"] floatValue];
         fireRate = [[statusVO.arguments objectForKey:@"fireRate"] floatValue];
@@ -63,7 +63,7 @@
                     //make real statuses out of all the bulletStatus VOs, then add them to the bullet
                     for(StatusVO *status in bulletStatuses){
                         Class statusClass = NSClassFromString(status.className);
-                        id damage = [[[statusClass alloc] initWithTarget:ship andStatusVO:status] autorelease];
+                        id damage = [[[statusClass alloc] initWithStatusVO:status] autorelease];
                         [_bulletStatuses addObject:damage];
                     }
 

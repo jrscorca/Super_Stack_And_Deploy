@@ -12,14 +12,17 @@
 @class BoardItemSprite, StatusVO;
 @interface Status : NSObject{
     BoardItemSprite *target;
+    CGPoint targetPoint;
     BOOL hasBeenApplied;
 }
 
 @property (nonatomic, assign) BoardItemSprite *target;
 
--(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO;
+-(id)initWithStatusVO:(StatusVO*)statusVO;
 
 -(void) addStatusToGameObject:(BoardItemSprite*)gameObject;
+
+-(void) addStatusToGameBoard:(CGPoint)point;
 
 -(BOOL) checkStart;
 

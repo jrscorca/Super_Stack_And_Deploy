@@ -16,15 +16,12 @@
     NodeLayer *nodeLayer;
     BulletLayer *bulletLayer;
     
-    
-    
-    //user movement around the map
-    CGPoint previousTouchPoint;
-    
-    CGPoint cameraVelocity;
+    NSMutableArray *statuses;
     
 }
 
+
+@property (nonatomic, retain) NSMutableArray *statuses;
 @property (nonatomic, assign) ShipLayer *shipLayer;
 @property (nonatomic, assign) BaseLayer *baseLayer;
 @property (nonatomic, assign) NodeLayer *nodeLayer;
