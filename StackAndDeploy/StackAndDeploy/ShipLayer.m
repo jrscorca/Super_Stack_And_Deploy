@@ -24,14 +24,14 @@
 
 -(id) init{
     if(self = [super init]){
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardPlayed:) name:kCardPlayed object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(spawnShip:) name:kSpawnShip object:nil];
 
     }
     return self;
 }
 
 -(void) dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kCardPlayed object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSpawnShip object:nil];
     [super dealloc];
 }
 
@@ -42,18 +42,13 @@
     }
 }
 
--(void)cardPlayed:(NSNotification*)notification{
-    CardItem *card = notification.object;
-    if (card.model.type == SHIP) {
-        //TODO: change this fromt tst code to a real VO
-        ShipSprite *ship = [[[ShipSprite alloc] initWithShipVO:[self testShipVO]] autorelease];
-        ship.model.ownership.playerType = LOCAL_PLAYER;
-        ship.model.ownership.playerNumber = PLAYER_ONE;
-        ship.position = ccp(90, 90);
-        [self addChild:ship];
-    }else{
-        //TODO: implement utility card
-    }
+-(void)spawnShip:(NSNotification*)notification{
+    ShipVO *shipVO = notification.object;
+    ShipSprite *ship = [[[ShipSprite alloc] initWithShipVO:shipVO] autorelease];
+    ship.model.ownership.playerType = LOCAL_PLAYER;
+    ship.model.ownership.playerNumber = PLAYER_ONE;
+    ship.position = shipVO.spawnLocation;
+    [self addChild:ship];
 }
 
 -(ShipVO*)testShipVO{

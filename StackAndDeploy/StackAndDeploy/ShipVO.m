@@ -10,11 +10,12 @@
 #import "StatusVO.h"
 
 @implementation ShipVO
-@synthesize health,speed,statuses;
+@synthesize health,speed,statuses, maxHealth, spawnLocation;
 
 -(id)initWithDictionary:(NSDictionary*)dic{
     if(self = [super init]){
         health = [[dic objectForKey:@"health"] intValue];
+        maxHealth = [[dic objectForKey:@"maxHealth"] intValue];
         speed =[[dic objectForKey:@"speed"] floatValue];
         statuses = [[NSMutableArray alloc] init];
         for (NSDictionary *statusDic in [dic objectForKey:@"statuses"]){

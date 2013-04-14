@@ -206,6 +206,7 @@
 		F26B0490170BC5EF00130E08 /* BoardItemSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F26B048F170BC5EF00130E08 /* BoardItemSprite.m */; };
 		F28763A11718C26300641667 /* SpawnShipStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F28763A01718C26300641667 /* SpawnShipStatus.m */; };
 		F287654B171A34B100641667 /* PositionAbility.m in Sources */ = {isa = PBXBuildFile; fileRef = F287654A171A34B100641667 /* PositionAbility.m */; };
+		F287654E171A38E100641667 /* UIAbilityPositionSelectState.m in Sources */ = {isa = PBXBuildFile; fileRef = F287654D171A38E100641667 /* UIAbilityPositionSelectState.m */; };
 		F2A2D5CD170E501400899679 /* BulletModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A2D5CC170E501400899679 /* BulletModel.m */; };
 /* End PBXBuildFile section */
 
@@ -608,6 +609,8 @@
 		F28763A01718C26300641667 /* SpawnShipStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpawnShipStatus.m; sourceTree = "<group>"; };
 		F2876549171A34B100641667 /* PositionAbility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionAbility.h; sourceTree = "<group>"; };
 		F287654A171A34B100641667 /* PositionAbility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionAbility.m; sourceTree = "<group>"; };
+		F287654C171A38E100641667 /* UIAbilityPositionSelectState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAbilityPositionSelectState.h; sourceTree = "<group>"; };
+		F287654D171A38E100641667 /* UIAbilityPositionSelectState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIAbilityPositionSelectState.m; sourceTree = "<group>"; };
 		F2A2D5CB170E501400899679 /* BulletModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletModel.h; sourceTree = "<group>"; };
 		F2A2D5CC170E501400899679 /* BulletModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -667,6 +670,8 @@
 				F2261B8E17138A8700E5766F /* UIAbilityTargetsSelectState.m */,
 				DE61DAFD1714BC2500374FAC /* UINodeSelectedState.h */,
 				DE61DAFE1714BC2600374FAC /* UINodeSelectedState.m */,
+				F287654C171A38E100641667 /* UIAbilityPositionSelectState.h */,
+				F287654D171A38E100641667 /* UIAbilityPositionSelectState.m */,
 			);
 			name = UIStates;
 			sourceTree = "<group>";
@@ -1625,6 +1630,7 @@
 				DEEAD72B17188C30001DAEF5 /* AbilityVO.m in Sources */,
 				F28763A11718C26300641667 /* SpawnShipStatus.m in Sources */,
 				F287654B171A34B100641667 /* PositionAbility.m in Sources */,
+				F287654E171A38E100641667 /* UIAbilityPositionSelectState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

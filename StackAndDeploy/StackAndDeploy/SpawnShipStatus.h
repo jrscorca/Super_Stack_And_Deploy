@@ -7,7 +7,9 @@
 //
 
 #import "Status.h"
-
-@interface SpawnShipStatus : Status
+@class ShipVO;
+@interface SpawnShipStatus : Status{
+    ShipVO* ship;
+}
 
 @end

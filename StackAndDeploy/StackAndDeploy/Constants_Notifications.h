@@ -23,3 +23,4 @@ extern NSString* const kCardPlayed;
 extern NSString* const kCardPutBack;
 
 extern NSString* const kBulletSpawned;
+extern NSString* const kSpawnShip;

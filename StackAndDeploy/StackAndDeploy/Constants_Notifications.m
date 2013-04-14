@@ -23,3 +23,5 @@ NSString* const kCardPlayed = @"kCardPlayed";
 NSString* const kCardPutBack = @"kCardPutBack";
 
 NSString* const kBulletSpawned = @"kBulletSpawned";
+
+NSString* const kSpawnShip = @"kSpawnShip";

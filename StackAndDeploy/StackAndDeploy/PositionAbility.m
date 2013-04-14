@@ -25,6 +25,7 @@
 
 -(id) initWithAbilityVO:(AbilityVO*) _abilityVO{
     if(self = [super initWithAbilityVO:_abilityVO]){
+        targetPosition.x = -999;
         for (NSDictionary *statusDic in [_abilityVO.arguments objectForKey:@"statuses"]){
             [self.statuses addObject:[[[StatusVO alloc] initWithDictionary:statusDic] autorelease]];
         }
@@ -57,15 +58,18 @@
 
 // checks whether the ability can be used
 -(BOOL) isAbilityReady{
+    if (targetPosition.x > 0) {
         return YES;
+    }
+    return NO;
 }
 
 //does what the ability should do
 -(void) useAbility{
     for(StatusVO *status in self.statuses){
-        //Class statusClass = NSClassFromString(status.className);
-        //id shipStatus = [[[statusClass alloc] initWithTarget:ship andStatusVO:status] autorelease];
-        //[shipStatus addStatusToGameObject: ship];
+        Class statusClass = NSClassFromString(status.className);
+        id itemStatus = [[[statusClass alloc] initWithStatusVO:status] autorelease];
+        [itemStatus addStatusToGameBoard:targetPosition];
     }
 }
 

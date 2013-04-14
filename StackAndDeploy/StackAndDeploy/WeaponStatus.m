@@ -26,7 +26,7 @@
         range = [[statusVO.arguments objectForKey:@"range"] floatValue];
         fireRate = [[statusVO.arguments objectForKey:@"fireRate"] floatValue];
         bulletStatuses = [[NSMutableArray alloc] init];
-        for (NSDictionary *statusDic in [statusVO.arguments objectForKey:@"bulletStatuses"]){
+        for (NSDictionary *statusDic in [statusVO.arguments objectForKey:@"statuses"]){
             [bulletStatuses addObject:[[StatusVO alloc] initWithDictionary:statusDic]];
         }
     }
@@ -64,7 +64,9 @@
                     for(StatusVO *status in bulletStatuses){
                         Class statusClass = NSClassFromString(status.className);
                         id damage = [[[statusClass alloc] initWithStatusVO:status] autorelease];
+                        [damage addStatusToGameObject:ship];
                         [_bulletStatuses addObject:damage];
+                        
                     }
 
                     //TODO: make a VO for bullets instead of passing around sprite objects?

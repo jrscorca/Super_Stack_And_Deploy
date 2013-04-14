@@ -52,6 +52,8 @@
 }
 
 -(void) revertStatus{
+    //TODO: remove statuses from their arrays when they are finished
+    //give statuses a "remove" property
 }
 
 

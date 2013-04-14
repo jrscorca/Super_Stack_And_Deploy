@@ -37,13 +37,6 @@
 
 
 -(void) fillDeck{
-    CardVO* card = [[[CardVO alloc] init] autorelease];
-    card.type = SHIP;
-    [deck addObject:card];
-    CardVO* card2 = [[[CardVO alloc] init] autorelease];
-    card2.type = SHIP;
-    [deck addObject:card2];
-    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"cards" ofType:@"json"];
     if (filePath) {
         NSError *error = nil;

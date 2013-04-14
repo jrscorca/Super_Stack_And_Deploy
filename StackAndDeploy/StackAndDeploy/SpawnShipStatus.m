@@ -10,12 +10,17 @@
 #import "BoardItemModel.h"
 #import "BoardItemSprite.h"
 #import "StatusVO.h"
+#import "ShipVO.h"
+#import "MatchDataManager.h"
+#import "PlayLayer.h"
+#import "BoardLayer.h"
 
 @implementation SpawnShipStatus
--(id)initWithTarget:(BoardItemSprite *)_target andStatusVO:(StatusVO*)statusVO{
-    if(self = [super initWithTarget:_target andStatusVO:statusVO]){
+-(id)initWithStatusVO:(StatusVO *)statusVO{
+    if(self = [super initWithStatusVO:statusVO]){
         //healthOffset = [[statusVO.arguments objectForKey:@"healthOffset"] intValue];
         hasBeenApplied = NO;
+        ship = [[ShipVO alloc] initWithDictionary:statusVO.arguments];
     }
     return self;
 }
@@ -28,9 +33,8 @@
 
 -(void) applyStatus{
     hasBeenApplied = YES;
-    //target.model.health += healthOffset;
-    //[target.model.statuses removeObject:self];
-    
+    ship.spawnLocation = targetPoint;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSpawnShip object:ship];
 }
 
 -(void) revertStatus{
