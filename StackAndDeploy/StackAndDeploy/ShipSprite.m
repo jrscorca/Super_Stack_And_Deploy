@@ -61,15 +61,20 @@
         [MDM.gameObjectsToRemove addObject:self];
         self.remove = YES;
     }
-    
 }
-
 
 
 -(void)moveShip:(CGPoint)touch{
     //make sure point is on map
 //    CGSize limit = MDM.boardSize;
     self.steeringBehavior.objective = touch;
+    self.steeringBehavior.gameObject = nil;
+}
+
+-(void)moveShipToSprite:(GameObjectSprite*)sprite{
+    self.steeringBehavior.gameObject = sprite;
+    self.steeringBehavior.steering = SEEK;
+    
 }
 
 @end

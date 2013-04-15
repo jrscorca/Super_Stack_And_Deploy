@@ -18,7 +18,7 @@
 
 -(id)initWithShip:(ShipSprite*) ship{
     if(self = [super init]){
-        self.objective = ccp(200,200);
+        self.objective = ship.position;
         [ship assignObjectToPointer:&myShip];
         steering = MOVETO;
     }
@@ -31,8 +31,12 @@
 }
 
 -(CGPoint) updateMovement{
-//    if(
     switch (steering) {
+        case SEEK:
+            if(YES){
+            return [self arriveMovement:gameObject.position];
+            break;
+            }
         case MOVETO:
             return [self arriveMovement:objective];
             break;
@@ -42,7 +46,6 @@
             break;
     }
     return CGPointZero;
-    
 }
 
 

@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "BoardItemSprite.h"
 
-@class ShipVO, ShipModel,SteeringBehavior;
+@class ShipVO, ShipModel,SteeringBehavior, GameObjectSprite;
 @interface ShipSprite : BoardItemSprite {
     CGPoint velocity;
     BOOL isSelected;
@@ -33,5 +33,7 @@
 //
 
 -(void)moveShip:(CGPoint)touch;
+
+-(void)moveShipToSprite:(GameObjectSprite*)sprite;
 
 @end

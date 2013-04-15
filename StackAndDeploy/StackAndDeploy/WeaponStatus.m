@@ -35,7 +35,6 @@
 
 -(void) applyStatus{
     [super applyStatus];
-    
 }
 
 -(void) revertStatus{
@@ -52,6 +51,10 @@
     weaponCooldown -= dt;
     //cooldown of weapon
     if(weaponCooldown < 0){
+        
+        //check if ship is targeting something in movement
+        
+        
         CGPoint myPosition = target.position;
         for(ShipSprite *ship in MDM.ships){
             //dont fire bullets at yourself

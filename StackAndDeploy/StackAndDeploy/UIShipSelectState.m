@@ -66,7 +66,6 @@
         [self transitionToNormalState];
         return;
     }
-    
     [super updateState:dt];
 }
 
@@ -189,8 +188,16 @@
             touchPoint = [self miniMapToBoardConversion:touch withEvent:event];
             [selectedShip moveShip:touchPoint];
         }else if(touchPoint.y > OVERLAY_HEIGHT){
-            touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
-            [selectedShip moveShip:touchPoint];
+            //check if moving to empty space to following a sprite
+
+            
+            GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
+            if(touchedObject){
+                [selectedShip moveShipToSprite:touchedObject];
+            }else{
+                touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
+                [selectedShip moveShip:touchPoint];
+            }
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
         moveCommandSelected = NO;
