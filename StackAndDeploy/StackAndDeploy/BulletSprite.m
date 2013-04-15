@@ -16,13 +16,15 @@
 @implementation BulletSprite
 @synthesize source, destination, statuses;
 
--(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatuses:(NSArray*) _statuses{
+-(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem WithTarget:(BoardItemSprite*)target andStatuses:(NSArray*) _statuses{
     if(self = [super initWithFile:@"Icon-Small.png"]){
         [boardItem assignObjectToPointer:&source];
-        statuses = [[NSArray alloc] initWithArray:_statuses];
-        for (Status *status in statuses){
-            [status.target assignObjectToPointer:&destination];
-        }
+        [target assignObjectToPointer:&destination];
+        
+        self.statuses = [[[NSArray alloc] initWithArray:_statuses] autorelease];
+    //    for (Status *status in statuses){
+  //          [status.target assignObjectToPointer:&destination];
+//        }
         
         self.scale = .2;
         self.position = source.position;
@@ -37,6 +39,7 @@
 -(void) dealloc{
     [source removeObjectFromPointer:&source];
     [destination removeObjectFromPointer:&destination];
+    [statuses release];
     [super dealloc];
 }
 

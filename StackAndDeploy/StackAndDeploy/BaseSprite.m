@@ -15,8 +15,8 @@
 -(id)init{
     if(self = [super initWithFile:@"Icon.png"]){
         self.model = [[[BaseModel alloc] init] autorelease];
-        CCLabelTTF *label = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", model.health] fontName:@"helvetica" fontSize:14];
-        [self addChild:label];
+        healthLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", model.health] fontName:@"helvetica" fontSize:14];
+        [self addChild:healthLabel];
         [self addToArray:MDM.bases];
         
     }
@@ -25,8 +25,11 @@
 
 -(void) update:(ccTime) dt{
     [super update:dt];
-    
-    
+    [healthLabel setString:[NSString stringWithFormat:@"%d", model.health]];
+    if (model.health <=0) {
+        [MDM.gameObjectsToRemove addObject:self];
+        self.remove = YES;
+    }
 }
 
 @end

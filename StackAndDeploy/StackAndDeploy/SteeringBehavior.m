@@ -27,14 +27,29 @@
 
 -(void) dealloc{
     [myShip removeObjectFromPointer:&myShip];
+    [gameObject removeObjectFromPointer:&gameObject];
     [super dealloc];
+}
+
+
+-(void)targetSprite:(GameObjectSprite*)sprite{
+    [sprite assignObjectToPointer:&gameObject];
+    steering = SEEK;
+}
+
+-(void) clearTargetSprite{
+    [gameObject removeObjectFromPointer:&gameObject];
 }
 
 -(CGPoint) updateMovement{
     switch (steering) {
         case SEEK:
             if(YES){
-            return [self arriveMovement:gameObject.position];
+                if(gameObject){
+                    return [self arriveMovement:gameObject.position];
+                }else{
+                    return [self arriveMovement:myShip.position];
+                }
             break;
             }
         case MOVETO:
@@ -62,6 +77,11 @@
 	
     
     CGPoint offsetDirection =ccpSub(enemyPosition, myShip.position);
+    //check for zero offsetDirection
+ /*   if(ccpLength(offsetDirection) < 0.5){
+        return ccpMult(myShip.velocity, .05);
+    }*/
+    
 	CGPoint offsetVector = ccpNormalize(offsetDirection);
     
     //CGPoint desiredTargetPosition = ccpMult(offsetVector, weaponRange);
@@ -123,6 +143,10 @@
     
     
 	CGPoint newVelocity = [UtilityFunctions truncate:ccpAdd(acceleration, myShip.velocity) toMax:clippedSpeed];
+    
+    if(isnan(newVelocity.x) || isnan(newVelocity.y)){
+        return ccpMult(myShip.velocity, 0.1) ;
+    }
     
 	return ccpMult(newVelocity, 1);
 }

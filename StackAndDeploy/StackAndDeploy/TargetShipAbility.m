@@ -91,7 +91,6 @@
             Class statusClass = NSClassFromString(status.className);
             id shipStatus = [[[statusClass alloc] initWithStatusVO:status] autorelease];
             [shipStatus addStatusToGameObject: ship];
-//            [ship.model.statuses addObject:shipStatus];
         }
         
         

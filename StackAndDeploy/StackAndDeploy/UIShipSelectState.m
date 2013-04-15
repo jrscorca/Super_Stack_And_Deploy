@@ -172,8 +172,17 @@
                 touchPoint = [self miniMapToBoardConversion:touch withEvent:event];
                 [selectedShip moveShip:touchPoint];
             }else if(touchPoint.y > OVERLAY_HEIGHT){
-                touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
-                [selectedShip moveShip:touchPoint];
+               // touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
+               // [selectedShip moveShip:touchPoint];
+                
+                GameObjectSprite *touchedObject = [self objectAtPoint:touch withEvent:event];
+                if(touchedObject){
+                    [selectedShip moveShipToSprite:touchedObject];
+                }else{
+                    touchPoint = [UIState.playLayer.boardLayer.shipLayer convertTouchToNodeSpace: touch];
+                    [selectedShip moveShip:touchPoint];
+                }
+                
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotification_ControlCommandButtons object:nil];
             moveCommandSelected = NO;

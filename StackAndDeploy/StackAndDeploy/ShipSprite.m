@@ -32,7 +32,6 @@
             Class statusClass = NSClassFromString(status.className);
             id shipStatus = [[[statusClass alloc] initWithStatusVO:status] autorelease];
             [shipStatus addStatusToGameObject:self];
-            [model.statuses addObject:shipStatus];
         }
         
         velocity = ccp(1,1);
@@ -66,14 +65,14 @@
 
 -(void)moveShip:(CGPoint)touch{
     //make sure point is on map
-//    CGSize limit = MDM.boardSize;
     self.steeringBehavior.objective = touch;
-    self.steeringBehavior.gameObject = nil;
+    self.steeringBehavior.steering = MOVETO;
+    [self.steeringBehavior clearTargetSprite];
 }
 
 -(void)moveShipToSprite:(GameObjectSprite*)sprite{
-    self.steeringBehavior.gameObject = sprite;
-    self.steeringBehavior.steering = SEEK;
+    [self.steeringBehavior targetSprite:sprite];
+
     
 }
 

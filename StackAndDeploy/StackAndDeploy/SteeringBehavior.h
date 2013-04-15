@@ -9,20 +9,24 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class GameObjectSprite, ShipSprite;
+@class GameObjectSprite, ShipSprite, BoardItemSprite;
 @interface SteeringBehavior : NSObject{
     ShipSprite *myShip;
-    GameObjectSprite *gameObject;
+    BoardItemSprite *gameObject;
     CGPoint objective;
     steeringType steering;
 }
 
 @property (nonatomic, assign) ShipSprite* myShip;
-@property (nonatomic, assign) GameObjectSprite *gameObject;
+@property (nonatomic, assign) BoardItemSprite *gameObject;
 @property CGPoint objective;
 @property steeringType steering;
 
 -(id)initWithShip:(ShipSprite*) ship;
+
+-(void)targetSprite:(GameObjectSprite*)sprite;
+
+-(void) clearTargetSprite;
 
 -(CGPoint) updateMovement;
 

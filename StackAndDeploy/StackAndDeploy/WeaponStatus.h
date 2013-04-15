@@ -8,6 +8,8 @@
 
 #import "Status.h"
 
+
+@class BoardItemSprite;
 @interface WeaponStatus : Status{
     float weaponCooldown;
     float fireRate;
@@ -17,5 +19,7 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *bulletStatuses;
+
+-(void)spawnBulletAttacking:(BoardItemSprite*) boardSprite;
 
 @end

@@ -12,9 +12,8 @@
 
 @class BaseModel;
 @interface BaseSprite : BoardItemSprite {
-  //  BaseModel *model;
+    CCLabelTTF *healthLabel;
 }
 
-//@property (nonatomic, retain) BaseModel *model;
 
 @end

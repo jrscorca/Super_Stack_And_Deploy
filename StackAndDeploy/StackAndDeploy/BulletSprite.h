@@ -18,7 +18,7 @@
 }
 @property (nonatomic, assign) BoardItemSprite *source, *destination;
 @property (nonatomic, retain) NSArray *statuses;
--(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem andStatuses:(NSArray*) _statuses;
+-(id) initWithBoardItemSprite:(BoardItemSprite*) boardItem WithTarget:(BoardItemSprite*)target andStatuses:(NSArray*) _statuses;
 
 -(CGSize) getBounds;
 

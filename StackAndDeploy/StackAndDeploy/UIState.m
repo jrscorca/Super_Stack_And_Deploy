@@ -12,6 +12,7 @@
 #import "BoardLayer.h"
 #import "ShipSprite.h"
 #import "HUDLayer.h"
+#import "BaseSprite.h"
 #import "CardItem.h"
 #import "NodeSprite.h"
 #import "MatchDataManager.h"
@@ -95,6 +96,13 @@ static PlayLayer *playLayer;
     for(NodeSprite *node in MDM.nodes){
         if(CGRectContainsPoint(node.boundingBox, touchPoint)){
             return node;
+        }
+    }
+    
+    //bases
+    for(BaseSprite *base in MDM.bases){
+        if(CGRectContainsPoint(base.boundingBox, touchPoint)){
+            return base;
         }
     }
     
